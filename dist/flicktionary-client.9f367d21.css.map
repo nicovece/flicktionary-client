@@ -1,0 +1,1 @@
+{"mappings":"AAEA","sources":["src/index.scss"],"sourcesContent":["$primary-color: steelblue;\n\n.flicktionary-app {\n  background-color: $primary-color;\n}\n"],"names":[],"version":3,"file":"flicktionary-client.9f367d21.css.map","sourceRoot":"/__parcel_source_root/"}
