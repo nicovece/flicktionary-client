@@ -17,7 +17,8 @@
   "homepage": "https://github.com/nicovece/flicktionary-client#readme",
   "dependencies": {
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "sass": "^1.86.1"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.14.4"

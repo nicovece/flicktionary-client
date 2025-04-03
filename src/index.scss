@@ -1,5 +1,22 @@
-$primary-color: steelblue;
-
 .flicktionary-app {
-  background-color: $primary-color;
+  font-family: 'Roboto', sans-serif;
+}
+
+.card__title {
+  font-size: 1rem;
+  font-weight: normal;
+  margin: 0.75em 0 0 0;
+  padding: 0.75em 0 0 0;
+  border-top: 1px solid #ccc;
+  small {
+    font-size: 0.75em;
+    font-weight: normal;
+  }
+}
+
+.movie-view__image {
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+  max-height: 200px;
 }

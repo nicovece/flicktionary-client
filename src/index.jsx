@@ -1,18 +1,12 @@
 import { createRoot } from 'react-dom/client';
+import { MainView } from './components/main-view/main-view';
 
 import './index.scss';
 
-// Define the FlicktionaryApp main component
-const FlicktionaryApp = () => {
-  return (
-    <div className='flicktionary-app'>
-      <h1>Flicktionary</h1>
-    </div>
-  );
+const App = () => {
+  return <MainView />;
 };
 
 const container = document.querySelector('#root');
 const root = createRoot(container);
-
-// Render the app into the root element
-root.render(<FlicktionaryApp />);
+root.render(<App />);

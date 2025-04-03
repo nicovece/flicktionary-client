@@ -676,42 +676,32 @@ $parcel$ReactRefreshHelpers$ca65.prelude(module);
 try {
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _client = require("react-dom/client");
+var _mainView = require("./components/main-view/main-view");
 var _indexScss = require("./index.scss");
-// Define the FlicktionaryApp main component
-const FlicktionaryApp = ()=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "flicktionary-app",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-            children: "Flicktionary"
-        }, void 0, false, {
-            fileName: "src/index.jsx",
-            lineNumber: 9,
-            columnNumber: 7
-        }, undefined)
-    }, void 0, false, {
+const App = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mainView.MainView), {}, void 0, false, {
         fileName: "src/index.jsx",
-        lineNumber: 8,
-        columnNumber: 5
+        lineNumber: 7,
+        columnNumber: 10
     }, undefined);
 };
-_c = FlicktionaryApp;
+_c = App;
 const container = document.querySelector('#root');
 const root = (0, _client.createRoot)(container);
-// Render the app into the root element
-root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(FlicktionaryApp, {}, void 0, false, {
+root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
     fileName: "src/index.jsx",
-    lineNumber: 18,
+    lineNumber: 12,
     columnNumber: 13
 }, undefined));
 var _c;
-$RefreshReg$(_c, "FlicktionaryApp");
+$RefreshReg$(_c, "App");
 
   $parcel$ReactRefreshHelpers$ca65.postlude(module);
 } finally {
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react-dom/client":"hrvwu","./index.scss":"lJZlQ","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"p0vGA"}],"dVPUn":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react-dom/client":"hrvwu","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"p0vGA","./components/main-view/main-view":"etjHZ","./index.scss":"lJZlQ"}],"dVPUn":[function(require,module,exports,__globalThis) {
 'use strict';
 module.exports = require("ee51401569654d91");
 
@@ -16110,7 +16100,7 @@ module.exports = require("b0f0e6b9e8349dac");
     "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(Error());
 })();
 
-},{"6f0162e9ab224cd4":"jMk1U"}],"lJZlQ":[function() {},{}],"p0vGA":[function(require,module,exports,__globalThis) {
+},{"6f0162e9ab224cd4":"jMk1U"}],"p0vGA":[function(require,module,exports,__globalThis) {
 "use strict";
 var Refresh = require("182075e6190f4768");
 function debounce(func, delay) {
@@ -18418,6 +18408,450 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["5iuvR","gYcKb"], "gYcKb", "parcelRequiref5c1", {}, null, null, "http://localhost:1234")
+},{}],"etjHZ":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$53bb = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$53bb.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$53bb.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MainView", ()=>MainView);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _movieCard = require("../moovie-card/movie-card");
+var _movieView = require("../movie-view/movie-view");
+var _s = $RefreshSig$();
+const MainView = ()=>{
+    _s();
+    // const [movies, setMovies] = useState([]);
+    const [movies, setMovies] = (0, _react.useState)([
+        {
+            id: 1,
+            Title: 'The Shawshank Redemption',
+            Description: 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.',
+            Genre: {
+                Name: 'Drama',
+                Description: 'Stories focused on realistic characters dealing with emotional themes and interpersonal conflicts.'
+            },
+            Director: {
+                Name: 'Frank Darabont',
+                Bio: 'An American film director, screenwriter and producer, known for acclaimed film adaptations of Stephen King novels.',
+                Birth: '1959-01-28',
+                Death: null
+            },
+            Actors: [
+                'Tim Robbins',
+                'Morgan Freeman',
+                'Bob Gunton'
+            ],
+            ImagePath: 'https://upload.wikimedia.org/wikipedia/en/8/81/ShawshankRedemptionMoviePoster.jpg',
+            Featured: true
+        },
+        {
+            id: 2,
+            Title: 'Inception',
+            Description: 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.',
+            Genre: {
+                Name: 'Science Fiction',
+                Description: 'Speculative fiction dealing with imaginative concepts like futuristic settings, advanced technology, and time travel.'
+            },
+            Director: {
+                Name: 'Christopher Nolan',
+                Bio: 'A British-American film director known for his complex narratives, practical effects, and large-format filmmaking.',
+                Birth: '1970-07-30',
+                Death: null
+            },
+            Actors: [
+                'Leonardo DiCaprio',
+                'Joseph Gordon-Levitt',
+                'Elliot Page'
+            ],
+            ImagePath: 'https://upload.wikimedia.org/wikipedia/en/2/2e/Inception_%282010%29_theatrical_poster.jpg',
+            Featured: true
+        },
+        {
+            id: 3,
+            Title: 'Pulp Fiction',
+            Description: 'The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.',
+            Genre: {
+                Name: 'Crime',
+                Description: 'Focuses on the lives of criminals, law enforcement, and the intricate details of criminal acts and investigations.'
+            },
+            Director: {
+                Name: 'Quentin Tarantino',
+                Bio: 'An American filmmaker known for his stylized violence, non-linear storylines, and pop-culture references.',
+                Birth: '1963-03-27',
+                Death: null
+            },
+            Actors: [
+                'John Travolta',
+                'Samuel L. Jackson',
+                'Uma Thurman'
+            ],
+            ImagePath: 'https://upload.wikimedia.org/wikipedia/en/3/3b/Pulp_Fiction_%281994%29_poster.jpg',
+            Featured: false
+        },
+        {
+            id: 4,
+            Title: 'Spirited Away',
+            Description: "During her family's move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches, and spirits, and where humans are changed into beasts.",
+            Genre: {
+                Name: 'Animation',
+                Description: 'Utilizes techniques where images are manipulated to appear as moving images, encompassing various styles and genres.'
+            },
+            Director: {
+                Name: 'Hayao Miyazaki',
+                Bio: 'A Japanese animator, filmmaker, and manga artist. Co-founder of Studio Ghibli, acclaimed for his imaginative and visually stunning animated features.',
+                Birth: '1941-01-05',
+                Death: null
+            },
+            Actors: [
+                'Rumi Hiiragi',
+                'Miyu Irino',
+                'Mari Natsuki'
+            ],
+            ImagePath: 'https://upload.wikimedia.org/wikipedia/en/d/db/Spirited_Away_Japanese_poster.png',
+            Featured: true
+        },
+        {
+            id: 5,
+            Title: 'Parasite',
+            Description: 'Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.',
+            Genre: {
+                Name: 'Thriller',
+                Description: 'Evokes excitement and suspense in the audience, often involving high stakes, mystery, and a race against time.'
+            },
+            Director: {
+                Name: 'Bong Joon-ho',
+                Bio: 'A South Korean film director and screenwriter known for his genre-bending films that often feature social themes, dark humor, and sudden tonal shifts.',
+                Birth: '1969-09-14',
+                Death: null
+            },
+            Actors: [
+                'Song Kang-ho',
+                'Choi Woo-shik',
+                'Park So-dam'
+            ],
+            ImagePath: 'https://upload.wikimedia.org/wikipedia/en/5/53/Parasite_%282019_film%29.png',
+            Featured: true
+        },
+        {
+            id: 6,
+            Title: 'The Matrix',
+            Description: 'A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.',
+            Genre: {
+                Name: 'Science Fiction',
+                Description: 'Speculative fiction dealing with imaginative concepts like futuristic settings, advanced technology, and alternative realities.'
+            },
+            Director: {
+                Name: 'Lana Wachowski & Lilly Wachowski',
+                Bio: 'American film and television directors, writers, and producers known for visually stunning and philosophically complex works.',
+                Birth: '1965-06-21 & 1967-12-29',
+                Death: null
+            },
+            Actors: [
+                'Keanu Reeves',
+                'Laurence Fishburne',
+                'Carrie-Anne Moss'
+            ],
+            ImagePath: 'https://upload.wikimedia.org/wikipedia/en/c/c1/The_Matrix_Poster.jpg',
+            Featured: false
+        },
+        {
+            id: 7,
+            Title: 'Forrest Gump',
+            Description: 'The presidencies of Kennedy and Johnson, the Vietnam War, the Watergate scandal and other historical events unfold from the perspective of an Alabama man with an IQ of 75, whose only desire is to be reunited with his childhood sweetheart.',
+            Genre: {
+                Name: 'Comedy-Drama',
+                Description: 'Blends humorous elements with serious, often poignant subject matter.'
+            },
+            Director: {
+                Name: 'Robert Zemeckis',
+                Bio: 'An American filmmaker known for his pioneering work in visual effects, often blending genres like comedy, drama, and adventure.',
+                Birth: '1951-05-14',
+                Death: null
+            },
+            Actors: [
+                'Tom Hanks',
+                'Robin Wright',
+                'Gary Sinise'
+            ],
+            ImagePath: 'https://upload.wikimedia.org/wikipedia/en/6/67/Forrest_Gump_poster.jpg',
+            Featured: false
+        },
+        {
+            id: 8,
+            Title: 'The Lord of the Rings: The Fellowship of the Ring',
+            Description: 'A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.',
+            Genre: {
+                Name: 'Fantasy',
+                Description: 'Features elements of magic, supernatural events, mythology, folklore, or exotic fantasy worlds.'
+            },
+            Director: {
+                Name: 'Peter Jackson',
+                Bio: 'A New Zealand film director, producer, and screenwriter best known for directing the epic Lord of the Rings and The Hobbit trilogies.',
+                Birth: '1961-10-31',
+                Death: null
+            },
+            Actors: [
+                'Elijah Wood',
+                'Ian McKellen',
+                'Viggo Mortensen'
+            ],
+            ImagePath: 'https://upload.wikimedia.org/wikipedia/en/f/fb/Lord_Rings_Fellowship_Ring.jpg',
+            Featured: true
+        },
+        {
+            id: 9,
+            Title: 'Gladiator',
+            Description: 'A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.',
+            Genre: {
+                Name: 'Action',
+                Description: 'Characterized by sequences involving physical feats, combat, chases, and explosions.'
+            },
+            Director: {
+                Name: 'Ridley Scott',
+                Bio: 'An English film director and producer known for his atmospheric, visually striking films across genres like science fiction, historical epics, and crime.',
+                Birth: '1937-11-30',
+                Death: null
+            },
+            Actors: [
+                'Russell Crowe',
+                'Joaquin Phoenix',
+                'Connie Nielsen'
+            ],
+            ImagePath: 'https://upload.wikimedia.org/wikipedia/en/f/fb/Gladiator_%282000_film_poster%29.png',
+            Featured: false
+        },
+        {
+            id: 10,
+            Title: 'Mad Max: Fury Road',
+            Description: 'In a post-apocalyptic wasteland, a woman rebels against a tyrannical ruler in search for her homeland with the help of a group of female prisoners, a psychotic worshiper, and a drifter named Max.',
+            Genre: {
+                Name: 'Action',
+                Description: 'Characterized by sequences involving physical feats, combat, chases, and explosions, often in a high-octane setting.'
+            },
+            Director: {
+                Name: 'George Miller',
+                Bio: 'An Australian film director, producer, screenwriter, and former physician, best known for creating the Mad Max franchise.',
+                Birth: '1945-03-03',
+                Death: null
+            },
+            Actors: [
+                'Tom Hardy',
+                'Charlize Theron',
+                'Nicholas Hoult'
+            ],
+            ImagePath: 'https://upload.wikimedia.org/wikipedia/en/6/6e/Mad_Max_Fury_Road.jpg',
+            Featured: true
+        }
+    ]);
+    const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
+    if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
+        movie: selectedMovie,
+        onBackClick: ()=>setSelectedMovie(null)
+    }, void 0, false, {
+        fileName: "src/components/main-view/main-view.jsx",
+        lineNumber: 224,
+        columnNumber: 7
+    }, undefined);
+    if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: "No movies found"
+    }, void 0, false, {
+        fileName: "src/components/main-view/main-view.jsx",
+        lineNumber: 232,
+        columnNumber: 12
+    }, undefined);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "flicktionary-app",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                children: "Flicktionary"
+            }, void 0, false, {
+                fileName: "src/components/main-view/main-view.jsx",
+                lineNumber: 237,
+                columnNumber: 7
+            }, undefined),
+            movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
+                    movie: movie,
+                    onMovieClick: setSelectedMovie
+                }, movie.id, false, {
+                    fileName: "src/components/main-view/main-view.jsx",
+                    lineNumber: 239,
+                    columnNumber: 9
+                }, undefined))
+        ]
+    }, void 0, true, {
+        fileName: "src/components/main-view/main-view.jsx",
+        lineNumber: 236,
+        columnNumber: 5
+    }, undefined);
+};
+_s(MainView, "qelVrW9C6Hs4BaHDJZRTB0egrx0=");
+_c = MainView;
+var _c;
+$RefreshReg$(_c, "MainView");
+
+  $parcel$ReactRefreshHelpers$53bb.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"kZiH8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"p0vGA","../moovie-card/movie-card":"86BRZ","../movie-view/movie-view":"dkfGy"}],"86BRZ":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$4986 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$4986.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$4986.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MovieCard", ()=>MovieCard);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const MovieCard = ({ movie, onMovieClick })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        onClick: ()=>{
+            onMovieClick(movie);
+        },
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+            className: "card__title",
+            children: [
+                movie.Title,
+                " ",
+                movie.Featured && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("small", {
+                    children: "Featured"
+                }, void 0, false, {
+                    fileName: "src/components/moovie-card/movie-card.jsx",
+                    lineNumber: 9,
+                    columnNumber: 42
+                }, undefined)
+            ]
+        }, void 0, true, {
+            fileName: "src/components/moovie-card/movie-card.jsx",
+            lineNumber: 8,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/components/moovie-card/movie-card.jsx",
+        lineNumber: 3,
+        columnNumber: 5
+    }, undefined);
+};
+_c = MovieCard;
+var _c;
+$RefreshReg$(_c, "MovieCard");
+
+  $parcel$ReactRefreshHelpers$4986.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"kZiH8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"p0vGA"}],"dkfGy":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$2262 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$2262.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$2262.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MovieView", ()=>MovieView);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const MovieView = ({ movie, onBackClick })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: onBackClick,
+                children: "Back"
+            }, void 0, false, {
+                fileName: "src/components/movie-view/movie-view.jsx",
+                lineNumber: 4,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                children: movie.Title
+            }, void 0, false, {
+                fileName: "src/components/movie-view/movie-view.jsx",
+                lineNumber: 5,
+                columnNumber: 7
+            }, undefined),
+            movie.Featured && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: "Featured"
+            }, void 0, false, {
+                fileName: "src/components/movie-view/movie-view.jsx",
+                lineNumber: 6,
+                columnNumber: 26
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                className: "movie-view__image",
+                src: movie.ImagePath,
+                alt: movie.Title
+            }, void 0, false, {
+                fileName: "src/components/movie-view/movie-view.jsx",
+                lineNumber: 7,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: [
+                    "Director: ",
+                    movie.Director.Name
+                ]
+            }, void 0, true, {
+                fileName: "src/components/movie-view/movie-view.jsx",
+                lineNumber: 12,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: [
+                    "Description: ",
+                    movie.Description
+                ]
+            }, void 0, true, {
+                fileName: "src/components/movie-view/movie-view.jsx",
+                lineNumber: 13,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: [
+                    "Genre: ",
+                    movie.Genre.Name
+                ]
+            }, void 0, true, {
+                fileName: "src/components/movie-view/movie-view.jsx",
+                lineNumber: 14,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: [
+                    "Actors: ",
+                    movie.Actors.join(', ')
+                ]
+            }, void 0, true, {
+                fileName: "src/components/movie-view/movie-view.jsx",
+                lineNumber: 15,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/movie-view/movie-view.jsx",
+        lineNumber: 3,
+        columnNumber: 5
+    }, undefined);
+};
+_c = MovieView;
+var _c;
+$RefreshReg$(_c, "MovieView");
+
+  $parcel$ReactRefreshHelpers$2262.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"kZiH8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"p0vGA"}],"lJZlQ":[function() {},{}]},["5iuvR","gYcKb"], "gYcKb", "parcelRequiref5c1", {}, null, null, "http://localhost:1234")
 
 //# sourceMappingURL=flicktionary-client.ad93b51f.js.map
