@@ -1,18 +1,90 @@
-.flicktionary-app {
-  font-family: Roboto, sans-serif;
+* {
+  box-sizing: border-box;
 }
 
-.card__title {
-  border-top: 1px solid #ccc;
-  margin: .75em 0 0;
-  padding: .75em 0 0;
+body {
+  color: #bf9fdf;
+  background-color: #0d0613;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  padding: 5vh 10vw;
+  font-family: Arial, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  display: flex;
+}
+
+header {
+  flex-direction: column;
+  margin-bottom: 2rem;
+  display: flex;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+header h2 {
+  font-size: 1.125rem;
+  font-weight: normal;
+}
+
+.cards__list {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1em;
+  display: grid;
+}
+
+.cards__list__wrapper {
+  border-top: 1px solid #639;
+  margin: 4rem 0;
+  padding-top: 4rem;
+}
+
+.cards__list__wrapper h3 {
+  margin: 0 0 2em;
+}
+
+.card {
+  cursor: pointer;
+  border: 1px solid #402060;
+  grid-template-columns: 10% 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  margin: 0;
+  padding: .75em;
+  display: grid;
+}
+
+.card .card__title {
+  grid-area: 1 / 2;
+  margin: 0;
   font-size: 1rem;
   font-weight: normal;
 }
 
-.card__title small {
+.card .card__title small {
   font-size: .75em;
   font-weight: normal;
+}
+
+.card .card__image {
+  object-fit: cover;
+  grid-area: 1 / 1;
+  width: 100%;
+  height: auto;
+}
+
+.movie__view {
+  padding-top: 10vh;
+}
+
+.movie__view:only-child {
+  padding-bottom: 4em;
 }
 
 .movie-view__image {
@@ -20,5 +92,32 @@
   width: auto;
   height: 100%;
   max-height: 200px;
+}
+
+.movie__view__header {
+  background-color: #261339;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  padding: 2vh 10vw;
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+.movie__view__header button {
+  color: #bf9fdf;
+  cursor: pointer;
+  background-color: #402060;
+  border: none;
+  padding: .5rem 1rem;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.movie__view__header button:hover {
+  background-color: #592d86;
 }
 /*# sourceMappingURL=flicktionary-client.9f367d21.css.map */
