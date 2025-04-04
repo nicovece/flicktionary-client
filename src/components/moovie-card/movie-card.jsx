@@ -1,15 +1,22 @@
-const MovieCard = ({ movie, onMovieClick }) => {
+import PropTypes from 'prop-types';
+
+export const MovieCard = ({ movie, onMovieClick }) => {
   return (
     <div
+      className='card'
       onClick={() => {
         onMovieClick(movie);
       }}
     >
-      <h3 className='card__title'>
-        {movie.Title} {movie.Featured && <small>Featured</small>}
-      </h3>
+      <h3 className='card__title'>{movie.title}</h3>
+      <img className='card__image' src={movie.image} alt={movie.title} />
     </div>
   );
 };
 
-export default MovieCard;
+MovieCard.propTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+  }).isRequired,
+  onMovieClick: PropTypes.func.isRequired,
+};
