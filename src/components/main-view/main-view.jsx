@@ -1,18 +1,30 @@
 import { useState, useEffect } from 'react';
 import { MovieCard } from '../moovie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { LoginView } from '../login-view/login-view';
 // MainView component
 const MainView = () => {
   // movies to be displayed
   const [movies, setMovies] = useState([]);
   // selected movie to be displayed
   const [selectedMovie, setSelectedMovie] = useState(null);
+  // user
+  const [user, setUser] = useState(null);
+  // token
+  const [token, setToken] = useState(null);
 
   useEffect(() => {
-    fetch('https://flicktionary.onrender.com/movies')
+    if (!token) {
+      return;
+    }
+    fetch('https://flicktionary.onrender.com/movies', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
       .then((response) => response.json())
       .then((data) => {
-        console.log('books from api:', data);
+        console.log('movies from api:', data);
         const moviesFromApi = data.map((movie) => ({
           id: movie._id,
           title: movie.Title,
@@ -27,7 +39,18 @@ const MainView = () => {
 
         setMovies(moviesFromApi);
       });
-  }, []);
+  }, [token]);
+
+  if (!user) {
+    return (
+      <LoginView
+        onLoggedIn={(user, token) => {
+          setUser(user);
+          setToken(token);
+        }}
+      />
+    );
+  }
 
   if (selectedMovie) {
     let similarMovies = movies.filter(
@@ -76,6 +99,14 @@ const MainView = () => {
           />
         ))}
       </div>
+      <button
+        onClick={() => {
+          setUser(null);
+          setToken(null);
+        }}
+      >
+        Logout
+      </button>
     </div>
   );
 };
