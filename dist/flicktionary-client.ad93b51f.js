@@ -19618,6 +19618,7 @@ $RefreshReg$(_c, "MovieView");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
+<<<<<<< HEAD
 },{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"kZiH8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"p0vGA","prop-types":"GNqOQ"}],"8ru9P":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$500a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$500a.init();
@@ -19911,5 +19912,8 @@ $RefreshReg$(_c, "SignupView");
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
 },{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"kZiH8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"p0vGA","react":"jMk1U"}]},["5iuvR","gYcKb"], "gYcKb", "parcelRequiref5c1", {}, null, null, "http://localhost:1234")
+=======
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"kZiH8","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"p0vGA","prop-types":"GNqOQ"}]},["5iuvR","gYcKb"], "gYcKb", "parcelRequiref5c1", {}, null, null, "http://localhost:1234")
+>>>>>>> origin/main
 
 //# sourceMappingURL=flicktionary-client.ad93b51f.js.map
