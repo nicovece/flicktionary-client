@@ -4,7 +4,12 @@ export const MovieView = ({ movie, onBackClick }) => {
   return (
     <div className='movie__view'>
       <div className='movie__view__header'>
-        <button onClick={onBackClick}>Back</button>
+        <button
+          onClick={onBackClick}
+          className='main_button main_button--small'
+        >
+          Back
+        </button>
       </div>
       <div id={`movie--${movie.id}`} className={`movie--${movie.id}`}>
         <h1>{movie.title}</h1>

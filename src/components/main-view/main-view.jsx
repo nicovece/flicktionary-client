@@ -44,16 +44,23 @@ const MainView = () => {
 
   if (!user) {
     return (
-      <>
-        <LoginView
-          onLoggedIn={(user, token) => {
-            setUser(user);
-            setToken(token);
-          }}
-        />
-        or
-        <SignupView />
-      </>
+      <div>
+        <header>
+          <div className='header__left'>
+            <h1>F L I C K T I O N A R Y</h1>
+            <h2>A dictionary for flicks</h2>
+          </div>
+        </header>
+        <div className='login_signup_container'>
+          <LoginView
+            onLoggedIn={(user, token) => {
+              setUser(user);
+              setToken(token);
+            }}
+          />
+          <SignupView />
+        </div>
+      </div>
     );
   }
 
@@ -92,8 +99,23 @@ const MainView = () => {
   return (
     <div className='flicktionary-app'>
       <header>
-        <h1>F L I C K T I O N A R Y</h1>
-        <h2>A dictionary for flicks</h2>
+        <div className='header__left'>
+          <h1>F L I C K T I O N A R Y</h1>
+          <h2>A dictionary for flicks</h2>
+        </div>
+        <div className='header__right'>
+          <h6>Welcome, {user.Username}!</h6>
+          <button
+            className='main_button main_button--small'
+            onClick={() => {
+              setUser(null);
+              setToken(null);
+              localStorage.clear();
+            }}
+          >
+            Logout
+          </button>
+        </div>
       </header>
       <div className='cards__list'>
         {movies.map((movie) => (
@@ -104,15 +126,6 @@ const MainView = () => {
           />
         ))}
       </div>
-      <button
-        onClick={() => {
-          setUser(null);
-          setToken(null);
-          localStorage.clear();
-        }}
-      >
-        Logout
-      </button>
     </div>
   );
 };

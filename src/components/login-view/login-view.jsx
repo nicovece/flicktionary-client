@@ -38,28 +38,33 @@ export const LoginView = ({ onLoggedIn }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Username:
-        <input
-          type='text'
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-          placeholder='Username'
-        />
-      </label>
-      <label>
-        Password:
-        <input
-          type='password'
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          placeholder='Password'
-        />
-      </label>
-      <button type='submit'>Submit</button>
-    </form>
+    <div className='login_view'>
+      <h2>Login</h2>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Username:
+          <input
+            type='text'
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+            placeholder='Username'
+          />
+        </label>
+        <label>
+          Password:
+          <input
+            type='password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            placeholder='Password'
+          />
+        </label>
+        <button className='main_button' type='submit'>
+          Submit
+        </button>
+      </form>
+    </div>
   );
 };
