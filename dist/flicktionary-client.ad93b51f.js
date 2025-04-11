@@ -18429,14 +18429,16 @@ var _s = $RefreshSig$();
 // MainView component
 const MainView = ()=>{
     _s();
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    const storedToken = localStorage.getItem('token');
     // movies to be displayed
     const [movies, setMovies] = (0, _react.useState)([]);
     // selected movie to be displayed
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
     // user
-    const [user, setUser] = (0, _react.useState)(null);
+    const [user, setUser] = (0, _react.useState)(storedUser ? storedUser : null);
     // token
-    const [token, setToken] = (0, _react.useState)(null);
+    const [token, setToken] = (0, _react.useState)(storedToken ? storedToken : null);
     (0, _react.useEffect)(()=>{
         if (!token) return;
         fetch('https://flicktionary.onrender.com/movies', {
@@ -18573,6 +18575,7 @@ const MainView = ()=>{
                 onClick: ()=>{
                     setUser(null);
                     setToken(null);
+                    localStorage.clear();
                 },
                 children: "Logout"
             }, void 0, false, {
@@ -18587,7 +18590,7 @@ const MainView = ()=>{
         columnNumber: 5
     }, undefined);
 };
-_s(MainView, "ld1mNqbzEgxPu9ZfASjBJ7ZrUMw=");
+_s(MainView, "hFDxRpIbGxP6+QKMAcm8hX/Ql7A=");
 _c = MainView;
 exports.default = MainView;
 var _c;
@@ -19566,8 +19569,11 @@ const LoginView = ({ onLoggedIn })=>{
             body: JSON.stringify(data)
         }).then((response)=>response.json()).then((data)=>{
             console.log('Login response: ', data);
-            if (data.user) onLoggedIn(data.user, data.token);
-            else alert('No such user');
+            if (data.user) {
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('user', JSON.stringify(data.user));
+                onLoggedIn(data.user, data.token);
+            } else alert('No such user');
         }).catch((e)=>{
             alert('Something went wrong');
         });
@@ -19587,13 +19593,13 @@ const LoginView = ({ onLoggedIn })=>{
                         placeholder: "Username"
                     }, void 0, false, {
                         fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 42,
+                        lineNumber: 44,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 40,
+                lineNumber: 42,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -19607,13 +19613,13 @@ const LoginView = ({ onLoggedIn })=>{
                         placeholder: "Password"
                     }, void 0, false, {
                         fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 52,
+                        lineNumber: 54,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 50,
+                lineNumber: 52,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -19621,13 +19627,13 @@ const LoginView = ({ onLoggedIn })=>{
                 children: "Submit"
             }, void 0, false, {
                 fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 60,
+                lineNumber: 62,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/login-view/login-view.jsx",
-        lineNumber: 39,
+        lineNumber: 41,
         columnNumber: 5
     }, undefined);
 };

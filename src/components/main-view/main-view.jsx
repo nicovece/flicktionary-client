@@ -4,19 +4,19 @@ import { MovieView } from '../movie-view/movie-view';
 import { LoginView } from '../login-view/login-view';
 // MainView component
 const MainView = () => {
+  const storedUser = JSON.parse(localStorage.getItem('user'));
+  const storedToken = localStorage.getItem('token');
   // movies to be displayed
   const [movies, setMovies] = useState([]);
   // selected movie to be displayed
   const [selectedMovie, setSelectedMovie] = useState(null);
   // user
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(storedUser ? storedUser : null);
   // token
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState(storedToken ? storedToken : null);
 
   useEffect(() => {
-    if (!token) {
-      return;
-    }
+    if (!token) return;
     fetch('https://flicktionary.onrender.com/movies', {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -103,6 +103,7 @@ const MainView = () => {
         onClick={() => {
           setUser(null);
           setToken(null);
+          localStorage.clear();
         }}
       >
         Logout
