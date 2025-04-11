@@ -1,22 +1,113 @@
-.flicktionary-app {
-  font-family: 'Roboto', sans-serif;
+* {
+  box-sizing: border-box;
 }
 
-.card__title {
-  font-size: 1rem;
-  font-weight: normal;
-  margin: 0.75em 0 0 0;
-  padding: 0.75em 0 0 0;
-  border-top: 1px solid #ccc;
-  small {
-    font-size: 0.75em;
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  padding: 5vh 10vw;
+  background-color: hsl(270, 50%, 5%);
+  font-family: Arial, sans-serif;
+  color: hsl(270, 50%, 75%);
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: normal;
+  }
+  h2 {
+    font-size: 1.125rem;
     font-weight: normal;
   }
 }
+.cards__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1em;
+}
 
+.cards__list__wrapper {
+  margin: 4rem 0;
+  padding-top: 4rem;
+  border-top: 1px solid hsl(270, 50%, 40%);
+  h3 {
+    margin: 0 0 2em 0;
+  }
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 10% 1fr;
+  gap: 1em;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0.75em;
+  border: 1px solid hsl(270, 50%, 25%);
+  cursor: pointer;
+  .card__title {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+    font-size: 1rem;
+    font-weight: normal;
+    small {
+      font-size: 0.75em;
+      font-weight: normal;
+    }
+  }
+  .card__image {
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+.movie__view {
+  padding-top: 10vh;
+  &:only-child {
+    padding-bottom: 4em;
+  }
+}
 .movie-view__image {
   width: auto;
   height: 100%;
   object-fit: cover;
   max-height: 200px;
+}
+
+.movie__view__header {
+  width: 100%;
+  max-width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+  padding: 2vh 10vw;
+  background-color: hsl(270, 50%, 15%);
+  button {
+    background-color: hsl(270, 50%, 25%);
+    color: hsl(270, 50%, 75%);
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: normal;
+    cursor: pointer;
+    &:hover {
+      background-color: hsl(270, 50%, 35%);
+    }
+  }
 }
