@@ -16,10 +16,12 @@
   },
   "homepage": "https://github.com/nicovece/flicktionary-client#readme",
   "dependencies": {
+    "bootstrap": "^5.3.5",
+    "prop-types": "^15.8.1",
     "react": "^19.1.0",
+    "react-bootstrap": "^2.10.9",
     "react-dom": "^19.1.0",
-    "sass": "^1.86.1",
-    "prop-types": "^15.8.1"
+    "sass": "^1.86.1"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.14.4"
