@@ -8,14 +8,6 @@ $headings-color: $light;
 
 @import '~bootstrap/scss/bootstrap.scss';
 
-// Create your own map
-$custom-colors: (
-  'custom-color': #900,
-);
-
-// Merge the maps
-$theme-colors: map-merge($theme-colors, $custom-colors);
-
 .login_signup_container {
   display: grid;
   grid-template: 1fr / calc(35% - 1.5rem) calc(65% - 1.5rem);

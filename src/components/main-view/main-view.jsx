@@ -3,6 +3,7 @@ import { MovieCard } from '../moovie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { LoginView } from '../login-view/login-view';
 import { SignupView } from '../signup-view/signup-view';
+import { NavigationBar } from '../navigation-bar/navigation-bar';
 import { Row, Col, Navbar, Container } from 'react-bootstrap';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 // MainView component
@@ -45,8 +46,15 @@ const MainView = () => {
   }, [token]);
 
   return (
-    <>
-      <Row>
+    <BrowserRouter>
+      <NavigationBar
+        user={user}
+        onLoggedOut={() => {
+          setUser(null);
+          localStorage.clear();
+        }}
+      />
+      {/* <Row>
         <Navbar
           bg='dark'
           variant='dark'
@@ -77,7 +85,7 @@ const MainView = () => {
             </Navbar.Collapse>
           </Container>
         </Navbar>
-      </Row>
+      </Row> */}
       <Row className={selectedMovie ? 'justify-content-center' : ''}>
         {!user ? (
           <>
@@ -143,7 +151,7 @@ const MainView = () => {
           </>
         )}
       </Row>
-    </>
+    </BrowserRouter>
   );
 
   // if (!user) {
