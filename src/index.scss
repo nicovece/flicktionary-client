@@ -1,54 +1,21 @@
-* {
-  box-sizing: border-box;
-}
+$primary: rebeccapurple;
+$secondary: hsl(270, 50%, 25%);
+$dark: hsl(270, 50%, 10%);
+$light: hsl(270, 50%, 85%);
+$body-bg: hsl(270, 50%, 5%);
+$body-color: $light;
+$headings-color: $light;
 
-body {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  margin: 0;
-  padding: 5vh 10vw;
-  background-color: hsl(270, 50%, 5%);
-  font-family: Arial, sans-serif;
-  color: hsl(270, 50%, 75%);
-  font-size: 1.125rem;
-  line-height: 1.5;
-}
+@import '~bootstrap/scss/bootstrap.scss';
 
-header {
-  display: grid;
-  grid-template: 1fr / calc(70% - 1.5rem) calc(30% - 1.5rem);
-  gap: 2rem;
-  margin-bottom: 2rem;
-  h1 {
-    margin: 0;
-    font-size: 1.5rem;
-    font-weight: normal;
-  }
-  h2 {
-    font-size: 1.125rem;
-    font-weight: normal;
-  }
-  .header__left {
-    display: flex;
-    /* align-items: center; */
-    justify-content: center;
-    column-gap: 1rem;
-    flex-direction: column;
-    h1 {
-      margin: 0;
-    }
-    h2 {
-      margin: 0;
-    }
-  }
-  .header__right {
-    display: flex;
-    align-items: center;
-    justify-content: right;
-    column-gap: 1rem;
-  }
-}
+// Create your own map
+$custom-colors: (
+  'custom-color': #900,
+);
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
 .login_signup_container {
   display: grid;
   grid-template: 1fr / calc(35% - 1.5rem) calc(65% - 1.5rem);
@@ -132,72 +99,39 @@ button.main_button {
   }
 }
 
-.cards__list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1em;
-}
-
-.cards__list__wrapper {
-  margin: 4rem 0;
-  padding-top: 4rem;
-  border-top: 1px solid hsl(270, 50%, 40%);
-  h3 {
-    margin: 0 0 2em 0;
-  }
-}
-
 .card {
-  display: grid;
-  grid-template-columns: 10% 1fr;
-  gap: 1em;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  padding: 0.75em;
-  border: 1px solid hsl(270, 50%, 25%);
   cursor: pointer;
-  .card__title {
-    grid-column: 2;
-    grid-row: 1;
-    margin: 0;
-    font-size: 1rem;
-    font-weight: normal;
-    small {
-      font-size: 0.75em;
-      font-weight: normal;
+  transition: all 0.25s ease-in-out;
+  .card-body {
+    text-align: center;
+  }
+  @media (hover: hover) {
+    &:hover {
+      background-color: hsl(270, 50%, 15%);
+      transform: scale(1.05);
     }
   }
-  .card__image {
-    grid-column: 1;
-    grid-row: 1;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+  @media (min-width: 768px) {
+    .card-body {
+      text-align: left;
+    }
   }
 }
 .movie__view {
-  padding-top: 10vh;
   &:only-child {
     padding-bottom: 4em;
   }
 }
-.movie-view__image {
-  width: auto;
-  height: 100%;
-  object-fit: cover;
-  max-height: 200px;
+.movie__view__image {
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .movie__view__header {
   width: 100%;
   max-width: 100%;
-  position: fixed;
-  top: 0;
-  right: 0;
   display: flex;
   justify-content: flex-end;
   margin-bottom: 1rem;
-  padding: 2vh 10vw;
-  background-color: hsl(270, 50%, 15%);
+  // background-color: hsl(270, 50%, 15%);
 }
