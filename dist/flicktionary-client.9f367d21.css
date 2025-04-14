@@ -13313,11 +13313,7 @@ button.main_button.main_button--small {
 }
 
 .card--movieview .card--movieview__header {
-  justify-content: flex-end;
-  width: 100%;
-  max-width: 100%;
-  margin-bottom: 1rem;
-  display: flex;
+  background-color: #0000;
 }
 
 .favorite__button {

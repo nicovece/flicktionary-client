@@ -123,17 +123,14 @@ button.main_button {
   &:only-child {
     padding-bottom: 4em;
   }
+
   .card--movieview__image {
     max-width: 500px;
     margin: 0 auto;
   }
 
   .card--movieview__header {
-    width: 100%;
-    max-width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 1rem;
+    background-color: transparent;
     // background-color: hsl(270, 50%, 15%);
   }
 }

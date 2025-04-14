@@ -19,6 +19,7 @@ export const MovieView = ({ movies, isFavorite, onToggleFavorite }) => {
   const [error, setError] = useState(null);
   const [favoriteState, setFavoriteState] = useState(isFavorite);
   const [similarMovies, setSimilarMovies] = useState([]);
+  const [favoriteMovies, setFavoriteMovies] = useState([]);
 
   useEffect(() => {
     console.log('MovieView - movieId from params:', movieId);
@@ -42,6 +43,12 @@ export const MovieView = ({ movies, isFavorite, onToggleFavorite }) => {
         (m) => m.genre === foundMovie.genre && m.id !== foundMovie.id
       );
       setSimilarMovies(moviesWithSameGenre);
+
+      // Get favorite movies from localStorage
+      const storedUser = JSON.parse(localStorage.getItem('user'));
+      if (storedUser && storedUser.FavoriteMovies) {
+        setFavoriteMovies(storedUser.FavoriteMovies);
+      }
     } else {
       setError('Movie not found');
     }
@@ -54,21 +61,41 @@ export const MovieView = ({ movies, isFavorite, onToggleFavorite }) => {
     setFavoriteState(isFavorite);
   }, [isFavorite]);
 
-  const handleToggleFavorite = () => {
-    console.log('MovieView - Toggling favorite for movie:', movie);
-    console.log('MovieView - Current movie ID:', movieId);
-    console.log('MovieView - Current favorite state:', favoriteState);
+  const handleToggleFavorite = (movieIdToToggle) => {
+    console.log('MovieView - Toggling favorite for movie:', movieIdToToggle);
 
-    if (!movieId) {
-      console.error('MovieView - Cannot toggle favorite: movieId is missing');
-      return;
+    // If toggling the current movie
+    if (movieIdToToggle === movieId) {
+      // Update local state immediately for better UX
+      setFavoriteState(!favoriteState);
+
+      // Call the parent component's toggle function
+      onToggleFavorite(movieIdToToggle);
+    } else {
+      // For similar movies, we need to update the favoriteMovies state
+      const isCurrentlyFavorite = favoriteMovies.includes(movieIdToToggle);
+      let updatedFavorites;
+
+      if (isCurrentlyFavorite) {
+        updatedFavorites = favoriteMovies.filter(
+          (id) => id !== movieIdToToggle
+        );
+      } else {
+        updatedFavorites = [...favoriteMovies, movieIdToToggle];
+      }
+
+      setFavoriteMovies(updatedFavorites);
+
+      // Update the user in localStorage
+      const storedUser = JSON.parse(localStorage.getItem('user'));
+      if (storedUser) {
+        const updatedUser = { ...storedUser, FavoriteMovies: updatedFavorites };
+        localStorage.setItem('user', JSON.stringify(updatedUser));
+      }
+
+      // Call the parent component's toggle function
+      onToggleFavorite(movieIdToToggle);
     }
-
-    // Update local state immediately for better UX
-    setFavoriteState(!favoriteState);
-
-    // Call the parent component's toggle function
-    onToggleFavorite(movieId);
   };
 
   if (loading) {
@@ -85,11 +112,11 @@ export const MovieView = ({ movies, isFavorite, onToggleFavorite }) => {
 
   return (
     <>
-      <Col md={8}>
+      <Col md={10} lg={8}>
         <Card className='card--movieview'>
-          <Card.Header className='d-flex justify-content-between align-items-center'>
+          <Card.Header className='d-flex justify-content-between align-items-center border-bottom border-secondary  mb-4 pb-4 card--movieview__header'>
             <Link to='/'>
-              <Button variant='outline-primary'>Back</Button>
+              <Button variant='outline-primary'>Back to Movies list</Button>
             </Link>
             {onToggleFavorite && (
               <>
@@ -112,7 +139,7 @@ export const MovieView = ({ movies, isFavorite, onToggleFavorite }) => {
                 >
                   <Button
                     className='border-0 bg-transparent favorite__button'
-                    onClick={handleToggleFavorite}
+                    onClick={() => handleToggleFavorite(movieId)}
                   >
                     {isFavorite ? (
                       <svg
@@ -187,41 +214,23 @@ export const MovieView = ({ movies, isFavorite, onToggleFavorite }) => {
 
       {/* Similar Movies Section */}
       {similarMovies.length > 0 && (
-        <Col md={8} className='mt-4'>
-          <Card>
-            <Card.Header>
-              <h3>Similar Movies in {movie.genre}</h3>
-            </Card.Header>
-            <Card.Body>
-              <Row>
-                {similarMovies.map((similarMovie) => (
-                  <Col md={4} key={similarMovie.id} className='mb-3'>
-                    {/* <MovieCard
-                      movie={movie}
-                      isFavorite={isMovieFavorite(movie.id)}
-                      onToggleFavorite={toggleFavorite}
-                    /> */}
-                    <Card className='h-100'>
-                      <Card.Img
-                        variant='top'
-                        src={similarMovie.image}
-                        alt={similarMovie.title}
-                        style={{ height: '200px', objectFit: 'cover' }}
-                      />
-                      <Card.Body>
-                        <Card.Title>{similarMovie.title}</Card.Title>
-                        <Link to={`/movies/${similarMovie.id}`}>
-                          <Button variant='primary' size='sm'>
-                            View Details
-                          </Button>
-                        </Link>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                ))}
-              </Row>
-            </Card.Body>
-          </Card>
+        <Col className='mt-4 mb-5 col-12 similar-movies'>
+          <Row className='border-bottom border-secondary mb-5'>
+            <Col className='col-10 mx-auto mx-md-0 text-center text-md-start pb-3'>
+              <h4>Other movies in the genre {movie.genre}:</h4>
+            </Col>
+          </Row>
+          <Row>
+            {similarMovies.map((similarMovie) => (
+              <Col md={4} key={similarMovie.id} className='mb-3'>
+                <MovieCard
+                  movie={similarMovie}
+                  isFavorite={favoriteMovies.includes(similarMovie.id)}
+                  onToggleFavorite={handleToggleFavorite}
+                />
+              </Col>
+            ))}
+          </Row>
         </Col>
       )}
     </>
