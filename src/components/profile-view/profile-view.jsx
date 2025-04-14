@@ -143,110 +143,128 @@ export const ProfileView = ({ user, movies, onLoggedOut }) => {
   );
 
   return (
-    <Row className='justify-content-center'>
-      <Col md={8}>
-        <Button variant='primary' onClick={handleShow}>
-          Launch demo modal
-        </Button>
+    <Col>
+      <Row className='mb-5 py-5 justify-content-center'>
+        <Col className='mb-5 pb-3 border-bottom border-secondary' md={6}>
+          <h3 className='mb-0'>Welcome {userInfo.Username}!</h3>
+        </Col>
+        <div className='w-100'></div>
+        <Col md={4}>
+          <h5 className='mb-3'>Your profile information:</h5>
+          <p>
+            Username: <strong>{userInfo.Username}</strong>
+          </p>
+          <p>
+            Email: <strong>{userInfo.Email}</strong>
+          </p>
+          <p>
+            Date of Birth:{' '}
+            <strong>
+              {userInfo.Birthday
+                ? new Date(userInfo.Birthday).toLocaleDateString()
+                : 'Not set'}
+            </strong>
+          </p>
+          <Modal show={show} onHide={handleClose}>
+            <Form onSubmit={handleUpdateProfile}>
+              <Modal.Header closeButton>
+                <Modal.Title>Edit Profile</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <Card>
+                  <Card.Body>
+                    {error && <div className='alert alert-danger'>{error}</div>}
+                    {success && (
+                      <div className='alert alert-success'>{success}</div>
+                    )}
 
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Card className='mb-4'>
-              <Card.Header as='h3'>Profile Information</Card.Header>
-              <Card.Body>
-                {error && <div className='alert alert-danger'>{error}</div>}
-                {success && (
-                  <div className='alert alert-success'>{success}</div>
-                )}
+                    <Form.Group className='mb-3'>
+                      <Form.Label>Username</Form.Label>
+                      <Form.Control
+                        type='text'
+                        name='username'
+                        value={formData.username}
+                        onChange={handleInputChange}
+                        required
+                      />
+                    </Form.Group>
 
-                <Form onSubmit={handleUpdateProfile}>
-                  <Form.Group className='mb-3'>
-                    <Form.Label>Username</Form.Label>
-                    <Form.Control
-                      type='text'
-                      name='username'
-                      value={formData.username}
-                      onChange={handleInputChange}
-                      required
-                    />
-                  </Form.Group>
+                    <Form.Group className='mb-3'>
+                      <Form.Label>Password</Form.Label>
+                      <Form.Control
+                        type='password'
+                        name='password'
+                        value={formData.password}
+                        onChange={handleInputChange}
+                        placeholder='Leave blank to keep current password'
+                      />
+                    </Form.Group>
 
-                  <Form.Group className='mb-3'>
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control
-                      type='password'
-                      name='password'
-                      value={formData.password}
-                      onChange={handleInputChange}
-                      placeholder='Leave blank to keep current password'
-                    />
-                  </Form.Group>
+                    <Form.Group className='mb-3'>
+                      <Form.Label>Email</Form.Label>
+                      <Form.Control
+                        type='email'
+                        name='email'
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        required
+                      />
+                    </Form.Group>
 
-                  <Form.Group className='mb-3'>
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control
-                      type='email'
-                      name='email'
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                    />
-                  </Form.Group>
-
-                  <Form.Group className='mb-3'>
-                    <Form.Label>Date of Birth</Form.Label>
-                    <Form.Control
-                      type='date'
-                      name='dateOfBirth'
-                      value={formData.dateOfBirth}
-                      onChange={handleInputChange}
-                    />
-                  </Form.Group>
-
-                  <Button variant='primary' type='submit' className='me-2'>
-                    Update Profile
-                  </Button>
-                  <Button
-                    variant='danger'
-                    type='button'
-                    onClick={handleDeregister}
-                  >
-                    Deregister
-                  </Button>
-                </Form>
-              </Card.Body>
-            </Card>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant='secondary' onClick={handleClose}>
-              Close
+                    <Form.Group className='mb-3'>
+                      <Form.Label>Date of Birth</Form.Label>
+                      <Form.Control
+                        type='date'
+                        name='dateOfBirth'
+                        value={formData.dateOfBirth}
+                        onChange={handleInputChange}
+                      />
+                    </Form.Group>
+                  </Card.Body>
+                </Card>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant='secondary' onClick={handleClose}>
+                  Close
+                </Button>
+                <Button variant='primary' type='submit' className='me-2'>
+                  Update Profile
+                </Button>
+              </Modal.Footer>
+            </Form>
+          </Modal>
+        </Col>
+        <Col md={2}>
+          <div className='d-flex flex-column gap-2'>
+            <Button variant='primary' size='lg' onClick={handleShow}>
+              Edit Profile
             </Button>
-            <Button variant='primary' onClick={handleClose}>
-              Save Changes
+            <Button
+              variant='danger'
+              type='button'
+              size='lg'
+              onClick={handleDeregister}
+            >
+              Deregister
             </Button>
-          </Modal.Footer>
-        </Modal>
-
-        <Card>
-          <Card.Header as='h3'>Favorite Movies</Card.Header>
-          <Card.Body>
-            {favoriteMovies.length === 0 ? (
-              <p>No favorite movies yet.</p>
-            ) : (
-              <Row>
-                {favoriteMovies.map((movie) => (
-                  <Col key={movie.id} md={4} className='mb-4'>
-                    <MovieCard movie={movie} />
-                  </Col>
-                ))}
-              </Row>
-            )}
-          </Card.Body>
-        </Card>
-      </Col>
-    </Row>
+          </div>
+        </Col>
+        <div className='w-100'></div>
+        <Col className='mt-5 pt-3 movies--favorite'>
+          <h3 className='my-5'>Favorite Movies</h3>
+          {favoriteMovies.length === 0 ? (
+            <p>No favorite movies yet.</p>
+          ) : (
+            <Row>
+              {favoriteMovies.map((movie) => (
+                <Col key={movie.id} md={4} className='mb-4'>
+                  <MovieCard movie={movie} />
+                </Col>
+              ))}
+            </Row>
+          )}
+        </Col>
+      </Row>
+    </Col>
   );
 };

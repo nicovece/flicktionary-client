@@ -8,11 +8,9 @@ import './index.scss';
 
 const App = () => {
   return (
-    <Container fluid>
-      <BrowserRouter>
-        <MainView />
-      </BrowserRouter>
-    </Container>
+    <BrowserRouter>
+      <MainView />
+    </BrowserRouter>
   );
 };
 

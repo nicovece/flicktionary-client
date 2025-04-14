@@ -61,104 +61,109 @@ const MainView = () => {
 
   return (
     <>
-      <NavigationBar
-        user={user}
-        onLoggedOut={() => {
-          setUser(null);
-          localStorage.clear();
-        }}
-      />
-      <Row
-        className={
-          location.pathname.startsWith('/movies/')
-            ? 'justify-content-center'
-            : ''
-        }
-      >
-        <Routes>
-          <Route
-            path='/signup'
-            element={
-              <>
-                {user ? (
-                  <Navigate to='/' />
-                ) : (
-                  <Col md={5}>
-                    <SignupView />
-                  </Col>
-                )}
-              </>
-            }
-          />
-          <Route
-            path='/login'
-            element={
-              <>
-                {user ? (
-                  <Navigate to='/' />
-                ) : (
-                  <Col md={5}>
-                    <LoginView onLoggedIn={(user) => setUser(user)} />
-                  </Col>
-                )}
-              </>
-            }
-          />
-          <Route
-            path='/profile'
-            element={
-              <>
-                {!user ? (
-                  <Navigate to='/login' replace />
-                ) : (
-                  <ProfileView
-                    user={user}
-                    movies={movies}
-                    onLoggedOut={() => {
-                      setUser(null);
-                      localStorage.clear();
-                    }}
-                  />
-                )}
-              </>
-            }
-          />
-          <Route
-            path='/'
-            element={
-              <>
-                {!user ? (
-                  <Navigate to='/login' replace />
-                ) : movies.length === 0 ? (
-                  <Col>The list is empty!</Col>
-                ) : (
-                  <>
-                    {movies.map((movie) => (
-                      <Col className='mb-4' key={movie.id} md={3}>
-                        <MovieCard movie={movie} />
-                      </Col>
-                    ))}
-                  </>
-                )}
-              </>
-            }
-          />
-          <Route
-            path='/movies/:movieId'
-            element={
-              <>
-                {!user ? (
-                  <Navigate to='/login' replace />
-                ) : movies.length === 0 ? (
-                  <Col>The list is empty!</Col>
-                ) : (
-                  <MovieView movies={movies} />
-                )}
-              </>
-            }
-          />
-        </Routes>
-      </Row>
+      <Container fluid>
+        <NavigationBar
+          user={user}
+          onLoggedOut={() => {
+            setUser(null);
+            localStorage.clear();
+          }}
+        />
+      </Container>
+      <Container>
+        <Row
+          className={
+            location.pathname.startsWith('/movies/') ||
+            location.pathname === '/profile'
+              ? 'justify-content-center'
+              : ''
+          }
+        >
+          <Routes>
+            <Route
+              path='/signup'
+              element={
+                <>
+                  {user ? (
+                    <Navigate to='/' />
+                  ) : (
+                    <Col md={5}>
+                      <SignupView />
+                    </Col>
+                  )}
+                </>
+              }
+            />
+            <Route
+              path='/login'
+              element={
+                <>
+                  {user ? (
+                    <Navigate to='/' />
+                  ) : (
+                    <Col md={5}>
+                      <LoginView onLoggedIn={(user) => setUser(user)} />
+                    </Col>
+                  )}
+                </>
+              }
+            />
+            <Route
+              path='/profile'
+              element={
+                <>
+                  {!user ? (
+                    <Navigate to='/login' replace />
+                  ) : (
+                    <ProfileView
+                      user={user}
+                      movies={movies}
+                      onLoggedOut={() => {
+                        setUser(null);
+                        localStorage.clear();
+                      }}
+                    />
+                  )}
+                </>
+              }
+            />
+            <Route
+              path='/'
+              element={
+                <>
+                  {!user ? (
+                    <Navigate to='/login' replace />
+                  ) : movies.length === 0 ? (
+                    <Col>The list is empty!</Col>
+                  ) : (
+                    <>
+                      {movies.map((movie) => (
+                        <Col className='mb-4' key={movie.id} md={3}>
+                          <MovieCard movie={movie} />
+                        </Col>
+                      ))}
+                    </>
+                  )}
+                </>
+              }
+            />
+            <Route
+              path='/movies/:movieId'
+              element={
+                <>
+                  {!user ? (
+                    <Navigate to='/login' replace />
+                  ) : movies.length === 0 ? (
+                    <Col>The list is empty!</Col>
+                  ) : (
+                    <MovieView movies={movies} />
+                  )}
+                </>
+              }
+            />
+          </Routes>
+        </Row>
+      </Container>
     </>
   );
 };
