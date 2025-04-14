@@ -12,7 +12,13 @@ import {
 import { MovieCard } from '../moovie-card/movie-card';
 import { useNavigate } from 'react-router-dom';
 
-export const ProfileView = ({ user, movies, onLoggedOut }) => {
+export const ProfileView = ({
+  user,
+  movies,
+  favoriteMovies,
+  onToggleFavorite,
+  onLoggedOut,
+}) => {
   const [userInfo, setUserInfo] = useState(null);
   const [formData, setFormData] = useState({
     username: '',
@@ -31,14 +37,13 @@ export const ProfileView = ({ user, movies, onLoggedOut }) => {
     if (!user) return;
 
     // Fetch user information
-    fetch(`https://flicktionary.onrender.com/users`, {
+    fetch(`https://flicktionary.onrender.com/users/${user.Username}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
     })
       .then((response) => response.json())
-      .then((users) => {
-        const currentUser = users.find((u) => u.Username === user.Username);
+      .then((currentUser) => {
         setUserInfo(currentUser);
         setFormData({
           username: currentUser.Username,
@@ -137,9 +142,8 @@ export const ProfileView = ({ user, movies, onLoggedOut }) => {
     return <div>Loading...</div>;
   }
 
-  const favoriteMovies = movies.filter(
-    (movie) =>
-      userInfo.FavoriteMovies && userInfo.FavoriteMovies.includes(movie.id)
+  const favoriteMoviesList = movies.filter(
+    (movie) => favoriteMovies && favoriteMovies.includes(movie.id)
   );
 
   return (
@@ -252,13 +256,17 @@ export const ProfileView = ({ user, movies, onLoggedOut }) => {
         <div className='w-100'></div>
         <Col className='mt-5 pt-3 movies--favorite'>
           <h3 className='my-5'>Favorite Movies</h3>
-          {favoriteMovies.length === 0 ? (
+          {favoriteMoviesList.length === 0 ? (
             <p>No favorite movies yet.</p>
           ) : (
             <Row>
-              {favoriteMovies.map((movie) => (
+              {favoriteMoviesList.map((movie) => (
                 <Col key={movie.id} md={4} className='mb-4'>
-                  <MovieCard movie={movie} />
+                  <MovieCard
+                    movie={movie}
+                    isFavorite={true}
+                    onToggleFavorite={onToggleFavorite}
+                  />
                 </Col>
               ))}
             </Row>

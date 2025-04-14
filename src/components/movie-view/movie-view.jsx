@@ -1,63 +1,104 @@
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { Row, Col, Card, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import { Row, Col, Navbar, Container, Button } from 'react-bootstrap';
-import { useParams, Link } from 'react-router-dom';
 
-export const MovieView = ({ movies }) => {
+export const MovieView = ({ movies, isFavorite, onToggleFavorite }) => {
   const { movieId } = useParams();
-  const movie = movies.find((m) => m.id === movieId);
-  return (
-    <Col
-      md={8}
-      className='movie__view'
-      id={`movie--${movie.id}`}
-      className={`movie--${movie.id} mb-5`}
-    >
-      <Row className='justify-content-center'>
-        <Col className='col-12'>
-          <div className='movie__view__header'>
-            <Link to='/' className='back-btn'>
-              <Button variant='secondary'>
-                <i className='bi bi-arrow-left-short'></i>
-                Back
-              </Button>
-            </Link>
-          </div>
-        </Col>
-        <Col md={4} className='d-flex mb-5 mb-md-0'>
-          {movie.image && (
-            <img
-              src={movie.image}
-              alt={movie.title}
-              className='w-100 movie__view__image'
-            />
-          )}
-        </Col>
-        <Col md={8} className='col-10 mb-5 mb-md-0'>
-          <h1>{movie.title}</h1>
+  const [movie, setMovie] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-          <p>{movie.description}</p>
-          <p>Genre: {movie.genre.Name}</p>
-          <p>Director: {movie.director.Name}</p>
-          <p>Actors: {movie.actors}</p>
-        </Col>
-      </Row>
-    </Col>
+  useEffect(() => {
+    console.log('MovieView - movieId from params:', movieId);
+    console.log('MovieView - available movies:', movies);
+
+    if (!movieId || !movies || movies.length === 0) {
+      setError('Movie ID or movies data is missing');
+      setLoading(false);
+      return;
+    }
+
+    const foundMovie = movies.find((m) => m.id === movieId);
+    console.log('MovieView - found movie:', foundMovie);
+
+    if (foundMovie) {
+      setMovie(foundMovie);
+      setError(null);
+    } else {
+      setError('Movie not found');
+    }
+    setLoading(false);
+  }, [movieId, movies]);
+
+  const handleToggleFavorite = () => {
+    console.log('MovieView - Toggling favorite for movie:', movie);
+    console.log('MovieView - Current movie ID:', movieId);
+
+    if (!movieId) {
+      console.error('MovieView - Cannot toggle favorite: movieId is missing');
+      return;
+    }
+
+    onToggleFavorite(movieId);
+  };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  if (!movie) {
+    return <div>Movie not found</div>;
+  }
+
+  return (
+    <Row className='justify-content-center'>
+      <Col md={8}>
+        <Card className='movie-details'>
+          <Card.Img variant='top' src={movie.image} alt={movie.title} />
+          <Card.Body>
+            <Card.Title>{movie.title}</Card.Title>
+            <Card.Text>
+              <strong>Director:</strong> {movie.director}
+            </Card.Text>
+            <Card.Text>
+              <strong>Genre:</strong> {movie.genre}
+            </Card.Text>
+            <Card.Text>
+              <strong>Description:</strong> {movie.description}
+            </Card.Text>
+            <Card.Text>
+              <strong>Actors:</strong> {movie.actors}
+            </Card.Text>
+            <Button
+              variant={isFavorite ? 'danger' : 'primary'}
+              onClick={handleToggleFavorite}
+            >
+              {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
+            </Button>
+          </Card.Body>
+        </Card>
+      </Col>
+    </Row>
   );
 };
 
 MovieView.propTypes = {
-  movie: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    image: PropTypes.string,
-    description: PropTypes.string.isRequired,
-    genre: PropTypes.shape({
-      Name: PropTypes.string.isRequired,
-    }).isRequired,
-    director: PropTypes.shape({
-      Name: PropTypes.string.isRequired,
-    }).isRequired,
-    actors: PropTypes.arrayOf(PropTypes.string).isRequired,
-  }).isRequired,
-  onBackClick: PropTypes.func.isRequired,
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      director: PropTypes.string.isRequired,
+      genre: PropTypes.string.isRequired,
+      image: PropTypes.string.isRequired,
+      actors: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  isFavorite: PropTypes.bool.isRequired,
+  onToggleFavorite: PropTypes.func.isRequired,
 };

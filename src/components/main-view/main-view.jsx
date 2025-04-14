@@ -15,6 +15,8 @@ const MainView = () => {
   const storedToken = localStorage.getItem('token');
   // movies to be displayed
   const [movies, setMovies] = useState([]);
+  // user's favorite movies
+  const [favoriteMovies, setFavoriteMovies] = useState([]);
 
   // user
   const [user, setUser] = useState(storedUser ? storedUser : null);
@@ -24,6 +26,7 @@ const MainView = () => {
   const searchParams = new URLSearchParams(location.search);
   const sortBy = searchParams.get('sort'); // Gets the value of ?sort=something
 
+  // Fetch movies from API
   useEffect(() => {
     if (!token) return;
     fetch('https://flicktionary.onrender.com/movies', {
@@ -49,6 +52,120 @@ const MainView = () => {
         setMovies(moviesFromApi);
       });
   }, [token]);
+
+  // Fetch user's favorite movies from user object
+  useEffect(() => {
+    if (!user || !token) return;
+
+    fetch(`https://flicktionary.onrender.com/users/${user.Username}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((userData) => {
+        console.log('user data:', userData);
+        if (userData.FavoriteMovies) {
+          setFavoriteMovies(userData.FavoriteMovies);
+        }
+      })
+      .catch((error) => {
+        console.error('Error fetching user data:', error);
+      });
+  }, [user, token]);
+
+  // Function to toggle favorite status
+  const toggleFavorite = (movieId) => {
+    if (!user || !token) return;
+
+    console.log('Toggling favorite for movie ID:', movieId);
+    console.log('Current favorite movies:', favoriteMovies);
+
+    const isFavorite = favoriteMovies.includes(movieId);
+    console.log('Is favorite?', isFavorite);
+
+    let updatedFavorites;
+
+    if (isFavorite) {
+      // Remove from favorites
+      updatedFavorites = favoriteMovies.filter((id) => id !== movieId);
+    } else {
+      // Add to favorites
+      updatedFavorites = [...favoriteMovies, movieId];
+    }
+
+    console.log('Updated favorites:', updatedFavorites);
+
+    // First, update the local state to provide immediate feedback
+    setFavoriteMovies(updatedFavorites);
+
+    // Update the user in localStorage
+    const updatedUser = { ...user, FavoriteMovies: updatedFavorites };
+    localStorage.setItem('user', JSON.stringify(updatedUser));
+    setUser(updatedUser);
+
+    // Then, update the server
+    // Create a copy of the user object with updated favorites
+    const updatedUserData = {
+      Username: user.Username,
+      Password: user.Password,
+      Email: user.Email,
+      Birthday: user.Birthday,
+      FavoriteMovies: updatedFavorites,
+    };
+
+    console.log('Sending update request with data:', updatedUserData);
+
+    // Update user's favorite movies in the database
+    fetch(`https://flicktionary.onrender.com/users/${user.Username}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(updatedUserData),
+    })
+      .then((response) => {
+        console.log('Response status:', response.status);
+
+        if (response.ok) {
+          console.log('Successfully updated favorites on server');
+        } else {
+          // Log the error status
+          console.log(
+            'Failed to update favorites on server. Status:',
+            response.status
+          );
+
+          // Try to get the error message from the response
+          return response.text().then((text) => {
+            console.log('Error response text:', text);
+            try {
+              // Try to parse the response as JSON if possible
+              const errorData = JSON.parse(text);
+              console.log('Error data:', errorData);
+            } catch (e) {
+              // If it's not JSON, just log the text
+              console.log('Error response is not JSON:', text);
+            }
+          });
+        }
+      })
+      .catch((error) => {
+        // Log the actual error object
+        console.log('Error updating favorites on server:', error);
+
+        // Revert the local state if the server update fails
+        setFavoriteMovies(favoriteMovies);
+        localStorage.setItem('user', JSON.stringify(user));
+        setUser(user);
+      });
+  };
+
+  // Check if a movie is in favorites
+  const isMovieFavorite = (movieId) => {
+    return favoriteMovies.includes(movieId);
+  };
 
   // Log the current location whenever it changes
   useEffect(() => {
@@ -118,6 +235,8 @@ const MainView = () => {
                     <ProfileView
                       user={user}
                       movies={movies}
+                      favoriteMovies={favoriteMovies}
+                      onToggleFavorite={toggleFavorite}
                       onLoggedOut={() => {
                         setUser(null);
                         localStorage.clear();
@@ -139,7 +258,11 @@ const MainView = () => {
                     <>
                       {movies.map((movie) => (
                         <Col className='mb-4' key={movie.id} md={3}>
-                          <MovieCard movie={movie} />
+                          <MovieCard
+                            movie={movie}
+                            isFavorite={isMovieFavorite(movie.id)}
+                            onToggleFavorite={toggleFavorite}
+                          />
                         </Col>
                       ))}
                     </>
@@ -156,7 +279,15 @@ const MainView = () => {
                   ) : movies.length === 0 ? (
                     <Col>The list is empty!</Col>
                   ) : (
-                    <MovieView movies={movies} />
+                    <MovieView
+                      movies={movies}
+                      isFavorite={isMovieFavorite(
+                        movies.find(
+                          (m) => m.id === location.pathname.split('/')[2]
+                        )?.id
+                      )}
+                      onToggleFavorite={toggleFavorite}
+                    />
                   )}
                 </>
               }
