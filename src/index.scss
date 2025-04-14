@@ -1,72 +1,16 @@
-$primary: rebeccapurple;
+$primary: hsl(270, 50%, 40%);
 $secondary: hsl(270, 50%, 25%);
 $dark: hsl(270, 50%, 10%);
 $light: hsl(270, 50%, 85%);
+$info: hsl(270, 50%, 65%);
 $body-bg: hsl(270, 50%, 5%);
 $body-color: $light;
 $headings-color: $light;
 
 @import '~bootstrap/scss/bootstrap.scss';
 
-.login_signup_container {
-  display: grid;
-  grid-template: 1fr / calc(35% - 1.5rem) calc(65% - 1.5rem);
-  max-width: 900px;
-  gap: 3rem;
-}
-.login_view,
-.signup_view {
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5em;
-    border-top: 1px solid hsl(270, 50%, 25%);
-    padding-top: 1.5em;
-    label {
-      margin-bottom: 1rem;
-      input {
-        display: block;
-        width: 100%;
-        margin-top: 0.5rem;
-        padding: 0.75rem;
-        border: 1px solid hsl(270, 50%, 25%);
-        // border-radius: 0.25rem;
-        background-color: hsl(270, 50%, 15%);
-        color: hsl(270, 50%, 75%);
-        font-size: 1em;
-        font-weight: normal;
-        &:focus {
-          outline: none;
-          border-color: hsl(270, 50%, 35%);
-        }
-      }
-    }
-    // button {
-    //   display: inline-block;
-    //   width: max-content;
-    //   padding: 0.75em 1.5em;
-    //   border: 1px solid hsl(270, 50%, 25%);
-    //   border-radius: 0.25rem;
-    //   background-color: hsl(270, 50%, 40%);
-    //   color: hsl(270, 50%, 75%);
-    //   font-size: 1em;
-    //   font-weight: normal;
-    //   cursor: pointer;
-    //   &:hover {
-    //     background-color: hsl(270, 50%, 35%);
-    //   }
-    // }
-  }
-}
-
-.signup_view {
-  form {
-    flex-direction: row;
-    flex-wrap: wrap;
-    label {
-      width: calc(50% - 0.75em);
-    }
-  }
+.nav-link {
+  color: $info;
 }
 
 button.main_button {

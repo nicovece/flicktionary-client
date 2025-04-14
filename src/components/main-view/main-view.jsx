@@ -207,10 +207,9 @@ const MainView = () => {
       <Container>
         <Row
           className={
-            location.pathname.startsWith('/movies/') ||
-            location.pathname === '/profile'
+            location.pathname !== '/'
               ? 'justify-content-center'
-              : ''
+              : 'justify-content-start'
           }
         >
           <Routes>
@@ -221,7 +220,7 @@ const MainView = () => {
                   {user ? (
                     <Navigate to='/' />
                   ) : (
-                    <Col md={5}>
+                    <Col md={10} xl={8}>
                       <SignupView />
                     </Col>
                   )}
