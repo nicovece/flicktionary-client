@@ -21,11 +21,15 @@ export const MovieCard = ({ movie, isFavorite, onToggleFavorite }) => {
   };
 
   return (
-    <Card className='h-100 p-3 d-flex flex-column flex-md-row align-items-center border border-secondary card--movie'>
-      <Card.Img variant='top' src={movie.image} className='w-25' />
+    <Card className='h-100 p-5 p-md-3 d-flex flex-column flex-md-row align-items-center border border-secondary card--movie'>
+      <Link to={`/movies/${movie.id}`} className='card__image'>
+        <Card.Img variant='top' src={movie.image} />
+      </Link>
       <Card.Body>
         <Card.Title className='card__title text-light'>
-          <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
+          <Link to={`/movies/${movie.id}`}>
+            <h4>{movie.title}</h4>
+          </Link>
         </Card.Title>
         {onToggleFavorite && (
           <>

@@ -100,6 +100,9 @@ button.main_button {
     color: $light;
     text-decoration: none;
   }
+  .card__image {
+    width: 100%;
+  }
   @media (hover: hover) {
     &.card--movie:hover {
       background-color: hsl(270, 50%, 10%);
@@ -110,25 +113,29 @@ button.main_button {
     .card-body {
       text-align: left;
     }
+    .card__image {
+      width: 25%;
+    }
   }
 }
-.movie__view {
+// movie view
+.card--movieview {
   &:only-child {
     padding-bottom: 4em;
   }
-}
-.movie__view__image {
-  max-width: 500px;
-  margin: 0 auto;
-}
+  .card--movieview__image {
+    max-width: 500px;
+    margin: 0 auto;
+  }
 
-.movie__view__header {
-  width: 100%;
-  max-width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 1rem;
-  // background-color: hsl(270, 50%, 15%);
+  .card--movieview__header {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+    // background-color: hsl(270, 50%, 15%);
+  }
 }
 
 // favorites
@@ -136,13 +143,21 @@ button.main_button {
   position: absolute;
   top: 0.5rem;
   right: 1rem;
-  transform: scale(2);
+  transform: scale(1.5);
   color: $primary;
   @media (hover: hover) {
     &:hover {
       color: hsl(270, 50%, 75%);
     }
   }
+  @media (min-width: 1400px) {
+    transform: scale(2);
+  }
+}
+.card--movieview .favorite__button {
+  position: relative;
+  top: unset;
+  right: unset;
 }
 .favorite__tooltip {
   .tooltip-inner {

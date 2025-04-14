@@ -13282,6 +13282,10 @@ button.main_button.main_button--small {
   text-decoration: none;
 }
 
+.card .card__image {
+  width: 100%;
+}
+
 @media (hover: hover) {
   .card.card--movie:hover {
     background-color: #1a0d26;
@@ -13293,18 +13297,22 @@ button.main_button.main_button--small {
   .card .card-body {
     text-align: left;
   }
+
+  .card .card__image {
+    width: 25%;
+  }
 }
 
-.movie__view:only-child {
+.card--movieview:only-child {
   padding-bottom: 4em;
 }
 
-.movie__view__image {
+.card--movieview .card--movieview__image {
   max-width: 500px;
   margin: 0 auto;
 }
 
-.movie__view__header {
+.card--movieview .card--movieview__header {
   justify-content: flex-end;
   width: 100%;
   max-width: 100%;
@@ -13317,13 +13325,25 @@ button.main_button.main_button--small {
   position: absolute;
   top: .5rem;
   right: 1rem;
-  transform: scale(2);
+  transform: scale(1.5);
 }
 
 @media (hover: hover) {
   .favorite__button:hover {
     color: #bf9fdf;
   }
+}
+
+@media (width >= 1400px) {
+  .favorite__button {
+    transform: scale(2);
+  }
+}
+
+.card--movieview .favorite__button {
+  top: unset;
+  right: unset;
+  position: relative;
 }
 
 .favorite__tooltip .tooltip-inner {

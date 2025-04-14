@@ -149,11 +149,15 @@ export const ProfileView = ({
   return (
     <Col>
       <Row className='mb-5 py-5 justify-content-center'>
-        <Col className='mb-5 pb-3 border-bottom border-secondary' md={6}>
+        <Col
+          className='mb-5 pb-3 border-bottom border-secondary'
+          md={10}
+          lg={6}
+        >
           <h3 className='mb-0'>Welcome {userInfo.Username}!</h3>
         </Col>
         <div className='w-100'></div>
-        <Col md={4}>
+        <Col md={6} lg={4}>
           <h5 className='mb-3'>Your profile information:</h5>
           <p>
             Username: <strong>{userInfo.Username}</strong>
@@ -238,8 +242,8 @@ export const ProfileView = ({
             </Form>
           </Modal>
         </Col>
-        <Col md={2}>
-          <div className='d-flex flex-column gap-2'>
+        <Col md={4} lg={2}>
+          <div className='d-flex flex-column gap-4'>
             <Button variant='primary' size='lg' onClick={handleShow}>
               Edit Profile
             </Button>
