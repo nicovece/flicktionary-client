@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types';
-import { Row, Col, Navbar, Container } from 'react-bootstrap';
+import { Row, Col, Navbar, Container, Button } from 'react-bootstrap';
+import { useParams, Link } from 'react-router-dom';
 
-export const MovieView = ({ movie, onBackClick }) => {
+export const MovieView = ({ movies }) => {
+  const { movieId } = useParams();
+  const movie = movies.find((m) => m.id === movieId);
   return (
     <Col
       md={8}
@@ -12,12 +15,12 @@ export const MovieView = ({ movie, onBackClick }) => {
       <Row className='justify-content-center'>
         <Col className='col-12'>
           <div className='movie__view__header'>
-            <button
-              onClick={onBackClick}
-              className='main_button main_button--small'
-            >
-              Back
-            </button>
+            <Link to='/' className='back-btn'>
+              <Button variant='secondary'>
+                <i className='bi bi-arrow-left-short'></i>
+                Back
+              </Button>
+            </Link>
           </div>
         </Col>
         <Col md={4} className='d-flex mb-5 mb-md-0'>
