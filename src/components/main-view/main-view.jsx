@@ -23,9 +23,6 @@ const MainView = () => {
   // token
   const [token, setToken] = useState(storedToken ? storedToken : null);
 
-  const searchParams = new URLSearchParams(location.search);
-  const sortBy = searchParams.get('sort'); // Gets the value of ?sort=something
-
   // Fetch movies from API
   useEffect(() => {
     if (!token) return;
