@@ -41,8 +41,8 @@ const MainView = () => {
           id: movie._id,
           title: movie.Title,
           description: movie.Description,
-          director: movie.Director,
-          genre: movie.Genre,
+          director: movie.Director.Name,
+          genre: movie.Genre.Name,
           image: movie.ImagePath,
           featured: movie.Featured,
           actors: movie.Actors,
@@ -76,10 +76,14 @@ const MainView = () => {
 
   // Function to toggle favorite status
   const toggleFavorite = (movieId) => {
-    if (!user || !token) return;
+    if (!user || !token) {
+      console.error('Cannot toggle favorite: user or token is missing');
+      return;
+    }
 
     console.log('Toggling favorite for movie ID:', movieId);
     console.log('Current favorite movies:', favoriteMovies);
+    console.log('Current user:', user);
 
     const isFavorite = favoriteMovies.includes(movieId);
     console.log('Is favorite?', isFavorite);
@@ -104,56 +108,72 @@ const MainView = () => {
     localStorage.setItem('user', JSON.stringify(updatedUser));
     setUser(updatedUser);
 
-    // Then, update the server
-    // Create a copy of the user object with updated favorites
-    const updatedUserData = {
-      Username: user.Username,
-      Password: user.Password,
-      Email: user.Email,
-      Birthday: user.Birthday,
-      FavoriteMovies: updatedFavorites,
-    };
+    // Use the correct endpoint structure for adding/removing favorite movies
+    const endpoint = `https://flicktionary.onrender.com/users/${user.Username}/movies/${movieId}`;
+    const method = isFavorite ? 'DELETE' : 'POST';
 
-    console.log('Sending update request with data:', updatedUserData);
+    console.log('Sending request to:', endpoint);
+    console.log('Request method:', method);
+    console.log('Request headers:', {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
 
     // Update user's favorite movies in the database
-    fetch(`https://flicktionary.onrender.com/users/${user.Username}`, {
-      method: 'PUT',
+    fetch(endpoint, {
+      method: method,
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(updatedUserData),
     })
-      .then((response) => {
+      .then(async (response) => {
         console.log('Response status:', response.status);
+        console.log(
+          'Response headers:',
+          Object.fromEntries(response.headers.entries())
+        );
+
+        const responseText = await response.text();
+        console.log('Raw response:', responseText);
 
         if (response.ok) {
           console.log('Successfully updated favorites on server');
-        } else {
-          // Log the error status
-          console.log(
-            'Failed to update favorites on server. Status:',
-            response.status
-          );
+          try {
+            const responseData = JSON.parse(responseText);
+            console.log('Parsed response data:', responseData);
 
-          // Try to get the error message from the response
-          return response.text().then((text) => {
-            console.log('Error response text:', text);
-            try {
-              // Try to parse the response as JSON if possible
-              const errorData = JSON.parse(text);
-              console.log('Error data:', errorData);
-            } catch (e) {
-              // If it's not JSON, just log the text
-              console.log('Error response is not JSON:', text);
+            // Update the state with the server response
+            if (responseData.FavoriteMovies) {
+              setFavoriteMovies(responseData.FavoriteMovies);
+              const newUser = {
+                ...user,
+                FavoriteMovies: responseData.FavoriteMovies,
+              };
+              localStorage.setItem('user', JSON.stringify(newUser));
+              setUser(newUser);
             }
-          });
+          } catch (e) {
+            console.log('Response is not JSON:', e);
+          }
+        } else {
+          console.error('Failed to update favorites on server');
+          console.error('Status:', response.status);
+          console.error('Status text:', response.statusText);
+          console.error('Response text:', responseText);
+
+          // Revert the local state if the server update fails
+          setFavoriteMovies(favoriteMovies);
+          localStorage.setItem('user', JSON.stringify(user));
+          setUser(user);
         }
       })
       .catch((error) => {
-        // Log the actual error object
-        console.log('Error updating favorites on server:', error);
+        console.error('Error updating favorites on server:', error);
+        console.error('Error details:', {
+          message: error.message,
+          stack: error.stack,
+        });
 
         // Revert the local state if the server update fails
         setFavoriteMovies(favoriteMovies);
@@ -257,7 +277,7 @@ const MainView = () => {
                   ) : (
                     <>
                       {movies.map((movie) => (
-                        <Col className='mb-4' key={movie.id} md={3}>
+                        <Col className='mb-4' key={movie.id} md={6}>
                           <MovieCard
                             movie={movie}
                             isFavorite={isMovieFavorite(movie.id)}

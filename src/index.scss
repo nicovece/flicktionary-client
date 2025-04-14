@@ -92,14 +92,17 @@ button.main_button {
 }
 
 .card {
-  cursor: pointer;
   transition: all 0.25s ease-in-out;
   .card-body {
     text-align: center;
   }
+  a {
+    color: $light;
+    text-decoration: none;
+  }
   @media (hover: hover) {
     &.card--movie:hover {
-      background-color: hsl(270, 50%, 15%);
+      background-color: hsl(270, 50%, 10%);
       transform: scale(1.05);
     }
   }
@@ -126,4 +129,33 @@ button.main_button {
   justify-content: flex-end;
   margin-bottom: 1rem;
   // background-color: hsl(270, 50%, 15%);
+}
+
+// favorites
+.favorite__button {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  transform: scale(2);
+  color: $primary;
+  @media (hover: hover) {
+    &:hover {
+      color: hsl(270, 50%, 75%);
+    }
+  }
+}
+.favorite__tooltip {
+  .tooltip-inner {
+    width: fit-content;
+    max-width: unset;
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    color: white;
+    background-color: $primary;
+  }
+  .tooltip-arrow {
+    &::before {
+      border-top-color: $primary;
+    }
+  }
 }

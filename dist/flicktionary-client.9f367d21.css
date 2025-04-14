@@ -13270,7 +13270,6 @@ button.main_button.main_button--small {
 }
 
 .card {
-  cursor: pointer;
   transition: all .25s ease-in-out;
 }
 
@@ -13278,9 +13277,14 @@ button.main_button.main_button--small {
   text-align: center;
 }
 
+.card a {
+  color: #d9c6ec;
+  text-decoration: none;
+}
+
 @media (hover: hover) {
   .card.card--movie:hover {
-    background-color: #261339;
+    background-color: #1a0d26;
     transform: scale(1.05);
   }
 }
@@ -13306,5 +13310,32 @@ button.main_button.main_button--small {
   max-width: 100%;
   margin-bottom: 1rem;
   display: flex;
+}
+
+.favorite__button {
+  color: #639;
+  position: absolute;
+  top: .5rem;
+  right: 1rem;
+  transform: scale(2);
+}
+
+@media (hover: hover) {
+  .favorite__button:hover {
+    color: #bf9fdf;
+  }
+}
+
+.favorite__tooltip .tooltip-inner {
+  width: fit-content;
+  max-width: unset;
+  color: #fff;
+  background-color: #639;
+  padding: .5rem 1rem;
+  font-size: 1.25rem;
+}
+
+.favorite__tooltip .tooltip-arrow:before {
+  border-top-color: #639;
 }
 /*# sourceMappingURL=flicktionary-client.9f367d21.css.map */
