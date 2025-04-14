@@ -13279,7 +13279,7 @@ button.main_button.main_button--small {
 }
 
 @media (hover: hover) {
-  .card:hover {
+  .card.card--movie:hover {
     background-color: #261339;
     transform: scale(1.05);
   }

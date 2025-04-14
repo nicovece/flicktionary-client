@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export const MovieCard = ({ movie }) => {
   return (
-    <Card className='h-100 p-3 d-flex flex-column flex-md-row align-items-center border border-secondary'>
+    <Card className='h-100 p-3 d-flex flex-column flex-md-row align-items-center border border-secondary card--movie'>
       <Card.Img variant='top' src={movie.image} className='w-50 w-md-25' />
       <Card.Body>
         <Card.Title className='card__title text-light'>

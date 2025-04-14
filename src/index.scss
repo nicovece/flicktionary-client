@@ -98,7 +98,7 @@ button.main_button {
     text-align: center;
   }
   @media (hover: hover) {
-    &:hover {
+    &.card--movie:hover {
       background-color: hsl(270, 50%, 15%);
       transform: scale(1.05);
     }

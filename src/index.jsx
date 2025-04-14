@@ -10,7 +10,7 @@ const App = () => {
   return (
     <Container fluid>
       <BrowserRouter>
-        <MainViewContent />
+        <MainView />
       </BrowserRouter>
     </Container>
   );

@@ -4,6 +4,7 @@ import { MovieView } from '../movie-view/movie-view';
 import { LoginView } from '../login-view/login-view';
 import { SignupView } from '../signup-view/signup-view';
 import { NavigationBar } from '../navigation-bar/navigation-bar';
+import { ProfileView } from '../profile-view/profile-view';
 import { Row, Col, Navbar, Container } from 'react-bootstrap';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 
@@ -99,6 +100,25 @@ const MainView = () => {
                   <Col md={5}>
                     <LoginView onLoggedIn={(user) => setUser(user)} />
                   </Col>
+                )}
+              </>
+            }
+          />
+          <Route
+            path='/profile'
+            element={
+              <>
+                {!user ? (
+                  <Navigate to='/login' replace />
+                ) : (
+                  <ProfileView
+                    user={user}
+                    movies={movies}
+                    onLoggedOut={() => {
+                      setUser(null);
+                      localStorage.clear();
+                    }}
+                  />
                 )}
               </>
             }
