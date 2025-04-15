@@ -11,6 +11,10 @@ $headings-color: $light;
 
 .nav-link {
   color: $info;
+  border-bottom: 2px solid transparent;
+  &.current {
+    border-bottom: 2px solid currentColor;
+  }
 }
 
 button.main_button {

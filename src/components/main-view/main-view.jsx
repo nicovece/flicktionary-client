@@ -189,15 +189,12 @@ const MainView = () => {
     console.log('Current location:', location);
   }, [location]);
 
-  if (location.pathname.startsWith('/movies/')) {
-    // You're on a movie page
-  }
-
   return (
     <>
       <Container fluid>
         <NavigationBar
           user={user}
+          pathname={location.pathname}
           onLoggedOut={() => {
             setUser(null);
             localStorage.clear();

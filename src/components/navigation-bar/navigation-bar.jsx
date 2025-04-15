@@ -1,7 +1,7 @@
 import { Navbar, Container, Nav, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-export const NavigationBar = ({ user, onLoggedOut }) => {
+export const NavigationBar = ({ user, onLoggedOut, pathname }) => {
   return (
     <Row>
       <Navbar
@@ -18,23 +18,39 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
-            <Nav className='ms-auto'>
+            <Nav className='ms-auto gap-3'>
               {!user && (
                 <>
-                  <Nav.Link as={Link} to='/login'>
+                  <Nav.Link
+                    as={Link}
+                    to='/login'
+                    className={pathname === '/login' ? 'current' : ''}
+                  >
                     Login
                   </Nav.Link>
-                  <Nav.Link as={Link} to='/signup'>
+                  <Nav.Link
+                    as={Link}
+                    to='/signup'
+                    className={pathname === '/signup' ? 'current' : ''}
+                  >
                     Signup
                   </Nav.Link>
                 </>
               )}
               {user && (
                 <>
-                  <Nav.Link as={Link} to='/'>
+                  <Nav.Link
+                    as={Link}
+                    to='/'
+                    className={pathname === '/' ? 'current' : ''}
+                  >
                     Home
                   </Nav.Link>
-                  <Nav.Link as={Link} to='/profile'>
+                  <Nav.Link
+                    as={Link}
+                    to='/profile'
+                    className={pathname === '/profile' ? 'current' : ''}
+                  >
                     Profile
                   </Nav.Link>
                   <Nav.Link onClick={onLoggedOut}>Logout</Nav.Link>

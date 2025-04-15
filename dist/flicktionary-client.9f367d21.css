@@ -13205,6 +13205,11 @@ textarea.form-control-lg {
 
 .nav-link {
   color: #a679d2;
+  border-bottom: 2px solid #0000;
+}
+
+.nav-link.current {
+  border-bottom: 2px solid;
 }
 
 button.main_button {
