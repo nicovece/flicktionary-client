@@ -1,6 +1,13 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import {
+  Container,
+  Row,
+  Col,
+  Form,
+  Button,
+  ButtonGroup,
+} from 'react-bootstrap';
 import { MovieCard } from '../moovie-card/movie-card';
 import PropTypes from 'prop-types';
 
@@ -114,6 +121,19 @@ export const SearchResultsView = ({
     performSearch(searchParams); // Immediate search on form submit
   };
 
+  const handleReset = () => {
+    const emptyParams = {
+      q: '',
+      title: '',
+      genre: '',
+      director: '',
+      actor: '',
+      featured: '',
+    };
+    setSearchParams(emptyParams);
+    performSearch(emptyParams);
+  };
+
   return (
     <Container>
       <h2 className='text-light mb-4'>Search Movies</h2>
@@ -197,9 +217,14 @@ export const SearchResultsView = ({
             </Form.Group>
           </Col>
         </Row>
-        <Button variant='primary' type='submit'>
-          Search
-        </Button>
+        <ButtonGroup>
+          <Button variant='primary' type='submit'>
+            Search
+          </Button>
+          <Button variant='outline-secondary' onClick={handleReset}>
+            Reset Filters
+          </Button>
+        </ButtonGroup>
       </Form>
 
       {error && (
