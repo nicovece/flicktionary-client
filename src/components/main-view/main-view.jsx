@@ -3,20 +3,27 @@ import { MovieCard } from '../moovie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { LoginView } from '../login-view/login-view';
 import { SignupView } from '../signup-view/signup-view';
+import { NavigationBar } from '../navigation-bar/navigation-bar';
+import { ProfileView } from '../profile-view/profile-view';
 import { Row, Col, Navbar, Container } from 'react-bootstrap';
-// MainView component
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+
+// MainViewContent component that uses useLocation
 const MainView = () => {
+  const location = useLocation();
   const storedUser = JSON.parse(localStorage.getItem('user'));
   const storedToken = localStorage.getItem('token');
   // movies to be displayed
   const [movies, setMovies] = useState([]);
-  // selected movie to be displayed
-  const [selectedMovie, setSelectedMovie] = useState(null);
+  // user's favorite movies
+  const [favoriteMovies, setFavoriteMovies] = useState([]);
+
   // user
   const [user, setUser] = useState(storedUser ? storedUser : null);
   // token
   const [token, setToken] = useState(storedToken ? storedToken : null);
 
+  // Fetch movies from API
   useEffect(() => {
     if (!token) return;
     fetch('https://flicktionary.onrender.com/movies', {
@@ -31,8 +38,8 @@ const MainView = () => {
           id: movie._id,
           title: movie.Title,
           description: movie.Description,
-          director: movie.Director,
-          genre: movie.Genre,
+          director: movie.Director.Name,
+          genre: movie.Genre.Name,
           image: movie.ImagePath,
           featured: movie.Featured,
           actors: movie.Actors,
@@ -43,194 +50,271 @@ const MainView = () => {
       });
   }, [token]);
 
+  // Fetch user's favorite movies from user object
+  useEffect(() => {
+    if (!user || !token) return;
+
+    fetch(`https://flicktionary.onrender.com/users/${user.Username}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((userData) => {
+        console.log('user data:', userData);
+        if (userData.FavoriteMovies) {
+          setFavoriteMovies(userData.FavoriteMovies);
+        }
+      })
+      .catch((error) => {
+        console.error('Error fetching user data:', error);
+      });
+  }, [user, token]);
+
+  // Function to toggle favorite status
+  const toggleFavorite = (movieId) => {
+    if (!user || !token) {
+      console.error('Cannot toggle favorite: user or token is missing');
+      return;
+    }
+
+    console.log('Toggling favorite for movie ID:', movieId);
+    console.log('Current favorite movies:', favoriteMovies);
+    console.log('Current user:', user);
+
+    const isFavorite = favoriteMovies.includes(movieId);
+    console.log('Is favorite?', isFavorite);
+
+    let updatedFavorites;
+
+    if (isFavorite) {
+      // Remove from favorites
+      updatedFavorites = favoriteMovies.filter((id) => id !== movieId);
+    } else {
+      // Add to favorites
+      updatedFavorites = [...favoriteMovies, movieId];
+    }
+
+    console.log('Updated favorites:', updatedFavorites);
+
+    // First, update the local state to provide immediate feedback
+    setFavoriteMovies(updatedFavorites);
+
+    // Update the user in localStorage
+    const updatedUser = { ...user, FavoriteMovies: updatedFavorites };
+    localStorage.setItem('user', JSON.stringify(updatedUser));
+    setUser(updatedUser);
+
+    // Use the correct endpoint structure for adding/removing favorite movies
+    const endpoint = `https://flicktionary.onrender.com/users/${user.Username}/movies/${movieId}`;
+    const method = isFavorite ? 'DELETE' : 'POST';
+
+    console.log('Sending request to:', endpoint);
+    console.log('Request method:', method);
+    console.log('Request headers:', {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
+
+    // Update user's favorite movies in the database
+    fetch(endpoint, {
+      method: method,
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then(async (response) => {
+        console.log('Response status:', response.status);
+        console.log(
+          'Response headers:',
+          Object.fromEntries(response.headers.entries())
+        );
+
+        const responseText = await response.text();
+        console.log('Raw response:', responseText);
+
+        if (response.ok) {
+          console.log('Successfully updated favorites on server');
+          try {
+            const responseData = JSON.parse(responseText);
+            console.log('Parsed response data:', responseData);
+
+            // Update the state with the server response
+            if (responseData.FavoriteMovies) {
+              setFavoriteMovies(responseData.FavoriteMovies);
+              const newUser = {
+                ...user,
+                FavoriteMovies: responseData.FavoriteMovies,
+              };
+              localStorage.setItem('user', JSON.stringify(newUser));
+              setUser(newUser);
+            }
+          } catch (e) {
+            console.log('Response is not JSON:', e);
+          }
+        } else {
+          console.error('Failed to update favorites on server');
+          console.error('Status:', response.status);
+          console.error('Status text:', response.statusText);
+          console.error('Response text:', responseText);
+
+          // Revert the local state if the server update fails
+          setFavoriteMovies(favoriteMovies);
+          localStorage.setItem('user', JSON.stringify(user));
+          setUser(user);
+        }
+      })
+      .catch((error) => {
+        console.error('Error updating favorites on server:', error);
+        console.error('Error details:', {
+          message: error.message,
+          stack: error.stack,
+        });
+
+        // Revert the local state if the server update fails
+        setFavoriteMovies(favoriteMovies);
+        localStorage.setItem('user', JSON.stringify(user));
+        setUser(user);
+      });
+  };
+
+  // Check if a movie is in favorites
+  const isMovieFavorite = (movieId) => {
+    return favoriteMovies.includes(movieId);
+  };
+
+  // Log the current location whenever it changes
+  useEffect(() => {
+    console.log('Current location:', location);
+  }, [location]);
+
   return (
     <>
-      <Row>
-        <Navbar
-          bg='dark'
-          variant='dark'
-          data-bs-theme='dark'
-          className='mb-5 p-4'
+      <Container fluid>
+        <NavigationBar
+          user={user}
+          pathname={location.pathname}
+          onLoggedOut={() => {
+            setUser(null);
+            localStorage.clear();
+          }}
+        />
+      </Container>
+      <Container>
+        <Row
+          className={
+            location.pathname !== '/'
+              ? 'justify-content-center'
+              : 'justify-content-start'
+          }
         >
-          <Container>
-            <Navbar.Brand href='#home'>
-              <h1 className='fs-4'>F L I C K T I O N A R Y</h1>
-              <h2 className='fs-6'>A dictionary for flicks</h2>
-            </Navbar.Brand>
-            <Navbar.Toggle />
-            <Navbar.Collapse className='justify-content-end'>
-              {user ? (
-                <Navbar.Text>
-                  <button
-                    className='main_button main_button--small'
-                    onClick={() => {
-                      setUser(null);
-                      setToken(null);
-                      localStorage.clear();
-                    }}
-                  >
-                    Logout
-                  </button>
-                </Navbar.Text>
-              ) : null}
-            </Navbar.Collapse>
-          </Container>
-        </Navbar>
-      </Row>
-      <Row className={selectedMovie ? 'justify-content-center' : ''}>
-        {!user ? (
-          <>
-            <Col md={4}>
-              <LoginView onLoggedIn={(user) => setUser(user)} />
-            </Col>
-            <Col md={8}>
-              <SignupView />
-            </Col>
-          </>
-        ) : selectedMovie ? (
-          <>
-            <MovieView
-              movie={selectedMovie}
-              onBackClick={() => setSelectedMovie(null)}
+          <Routes>
+            <Route
+              path='/signup'
+              element={
+                <>
+                  {user ? (
+                    <Navigate to='/' />
+                  ) : (
+                    <Col md={10} xl={8}>
+                      <SignupView />
+                    </Col>
+                  )}
+                </>
+              }
             />
-            {(() => {
-              const similarMovies = movies.filter(
-                (movie) =>
-                  movie.genre.Name === selectedMovie.genre.Name &&
-                  movie.id !== selectedMovie.id
-              );
-              return (
-                similarMovies.length > 0 && (
-                  <>
-                    <Row>
-                      <Col>
-                        <h4>Similar Movies</h4>
-                      </Col>
-                    </Row>
-                    <Row>
-                      {similarMovies.map((movie) => (
-                        <Col
-                          className='mb-5'
-                          md={6}
-                          lg={4}
-                          xl={3}
-                          key={movie.id}
-                        >
-                          <MovieCard key={movie.id} movie={movie} />
+            <Route
+              path='/login'
+              element={
+                <>
+                  {user ? (
+                    <Navigate to='/' />
+                  ) : (
+                    <Col md={5}>
+                      <LoginView
+                        onLoggedIn={(user, token) => {
+                          setUser(user);
+                          setToken(token);
+                        }}
+                      />
+                    </Col>
+                  )}
+                </>
+              }
+            />
+            <Route
+              path='/profile'
+              element={
+                <>
+                  {!user ? (
+                    <Navigate to='/login' replace />
+                  ) : (
+                    <ProfileView
+                      user={user}
+                      movies={movies}
+                      favoriteMovies={favoriteMovies}
+                      onToggleFavorite={toggleFavorite}
+                      onLoggedOut={() => {
+                        setUser(null);
+                        localStorage.clear();
+                      }}
+                    />
+                  )}
+                </>
+              }
+            />
+            <Route
+              path='/'
+              element={
+                <>
+                  {!user ? (
+                    <Navigate to='/login' replace />
+                  ) : movies.length === 0 ? (
+                    <Col>The list is empty!</Col>
+                  ) : (
+                    <>
+                      {movies.map((movie) => (
+                        <Col className='mb-4' key={movie.id} md={6}>
+                          <MovieCard
+                            movie={movie}
+                            isFavorite={isMovieFavorite(movie.id)}
+                            onToggleFavorite={toggleFavorite}
+                          />
                         </Col>
                       ))}
-                    </Row>
-                  </>
-                )
-              );
-            })()}
-          </>
-        ) : movies.length === 0 ? (
-          <div>The list is empty!</div>
-        ) : (
-          <>
-            {movies.map((movie) => (
-              <Col className='mb-5' md={6} lg={4} xl={3} key={movie.id}>
-                <MovieCard
-                  movie={movie}
-                  onMovieClick={(newSelectedMovie) => {
-                    setSelectedMovie(newSelectedMovie);
-                  }}
-                />
-              </Col>
-            ))}
-          </>
-        )}
-      </Row>
+                    </>
+                  )}
+                </>
+              }
+            />
+            <Route
+              path='/movies/:movieId'
+              element={
+                <>
+                  {!user ? (
+                    <Navigate to='/login' replace />
+                  ) : movies.length === 0 ? (
+                    <Col>The list is empty!</Col>
+                  ) : (
+                    <MovieView
+                      movies={movies}
+                      isFavorite={isMovieFavorite(
+                        movies.find(
+                          (m) => m.id === location.pathname.split('/')[2]
+                        )?.id
+                      )}
+                      onToggleFavorite={toggleFavorite}
+                    />
+                  )}
+                </>
+              }
+            />
+          </Routes>
+        </Row>
+      </Container>
     </>
   );
-
-  // if (!user) {
-  //   return (
-  //     <div>
-  //       <header>
-  //         <div className='header__left'>
-  //           <h1>F L I C K T I O N A R Y</h1>
-  //           <h2>A dictionary for flicks</h2>
-  //         </div>
-  //       </header>
-  //       <div className='login_signup_container'>
-  //         <LoginView
-  //           onLoggedIn={(user, token) => {
-  //             setUser(user);
-  //             setToken(token);
-  //           }}
-  //         />
-  //         <SignupView />
-  //       </div>
-  //     </div>
-  //   );
-  // }
-
-  // if (selectedMovie) {
-  //   let similarMovies = movies.filter(
-  //     (movie) =>
-  //       movie.genre.Name === selectedMovie.genre.Name &&
-  //       movie.id !== selectedMovie.id
-  //   );
-  //   return (
-  //     <div>
-  //       <MovieView
-  //         movie={selectedMovie}
-  //         onBackClick={() => {
-  //           setSelectedMovie(null);
-  //         }}
-  //       />
-  //       {similarMovies.length > 0 && (
-  //         <div className='cards__list__wrapper'>
-  //           <h3>Similar Movies</h3>
-  //           <div className='cards__list'>
-  //             {similarMovies.map((movie) => (
-  //               <MovieCard key={movie.id} movie={movie} />
-  //             ))}
-  //           </div>
-  //         </div>
-  //       )}
-  //     </div>
-  //   );
-  // }
-
-  // if (movies.length === 0) {
-  //   return <div>No movies found</div>;
-  // }
-
-  // return (
-  //   <div className='flicktionary-app'>
-  //     <header>
-  //       <div className='header__left'>
-  //         <h1>F L I C K T I O N A R Y</h1>
-  //         <h2>A dictionary for flicks</h2>
-  //       </div>
-  //       <div className='header__right'>
-  //         <h6>Welcome, {user.Username}!</h6>
-  //         <button
-  //           className='main_button main_button--small'
-  //           onClick={() => {
-  //             setUser(null);
-  //             setToken(null);
-  //             localStorage.clear();
-  //           }}
-  //         >
-  //           Logout
-  //         </button>
-  //       </div>
-  //     </header>
-  //     <div className='cards__list'>
-  //       {movies.map((movie) => (
-  //         <MovieCard
-  //           key={movie.id}
-  //           movie={movie}
-  //           onMovieClick={setSelectedMovie}
-  //         />
-  //       ))}
-  //     </div>
-  //   </div>
-  // );
 };
 
 export default MainView;

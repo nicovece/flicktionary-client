@@ -1,79 +1,19 @@
-$primary: rebeccapurple;
+$primary: hsl(270, 50%, 40%);
 $secondary: hsl(270, 50%, 25%);
 $dark: hsl(270, 50%, 10%);
 $light: hsl(270, 50%, 85%);
+$info: hsl(270, 50%, 65%);
 $body-bg: hsl(270, 50%, 5%);
 $body-color: $light;
 $headings-color: $light;
 
 @import '~bootstrap/scss/bootstrap.scss';
 
-// Create your own map
-$custom-colors: (
-  'custom-color': #900,
-);
-
-// Merge the maps
-$theme-colors: map-merge($theme-colors, $custom-colors);
-
-.login_signup_container {
-  display: grid;
-  grid-template: 1fr / calc(35% - 1.5rem) calc(65% - 1.5rem);
-  max-width: 900px;
-  gap: 3rem;
-}
-.login_view,
-.signup_view {
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5em;
-    border-top: 1px solid hsl(270, 50%, 25%);
-    padding-top: 1.5em;
-    label {
-      margin-bottom: 1rem;
-      input {
-        display: block;
-        width: 100%;
-        margin-top: 0.5rem;
-        padding: 0.75rem;
-        border: 1px solid hsl(270, 50%, 25%);
-        // border-radius: 0.25rem;
-        background-color: hsl(270, 50%, 15%);
-        color: hsl(270, 50%, 75%);
-        font-size: 1em;
-        font-weight: normal;
-        &:focus {
-          outline: none;
-          border-color: hsl(270, 50%, 35%);
-        }
-      }
-    }
-    // button {
-    //   display: inline-block;
-    //   width: max-content;
-    //   padding: 0.75em 1.5em;
-    //   border: 1px solid hsl(270, 50%, 25%);
-    //   border-radius: 0.25rem;
-    //   background-color: hsl(270, 50%, 40%);
-    //   color: hsl(270, 50%, 75%);
-    //   font-size: 1em;
-    //   font-weight: normal;
-    //   cursor: pointer;
-    //   &:hover {
-    //     background-color: hsl(270, 50%, 35%);
-    //   }
-    // }
-  }
-}
-
-.signup_view {
-  form {
-    flex-direction: row;
-    flex-wrap: wrap;
-    label {
-      width: calc(50% - 0.75em);
-    }
+.nav-link {
+  color: $info;
+  border-bottom: 2px solid transparent;
+  &.current {
+    border-bottom: 2px solid currentColor;
   }
 }
 
@@ -100,14 +40,20 @@ button.main_button {
 }
 
 .card {
-  cursor: pointer;
   transition: all 0.25s ease-in-out;
   .card-body {
     text-align: center;
   }
+  a {
+    color: $light;
+    text-decoration: none;
+  }
+  .card__image {
+    width: 100%;
+  }
   @media (hover: hover) {
-    &:hover {
-      background-color: hsl(270, 50%, 15%);
+    &.card--movie:hover {
+      background-color: hsl(270, 50%, 10%);
       transform: scale(1.05);
     }
   }
@@ -115,23 +61,61 @@ button.main_button {
     .card-body {
       text-align: left;
     }
+    .card__image {
+      width: 25%;
+    }
   }
 }
-.movie__view {
+// movie view
+.card--movieview {
   &:only-child {
     padding-bottom: 4em;
   }
-}
-.movie__view__image {
-  max-width: 500px;
-  margin: 0 auto;
+
+  .card--movieview__image {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .card--movieview__header {
+    background-color: transparent;
+    // background-color: hsl(270, 50%, 15%);
+  }
 }
 
-.movie__view__header {
-  width: 100%;
-  max-width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 1rem;
-  // background-color: hsl(270, 50%, 15%);
+// favorites
+.favorite__button {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  transform: scale(1.5);
+  color: $primary;
+  @media (hover: hover) {
+    &:hover {
+      color: hsl(270, 50%, 75%);
+    }
+  }
+  @media (min-width: 1400px) {
+    transform: scale(2);
+  }
+}
+.card--movieview .favorite__button {
+  position: relative;
+  top: unset;
+  right: unset;
+}
+.favorite__tooltip {
+  .tooltip-inner {
+    width: fit-content;
+    max-width: unset;
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    color: white;
+    background-color: $primary;
+  }
+  .tooltip-arrow {
+    &::before {
+      border-top-color: $primary;
+    }
+  }
 }

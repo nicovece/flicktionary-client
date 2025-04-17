@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
-
+import { Link } from 'react-router-dom';
 export const LoginView = ({ onLoggedIn }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -40,57 +40,40 @@ export const LoginView = ({ onLoggedIn }) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Form.Group controlId='formUsername'>
-        <Form.Label>Username:</Form.Label>
+      <div className='d-flex justify-content-between align-items-center border-bottom border-secondary mb-4 pb-3'>
+        <h4 className='mb-0'>Login</h4>
+        <span>
+          <i className='me-4'>or</i>
+          <Link to='/signup'>
+            <Button variant='outline-primary'>Signup</Button>
+          </Link>
+        </span>
+      </div>
+      <Form.Group controlId='formUsername' className='mb-4'>
+        <Form.Label className='text-info'>Username:</Form.Label>
         <Form.Control
           type='text'
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
           minLength='3'
+          className='border-primary'
         />
       </Form.Group>
 
-      <Form.Group controlId='formPassword'>
-        <Form.Label>Password:</Form.Label>
+      <Form.Group controlId='formPassword' className='mb-4'>
+        <Form.Label className='text-info'>Password:</Form.Label>
         <Form.Control
           type='password'
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          className='border-primary'
         />
       </Form.Group>
-      <Button variant='primary' type='submit'>
+      <Button variant='primary' type='submit' className='btn-lg'>
         Submit
       </Button>
     </Form>
-    // <div className='login_view'>
-    //   <h2>Login</h2>
-    //   <form onSubmit={handleSubmit}>
-    //     <label>
-    //       Username:
-    //       <input
-    //         type='text'
-    //         value={username}
-    //         onChange={(e) => setUsername(e.target.value)}
-    //         required
-    //         placeholder='Username'
-    //       />
-    //     </label>
-    //     <label>
-    //       Password:
-    //       <input
-    //         type='password'
-    //         value={password}
-    //         onChange={(e) => setPassword(e.target.value)}
-    //         required
-    //         placeholder='Password'
-    //       />
-    //     </label>
-    //     <button className='main_button' type='submit'>
-    //       Submit
-    //     </button>
-    //   </form>
-    // </div>
   );
 };
