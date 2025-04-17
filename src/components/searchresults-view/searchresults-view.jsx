@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { MovieCard } from '../moovie-card/movie-card';
@@ -22,20 +22,14 @@ export const SearchResultsView = ({
   const [error, setError] = useState(null);
   const location = useLocation();
 
-  useEffect(() => {
-    // Get search parameters from URL
-    const params = new URLSearchParams(location.search);
-    const searchQuery = {
-      q: params.get('q') || '',
-      title: params.get('title') || '',
-      genre: params.get('genre') || '',
-      director: params.get('director') || '',
-      actor: params.get('actor') || '',
-      featured: params.get('featured') || '',
+  // Debounce function to limit API calls
+  const debounce = (func, wait) => {
+    let timeout;
+    return (...args) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func(...args), wait);
     };
-    setSearchParams(searchQuery);
-    performSearch(searchQuery);
-  }, [location]);
+  };
 
   const performSearch = async (params) => {
     try {
@@ -81,6 +75,32 @@ export const SearchResultsView = ({
     }
   };
 
+  // Create a debounced version of performSearch
+  const debouncedSearch = useCallback(
+    debounce((params) => performSearch(params), 500),
+    [token]
+  );
+
+  useEffect(() => {
+    // Get search parameters from URL
+    const params = new URLSearchParams(location.search);
+    const searchQuery = {
+      q: params.get('q') || '',
+      title: params.get('title') || '',
+      genre: params.get('genre') || '',
+      director: params.get('director') || '',
+      actor: params.get('actor') || '',
+      featured: params.get('featured') || '',
+    };
+    setSearchParams(searchQuery);
+    performSearch(searchQuery);
+  }, [location]);
+
+  // Effect to trigger search when searchParams change
+  useEffect(() => {
+    debouncedSearch(searchParams);
+  }, [searchParams, debouncedSearch]);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setSearchParams((prev) => ({
@@ -91,7 +111,7 @@ export const SearchResultsView = ({
 
   const handleSearch = (e) => {
     e.preventDefault();
-    performSearch(searchParams);
+    performSearch(searchParams); // Immediate search on form submit
   };
 
   return (
