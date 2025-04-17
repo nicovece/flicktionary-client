@@ -1,3 +1,50 @@
+.search .alert-danger {
+  color: #cd5c5c;
+  background-color: #0000;
+  border-color: #cd5c5c;
+}
+
+.search .alert-danger h4 {
+  color: #cd5c5c;
+}
+
+.search .nav-tabs {
+  border-bottom-color: #402060;
+}
+
+.search .nav-tabs .nav-item {
+  flex-grow: 1;
+}
+
+.search .nav-tabs .nav-item:first-child {
+  background-color: #1a0d26;
+  flex-grow: 2;
+}
+
+.search .nav-tabs .nav-item:nth-child(2) .nav-link {
+  text-align: right;
+  padding-right: .5em;
+}
+
+.search .nav-tabs .nav-item .nav-link {
+  background-color: #0000;
+  border-width: 0 0 4px;
+  border-radius: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  position: relative;
+}
+
+.search .nav-tabs .nav-item .nav-link:hover, .search .nav-tabs .nav-item .nav-link:focus {
+  color: #a679d2;
+  border-color: #a679d2;
+}
+
+.search .nav-tabs .nav-item .nav-link.active, .search .nav-tabs .nav-item.nav-item.show .nav-link {
+  color: #d9c6ec;
+  border-color: #d9c6ec;
+}
+
 :root, [data-bs-theme="light"] {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;

@@ -206,7 +206,7 @@ const MainView = () => {
         <Row
           className={
             location.pathname !== '/'
-              ? 'justify-content-center'
+              ? 'justify-content-center ' + location.pathname.slice(1)
               : 'justify-content-start'
           }
         >
@@ -318,14 +318,12 @@ const MainView = () => {
                   {!user ? (
                     <Navigate to='/login' />
                   ) : (
-                    <Col md={10} xl={8}>
-                      <SearchResultsView
-                        user={user}
-                        token={token}
-                        onToggleFavorite={toggleFavorite}
-                        isMovieFavorite={isMovieFavorite}
-                      />
-                    </Col>
+                    <SearchResultsView
+                      user={user}
+                      token={token}
+                      onToggleFavorite={toggleFavorite}
+                      isMovieFavorite={isMovieFavorite}
+                    />
                   )}
                 </>
               }

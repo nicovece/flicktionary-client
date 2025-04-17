@@ -1,14 +1,5 @@
-$primary: hsl(270, 50%, 40%);
-$secondary: hsl(270, 50%, 25%);
-$dark: hsl(270, 50%, 10%);
-$light: hsl(270, 50%, 85%);
-$info: hsl(270, 50%, 65%);
-$body-bg: hsl(270, 50%, 5%);
-$body-color: $light;
-$headings-color: $light;
-
+@import './variables';
 @import '~bootstrap/scss/bootstrap.scss';
-
 .nav-link {
   color: $info;
   border-bottom: 2px solid transparent;

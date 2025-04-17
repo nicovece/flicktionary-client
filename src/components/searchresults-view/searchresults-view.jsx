@@ -7,10 +7,12 @@ import {
   Form,
   Button,
   ButtonGroup,
+  Tab,
+  Tabs,
 } from 'react-bootstrap';
 import { MovieCard } from '../moovie-card/movie-card';
 import PropTypes from 'prop-types';
-
+import './searchresults-view.scss';
 export const SearchResultsView = ({
   user,
   token,
@@ -133,118 +135,158 @@ export const SearchResultsView = ({
     setSearchParams(emptyParams);
     performSearch(emptyParams);
   };
-
+  const [key, setKey] = useState('global');
   return (
-    <Container>
-      <h2 className='text-light mb-4'>Search Movies</h2>
-
-      <Form onSubmit={handleSearch} className='mb-4'>
-        <Row>
-          <Col md={4}>
-            <Form.Group className='mb-3'>
-              <Form.Label className='text-light'>General Search</Form.Label>
-              <Form.Control
-                type='text'
-                name='q'
-                value={searchParams.q}
-                onChange={handleInputChange}
-                placeholder='Search across all fields...'
-              />
-            </Form.Group>
-          </Col>
-          <Col md={4}>
-            <Form.Group className='mb-3'>
-              <Form.Label className='text-light'>Title</Form.Label>
-              <Form.Control
-                type='text'
-                name='title'
-                value={searchParams.title}
-                onChange={handleInputChange}
-                placeholder='Search by title...'
-              />
-            </Form.Group>
-          </Col>
-          <Col md={4}>
-            <Form.Group className='mb-3'>
-              <Form.Label className='text-light'>Genre</Form.Label>
-              <Form.Control
-                type='text'
-                name='genre'
-                value={searchParams.genre}
-                onChange={handleInputChange}
-                placeholder='Search by genre...'
-              />
-            </Form.Group>
-          </Col>
-        </Row>
-        <Row>
-          <Col md={4}>
-            <Form.Group className='mb-3'>
-              <Form.Label className='text-light'>Director</Form.Label>
-              <Form.Control
-                type='text'
-                name='director'
-                value={searchParams.director}
-                onChange={handleInputChange}
-                placeholder='Search by director...'
-              />
-            </Form.Group>
-          </Col>
-          <Col md={4}>
-            <Form.Group className='mb-3'>
-              <Form.Label className='text-light'>Actor</Form.Label>
-              <Form.Control
-                type='text'
-                name='actor'
-                value={searchParams.actor}
-                onChange={handleInputChange}
-                placeholder='Search by actor...'
-              />
-            </Form.Group>
-          </Col>
-          <Col md={4}>
-            <Form.Group className='mb-3'>
-              <Form.Label className='text-light'>Featured</Form.Label>
-              <Form.Select
-                name='featured'
-                value={searchParams.featured}
-                onChange={handleInputChange}
-              >
-                <option value=''>All Movies</option>
-                <option value='true'>Featured Only</option>
-                <option value='false'>Non-Featured Only</option>
-              </Form.Select>
-            </Form.Group>
-          </Col>
-        </Row>
-        <ButtonGroup>
-          <Button variant='primary' type='submit'>
-            Search
-          </Button>
-          <Button variant='outline-secondary' onClick={handleReset}>
-            Reset Filters
-          </Button>
-        </ButtonGroup>
-      </Form>
-
-      {error && (
-        <div className='alert alert-danger' role='alert'>
-          {error}
-        </div>
-      )}
-
-      <Row>
-        {movies.map((movie) => (
-          <Col key={movie.id} xs={12} sm={6} md={4} lg={3} className='mb-4'>
-            <MovieCard
-              movie={movie}
-              isFavorite={isMovieFavorite(movie.id)}
-              onToggleFavorite={onToggleFavorite}
-            />
-          </Col>
-        ))}
+    <Col>
+      <Row className='justify-content-center'>
+        <Col xs={12} md={10} lg={6} className='my-3 pb-4 '>
+          <h3 className='mb-0'>Search Movies</h3>
+        </Col>
       </Row>
-    </Container>
+      <Row className='mb-5 pb-5 justify-content-center'>
+        <Col xs={12} md={10} lg={6} className='mb-5'>
+          <Form onSubmit={handleSearch} className='mb-4'>
+            <Row>
+              <Col>
+                <Tabs
+                  id='controlled-tab-example'
+                  activeKey={key}
+                  onSelect={(k) => setKey(k)}
+                  className='mb-3'
+                  justify
+                >
+                  <Tab eventKey='global' title='Global search'>
+                    <Form.Group className='mb-3 py-4'>
+                      <Form.Label className='text-info visually-hidden'>
+                        Global Search
+                      </Form.Label>
+                      <Form.Control
+                        type='text'
+                        name='q'
+                        value={searchParams.q}
+                        onChange={handleInputChange}
+                        placeholder='Search across all fields...'
+                        className='border-primary'
+                        size='lg'
+                      />
+                    </Form.Group>
+                  </Tab>
+                  <Tab eventKey='contact' title='or by:' disabled>
+                    Tab content for Contact
+                  </Tab>
+                  <Tab eventKey='title' title='Title'>
+                    <Form.Group className='mb-3 py-4'>
+                      <Form.Label className='text-info visually-hidden'>
+                        Title
+                      </Form.Label>
+                      <Form.Control
+                        type='text'
+                        name='title'
+                        value={searchParams.title}
+                        onChange={handleInputChange}
+                        placeholder='Search by title...'
+                        className='border-primary'
+                        size='lg'
+                      />
+                    </Form.Group>
+                  </Tab>
+                  <Tab eventKey='genre' title='Genre'>
+                    <Form.Group className='mb-3 py-4'>
+                      <Form.Label className='text-info visually-hidden'>
+                        Genre
+                      </Form.Label>
+                      <Form.Control
+                        type='text'
+                        name='genre'
+                        value={searchParams.genre}
+                        onChange={handleInputChange}
+                        placeholder='Search by genre...'
+                        className='border-primary'
+                        size='lg'
+                      />
+                    </Form.Group>
+                  </Tab>
+                  <Tab eventKey='director' title='Director'>
+                    <Form.Group className='mb-3 py-4'>
+                      <Form.Label className='text-info visually-hidden'>
+                        Director
+                      </Form.Label>
+                      <Form.Control
+                        type='text'
+                        name='director'
+                        value={searchParams.director}
+                        onChange={handleInputChange}
+                        placeholder='Search by director...'
+                        className='border-primary'
+                        size='lg'
+                      />
+                    </Form.Group>
+                  </Tab>
+                  <Tab eventKey='actor' title='Actor'>
+                    <Form.Group className='mb-3 py-4'>
+                      <Form.Label className='text-info visually-hidden'>
+                        Actor
+                      </Form.Label>
+                      <Form.Control
+                        type='text'
+                        name='actor'
+                        value={searchParams.actor}
+                        onChange={handleInputChange}
+                        placeholder='Search by actor...'
+                        className='border-primary'
+                        size='lg'
+                      />
+                    </Form.Group>
+                  </Tab>
+                </Tabs>
+              </Col>
+            </Row>
+            <Row className='mb-5 pb-5 justify-content-center'>
+              <Col md={6}>
+                <ButtonGroup className='d-flex justify-content-center w-100'>
+                  <Button
+                    variant='primary'
+                    type='submit'
+                    size='lg'
+                    className='w-75'
+                  >
+                    Search
+                  </Button>
+                  <Button
+                    variant='outline-primary'
+                    onClick={handleReset}
+                    size='lg'
+                    className='flex-shrink-1'
+                  >
+                    Reset
+                  </Button>
+                </ButtonGroup>
+              </Col>
+            </Row>
+          </Form>
+        </Col>
+        {error && (
+          <Col xs={12}>
+            <div className='alert alert-danger' role='alert'>
+              <h4>{error}</h4>
+            </div>
+          </Col>
+        )}
+        <Col xs={12}>
+          <Row>
+            {movies.map((movie) => (
+              <Col key={movie.id} xs={12} md={6} className='mb-4'>
+                <MovieCard
+                  movie={movie}
+                  isFavorite={isMovieFavorite(movie.id)}
+                  onToggleFavorite={onToggleFavorite}
+                />
+              </Col>
+            ))}
+          </Row>
+        </Col>
+      </Row>
+    </Col>
   );
 };
 

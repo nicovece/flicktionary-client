@@ -48,6 +48,13 @@ export const NavigationBar = ({ user, onLoggedOut, pathname }) => {
                   </Nav.Link>
                   <Nav.Link
                     as={Link}
+                    to='/search'
+                    className={pathname === '/search' ? 'current' : ''}
+                  >
+                    Search
+                  </Nav.Link>
+                  <Nav.Link
+                    as={Link}
                     to='/profile'
                     className={pathname === '/profile' ? 'current' : ''}
                   >
