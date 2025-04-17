@@ -5,6 +5,7 @@ import { LoginView } from '../login-view/login-view';
 import { SignupView } from '../signup-view/signup-view';
 import { NavigationBar } from '../navigation-bar/navigation-bar';
 import { ProfileView } from '../profile-view/profile-view';
+import { SearchResultsView } from '../searchresults-view/searchresults-view';
 import { Row, Col, Navbar, Container } from 'react-bootstrap';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 
@@ -306,6 +307,25 @@ const MainView = () => {
                       )}
                       onToggleFavorite={toggleFavorite}
                     />
+                  )}
+                </>
+              }
+            />
+            <Route
+              path='/search'
+              element={
+                <>
+                  {!user ? (
+                    <Navigate to='/login' />
+                  ) : (
+                    <Col md={10} xl={8}>
+                      <SearchResultsView
+                        user={user}
+                        token={token}
+                        onToggleFavorite={toggleFavorite}
+                        isMovieFavorite={isMovieFavorite}
+                      />
+                    </Col>
                   )}
                 </>
               }
