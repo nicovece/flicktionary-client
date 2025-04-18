@@ -14,6 +14,7 @@ import {
 import { MovieCard } from '../moovie-card/movie-card';
 import PropTypes from 'prop-types';
 import './searchresults-view.scss';
+
 export const SearchResultsView = ({
   user,
   token,
@@ -30,7 +31,58 @@ export const SearchResultsView = ({
     featured: '',
   });
   const [error, setError] = useState(null);
+  const [options, setOptions] = useState({
+    genres: [],
+    directors: [],
+    actors: [],
+  });
   const location = useLocation();
+
+  // Fetch options for dropdowns
+  useEffect(() => {
+    const fetchOptions = async () => {
+      try {
+        const response = await fetch(
+          'https://flicktionary.onrender.com/movies',
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch options');
+        }
+
+        const data = await response.json();
+
+        // Extract unique values for each category
+        const genres = [
+          ...new Set(data.map((movie) => movie.Genre.Name)),
+        ].sort();
+        const directors = [
+          ...new Set(data.map((movie) => movie.Director.Name)),
+        ].sort();
+        const actors = [
+          ...new Set(data.flatMap((movie) => movie.Actors)),
+        ].sort();
+
+        setOptions({
+          genres,
+          directors,
+          actors,
+        });
+      } catch (err) {
+        console.error('Error fetching options:', err);
+        setError('Failed to load filter options');
+      }
+    };
+
+    if (token) {
+      fetchOptions();
+    }
+  }, [token]);
 
   // Debounce function to limit API calls
   const debounce = (func, wait) => {
@@ -139,234 +191,118 @@ export const SearchResultsView = ({
   const [key, setKey] = useState('global');
   return (
     <Col>
-      <Row className='justify-content-center'>
-        <Col xs={12} md={10} lg={6} className='my-3 pb-4 '>
-          <h3 className='mb-0'>Search Movies</h3>
-        </Col>
-      </Row>
       <Row className='mb-5 pb-5 justify-content-center '>
-        <Col xs={12} md={10} lg={6} className='mb-5'>
+        <Col>
           <Form onSubmit={handleSearch} className='mb-4'>
-            <Row className='d-none d-md-flex'>
-              <Col>
-                <Tabs
-                  id='controlled-tab-example'
-                  activeKey={key}
-                  onSelect={(k) => setKey(k)}
-                  className='mb-3'
-                  justify
+            <Row className='justify-content-center my-md-3 g-4'>
+              <Col xs={12} md={10} lg={6} className='mb-0'>
+                <Form.Group className='mb-3- py-4-'>
+                  <Form.Label className='text-info visually-hidden'>
+                    Global Search
+                  </Form.Label>
+                  <Form.Control
+                    type='text'
+                    name='q'
+                    value={searchParams.q}
+                    onChange={handleInputChange}
+                    placeholder='Search movies...'
+                    className='border-primary'
+                    size='lg'
+                  />
+                </Form.Group>
+              </Col>
+              <Col xs={12} md={2} lg={2} className='mb-5'>
+                <Button
+                  variant='primary'
+                  type='submit'
+                  size='lg'
+                  className='w-100'
                 >
-                  <Tab eventKey='global' title='Global search'>
-                    <Form.Group className='mb-3 py-4'>
-                      <Form.Label className='text-info visually-hidden'>
-                        Global Search
-                      </Form.Label>
-                      <Form.Control
-                        type='text'
-                        name='q'
-                        value={searchParams.q}
-                        onChange={handleInputChange}
-                        placeholder='Search across all fields...'
-                        className='border-primary'
-                        size='lg'
-                      />
-                    </Form.Group>
-                  </Tab>
-                  <Tab eventKey='contact' title='or by:' disabled>
-                    Tab content for Contact
-                  </Tab>
-                  <Tab eventKey='title' title='Title'>
-                    <Form.Group className='mb-3 py-4'>
-                      <Form.Label className='text-info visually-hidden'>
-                        Title
-                      </Form.Label>
-                      <Form.Control
-                        type='text'
-                        name='title'
-                        value={searchParams.title}
-                        onChange={handleInputChange}
-                        placeholder='Search by title...'
-                        className='border-primary'
-                        size='lg'
-                      />
-                    </Form.Group>
-                  </Tab>
-                  <Tab eventKey='genre' title='Genre'>
-                    <Form.Group className='mb-3 py-4'>
-                      <Form.Label className='text-info visually-hidden'>
-                        Genre
-                      </Form.Label>
-                      <Form.Control
-                        type='text'
-                        name='genre'
-                        value={searchParams.genre}
-                        onChange={handleInputChange}
-                        placeholder='Search by genre...'
-                        className='border-primary'
-                        size='lg'
-                      />
-                    </Form.Group>
-                  </Tab>
-                  <Tab eventKey='director' title='Director'>
-                    <Form.Group className='mb-3 py-4'>
-                      <Form.Label className='text-info visually-hidden'>
-                        Director
-                      </Form.Label>
-                      <Form.Control
-                        type='text'
-                        name='director'
-                        value={searchParams.director}
-                        onChange={handleInputChange}
-                        placeholder='Search by director...'
-                        className='border-primary'
-                        size='lg'
-                      />
-                    </Form.Group>
-                  </Tab>
-                  <Tab eventKey='actor' title='Actor'>
-                    <Form.Group className='mb-3 py-4'>
-                      <Form.Label className='text-info visually-hidden'>
-                        Actor
-                      </Form.Label>
-                      <Form.Control
-                        type='text'
-                        name='actor'
-                        value={searchParams.actor}
-                        onChange={handleInputChange}
-                        placeholder='Search by actor...'
-                        className='border-primary'
-                        size='lg'
-                      />
-                    </Form.Group>
-                  </Tab>
-                </Tabs>
+                  Search
+                </Button>
               </Col>
             </Row>
-            <Row className='d-md-none'>
-              <Col>
-                <Accordion
-                  defaultActiveKey='global_search'
-                  // activeKey='global_search'
-                  flush
-                >
-                  <Accordion.Item eventKey='global_search'>
-                    <Accordion.Header>Global Search</Accordion.Header>
-                    <Accordion.Body>
-                      <Form.Group className='mb-3 py-4'>
-                        <Form.Label className='text-info visually-hidden'>
-                          Global Search
-                        </Form.Label>
-                        <Form.Control
-                          type='text'
-                          name='q'
-                          value={searchParams.q}
-                          onChange={handleInputChange}
-                          placeholder='Search across all fields...'
-                          className='border-primary'
-                          size='lg'
-                        />
-                      </Form.Group>
-                    </Accordion.Body>
-                  </Accordion.Item>
-                  <Accordion.Item eventKey='search_by_title'>
-                    <Accordion.Header>Search by Title</Accordion.Header>
-                    <Accordion.Body>
-                      <Form.Group className='mb-3 py-4'>
-                        <Form.Label className='text-info visually-hidden'>
-                          Title
-                        </Form.Label>
-                        <Form.Control
-                          type='text'
-                          name='title'
-                          value={searchParams.title}
-                          onChange={handleInputChange}
-                          placeholder='Search by title...'
-                          className='border-primary'
-                          size='lg'
-                        />
-                      </Form.Group>
-                    </Accordion.Body>
-                  </Accordion.Item>
-                  <Accordion.Item eventKey='search_by_genre'>
-                    <Accordion.Header>Search by Genre</Accordion.Header>
-                    <Accordion.Body>
-                      <Form.Group className='mb-3 py-4'>
-                        <Form.Label className='text-info visually-hidden'>
-                          Genre
-                        </Form.Label>
-                        <Form.Control
-                          type='text'
-                          name='genre'
-                          value={searchParams.genre}
-                          onChange={handleInputChange}
-                          placeholder='Search by genre...'
-                          className='border-primary'
-                          size='lg'
-                        />
-                      </Form.Group>
-                    </Accordion.Body>
-                  </Accordion.Item>
-                  <Accordion.Item eventKey='search_by_director'>
-                    <Accordion.Header>Search by Director</Accordion.Header>
-                    <Accordion.Body>
-                      <Form.Group className='mb-3 py-4'>
-                        <Form.Label className='text-info visually-hidden'>
-                          Director
-                        </Form.Label>
-                        <Form.Control
-                          type='text'
-                          name='director'
-                          value={searchParams.director}
-                          onChange={handleInputChange}
-                          placeholder='Search by director...'
-                          className='border-primary'
-                          size='lg'
-                        />
-                      </Form.Group>
-                    </Accordion.Body>
-                  </Accordion.Item>
-                  <Accordion.Item eventKey='search_by_actor'>
-                    <Accordion.Header>Search by Actor</Accordion.Header>
-                    <Accordion.Body>
-                      <Form.Group className='mb-3 py-4'>
-                        <Form.Label className='text-info visually-hidden'>
-                          Actor
-                        </Form.Label>
-                        <Form.Control
-                          type='text'
-                          name='actor'
-                          value={searchParams.actor}
-                          onChange={handleInputChange}
-                          placeholder='Search by actor...'
-                          className='border-primary'
-                          size='lg'
-                        />
-                      </Form.Group>
-                    </Accordion.Body>
-                  </Accordion.Item>
-                </Accordion>
+            <Row className='mb-5 pb-5 g-4 justify-content-center align-items-end'>
+              <Col xs={12} md={3}>
+                {/* <Form.Group className='mb-3 py-4'>
+                  <Form.Label className='text-info'>Title</Form.Label>
+                  <Form.Control
+                    type='text'
+                    name='title'
+                    value={searchParams.title}
+                    onChange={handleInputChange}
+                    placeholder='Search by title...'
+                    className='border-primary'
+                    size='lg'
+                  />
+                </Form.Group> */}
+                <Form.Group>
+                  <Form.Label className='text-info'>Filter by Genre</Form.Label>
+                  <Form.Select
+                    name='genre'
+                    value={searchParams.genre}
+                    onChange={handleInputChange}
+                    className='border-primary'
+                    size='lg'
+                  >
+                    <option value=''>All Genres</option>
+                    {options.genres.map((genre) => (
+                      <option key={genre} value={genre}>
+                        {genre}
+                      </option>
+                    ))}
+                  </Form.Select>
+                </Form.Group>
               </Col>
-            </Row>
-            <Row className='mb-5 pb-5 justify-content-center'>
-              <Col md={6}>
-                <ButtonGroup className='d-flex justify-content-center w-100'>
-                  <Button
-                    variant='primary'
-                    type='submit'
+              <Col xs={12} md={3}>
+                <Form.Group>
+                  <Form.Label className='text-info'>
+                    Filter by Director
+                  </Form.Label>
+                  <Form.Select
+                    name='director'
+                    value={searchParams.director}
+                    onChange={handleInputChange}
+                    className='border-primary'
                     size='lg'
-                    className='w-75'
                   >
-                    Search
-                  </Button>
-                  <Button
-                    variant='outline-primary'
-                    onClick={handleReset}
+                    <option value=''>All Directors</option>
+                    {options.directors.map((director) => (
+                      <option key={director} value={director}>
+                        {director}
+                      </option>
+                    ))}
+                  </Form.Select>
+                </Form.Group>
+              </Col>
+              <Col xs={12} md={3}>
+                <Form.Group>
+                  <Form.Label className='text-info'>Filter by Actor</Form.Label>
+                  <Form.Select
+                    name='actor'
+                    value={searchParams.actor}
+                    onChange={handleInputChange}
+                    className='border-primary'
                     size='lg'
-                    className='flex-shrink-1'
                   >
-                    Reset
-                  </Button>
-                </ButtonGroup>
+                    <option value=''>All Actors</option>
+                    {options.actors.map((actor) => (
+                      <option key={actor} value={actor}>
+                        {actor}
+                      </option>
+                    ))}
+                  </Form.Select>
+                </Form.Group>
+              </Col>
+              <Col xs={12} md={1}>
+                <Button
+                  variant='outline-primary'
+                  onClick={handleReset}
+                  size='lg'
+                  className='flex-shrink-1'
+                >
+                  Reset
+                </Button>
               </Col>
             </Row>
           </Form>
