@@ -10,13 +10,21 @@ export const Footer = ({ user, onLoggedOut, pathname }) => {
           <Col>
             <Container>
               <Row>
-                <Col className='d-flex gap-3'>
-                  <h6 className='text-primary'>{new Date().getFullYear()}</h6>
-                  <h6 className='text-primary'>F L I C K T I O N A R Y</h6>
-                  <h6 className='text-primary'>A dictionary for flicks</h6>
+                <Col
+                  xs={12}
+                  md={6}
+                  className='d-flex gap-3 mb-4 mb-md-0 flex-column flex-md-row'
+                >
+                  <h6 className='text-info'>{new Date().getFullYear()}</h6>
+                  <h6 className='text-info'>F L I C K T I O N A R Y</h6>
+                  <h6 className='text-info'>A dictionary for flicks</h6>
                 </Col>
-                <Col>
-                  <Nav className='gap-3  justify-content-end'>
+                <Col
+                  xs={12}
+                  md={6}
+                  className='d-flex gap-3 flex-column flex-md-row justify-content-end'
+                >
+                  <Nav className='gap-3 justify-content-end flex-column flex-md-row'>
                     {!user && (
                       <>
                         <Link

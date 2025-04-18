@@ -213,8 +213,11 @@ export const SearchResultsView = ({
         <Row className='mb-5 pb-5 g-4 justify-content-center align-items-end'>
           <Col xs={12} md={3}>
             <Form.Group>
-              <Form.Label className='text-info'>Filter by Genre</Form.Label>
+              <Form.Label htmlFor='genre' className='text-info'>
+                Filter by Genre
+              </Form.Label>
               <Form.Select
+                id='genre'
                 name='genre'
                 value={searchParams.genre}
                 onChange={handleInputChange}
@@ -232,8 +235,11 @@ export const SearchResultsView = ({
           </Col>
           <Col xs={12} md={3}>
             <Form.Group>
-              <Form.Label className='text-info'>Filter by Director</Form.Label>
+              <Form.Label htmlFor='director' className='text-info'>
+                Filter by Director
+              </Form.Label>
               <Form.Select
+                id='director'
                 name='director'
                 value={searchParams.director}
                 onChange={handleInputChange}
@@ -251,8 +257,11 @@ export const SearchResultsView = ({
           </Col>
           <Col xs={12} md={3}>
             <Form.Group>
-              <Form.Label className='text-info'>Filter by Actor</Form.Label>
+              <Form.Label htmlFor='actor' className='text-info'>
+                Filter by Actor
+              </Form.Label>
               <Form.Select
+                id='actor'
                 name='actor'
                 value={searchParams.actor}
                 onChange={handleInputChange}
@@ -270,7 +279,7 @@ export const SearchResultsView = ({
           </Col>
           <Col xs={12} md={1}>
             <Button
-              variant='outline-primary'
+              variant='secondary'
               onClick={handleReset}
               size='lg'
               className='flex-shrink-1'

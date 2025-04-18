@@ -46,8 +46,9 @@
 }
 
 footer .nav a {
-  color: #639;
+  color: #a679d2;
   border-bottom: 2px solid #0000;
+  width: max-content;
   text-decoration: none;
   display: inline-block;
 }
@@ -13274,7 +13275,7 @@ textarea.form-control-lg {
 }
 
 .nav-link {
-  color: #a679d2;
+  color: #d9c6ec;
   border-bottom: 2px solid #0000;
 }
 

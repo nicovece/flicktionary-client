@@ -4,8 +4,9 @@ footer {
   .nav {
     a {
       display: inline-block;
+      width: max-content;
       text-decoration: none;
-      color: $primary;
+      color: $info;
       border-bottom: 2px solid transparent;
       &:hover {
         color: $info;
