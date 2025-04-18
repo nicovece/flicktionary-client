@@ -44,13 +44,13 @@ export const Footer = ({ user, onLoggedOut, pathname }) => {
                         >
                           Home
                         </Link>
-                        <Link
+                        {/* <Link
                           as={Link}
                           to='/search'
                           className={pathname === '/search' ? 'current' : ''}
                         >
                           Search
-                        </Link>
+                        </Link> */}
                         <Link
                           as={Link}
                           to='/profile'

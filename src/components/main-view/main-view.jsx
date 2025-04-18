@@ -271,24 +271,38 @@ const MainView = () => {
               element={
                 <>
                   {!user ? (
-                    <Navigate to='/login' replace />
-                  ) : movies.length === 0 ? (
-                    <Col>The list is empty!</Col>
+                    <Navigate to='/login' />
                   ) : (
-                    <>
-                      {movies.map((movie) => (
-                        <Col className='mb-4' key={movie.id} md={6}>
-                          <MovieCard
-                            movie={movie}
-                            isFavorite={isMovieFavorite(movie.id)}
-                            onToggleFavorite={toggleFavorite}
-                          />
-                        </Col>
-                      ))}
-                    </>
+                    <SearchResultsView
+                      user={user}
+                      token={token}
+                      onToggleFavorite={toggleFavorite}
+                      isMovieFavorite={isMovieFavorite}
+                    />
                   )}
                 </>
               }
+              // element={
+              //   <>
+              //     {!user ? (
+              //       <Navigate to='/login' replace />
+              //     ) : movies.length === 0 ? (
+              //       <Col>The list is empty!</Col>
+              //     ) : (
+              //       <>
+              //         {movies.map((movie) => (
+              //           <Col className='mb-4' key={movie.id} md={6}>
+              //             <MovieCard
+              //               movie={movie}
+              //               isFavorite={isMovieFavorite(movie.id)}
+              //               onToggleFavorite={toggleFavorite}
+              //             />
+              //           </Col>
+              //         ))}
+              //       </>
+              //     )}
+              //   </>
+              // }
             />
             <Route
               path='/movies/:movieId'
@@ -312,7 +326,7 @@ const MainView = () => {
                 </>
               }
             />
-            <Route
+            {/* <Route
               path='/search'
               element={
                 <>
@@ -328,7 +342,7 @@ const MainView = () => {
                   )}
                 </>
               }
-            />
+            /> */}
           </Routes>
         </Row>
       </Container>
