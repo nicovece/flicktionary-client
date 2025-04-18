@@ -1,0 +1,19 @@
+@import '../../variables';
+
+footer {
+  .nav {
+    a {
+      display: inline-block;
+      text-decoration: none;
+      color: $primary;
+      border-bottom: 2px solid transparent;
+      &:hover {
+        color: $info;
+        border-bottom-color: currentColor;
+      }
+      &.current {
+        border-bottom-color: currentColor;
+      }
+    }
+  }
+}

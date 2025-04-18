@@ -1,16 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
-import {
-  Container,
-  Row,
-  Col,
-  Form,
-  Button,
-  ButtonGroup,
-  Tab,
-  Tabs,
-  Accordion,
-} from 'react-bootstrap';
+import { Container, Row, Col, Form, Button, Spinner } from 'react-bootstrap';
 import { MovieCard } from '../moovie-card/movie-card';
 import PropTypes from 'prop-types';
 import './searchresults-view.scss';
@@ -31,6 +21,7 @@ export const SearchResultsView = ({
     featured: '',
   });
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const [options, setOptions] = useState({
     genres: [],
     directors: [],
@@ -95,6 +86,9 @@ export const SearchResultsView = ({
 
   const performSearch = async (params) => {
     try {
+      setIsLoading(true);
+      setError(null);
+
       // Create URL with query parameters
       const queryString = new URLSearchParams();
       Object.entries(params).forEach(([key, value]) => {
@@ -129,11 +123,12 @@ export const SearchResultsView = ({
       }));
 
       setMovies(moviesFromApi);
-      setError(null);
     } catch (err) {
       console.error('Search error:', err);
       setError(err.message || 'An error occurred while searching for movies');
       setMovies([]);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -190,133 +185,125 @@ export const SearchResultsView = ({
   };
   const [key, setKey] = useState('global');
   return (
-    <Col>
-      <Row className='mb-5 pb-5 justify-content-center '>
-        <Col>
-          <Form onSubmit={handleSearch} className='mb-4'>
-            <Row className='justify-content-center my-md-3 g-4'>
-              <Col xs={12} md={10} lg={6} className='mb-0'>
-                <Form.Group className='mb-3- py-4-'>
-                  <Form.Label className='text-info visually-hidden'>
-                    Global Search
-                  </Form.Label>
-                  <Form.Control
-                    type='text'
-                    name='q'
-                    value={searchParams.q}
-                    onChange={handleInputChange}
-                    placeholder='Search movies...'
-                    className='border-primary'
-                    size='lg'
-                  />
-                </Form.Group>
-              </Col>
-              <Col xs={12} md={2} lg={2} className='mb-5'>
-                <Button
-                  variant='primary'
-                  type='submit'
-                  size='lg'
-                  className='w-100'
-                >
-                  Search
-                </Button>
-              </Col>
-            </Row>
-            <Row className='mb-5 pb-5 g-4 justify-content-center align-items-end'>
-              <Col xs={12} md={3}>
-                {/* <Form.Group className='mb-3 py-4'>
-                  <Form.Label className='text-info'>Title</Form.Label>
-                  <Form.Control
-                    type='text'
-                    name='title'
-                    value={searchParams.title}
-                    onChange={handleInputChange}
-                    placeholder='Search by title...'
-                    className='border-primary'
-                    size='lg'
-                  />
-                </Form.Group> */}
-                <Form.Group>
-                  <Form.Label className='text-info'>Filter by Genre</Form.Label>
-                  <Form.Select
-                    name='genre'
-                    value={searchParams.genre}
-                    onChange={handleInputChange}
-                    className='border-primary'
-                    size='lg'
-                  >
-                    <option value=''>All Genres</option>
-                    {options.genres.map((genre) => (
-                      <option key={genre} value={genre}>
-                        {genre}
-                      </option>
-                    ))}
-                  </Form.Select>
-                </Form.Group>
-              </Col>
-              <Col xs={12} md={3}>
-                <Form.Group>
-                  <Form.Label className='text-info'>
-                    Filter by Director
-                  </Form.Label>
-                  <Form.Select
-                    name='director'
-                    value={searchParams.director}
-                    onChange={handleInputChange}
-                    className='border-primary'
-                    size='lg'
-                  >
-                    <option value=''>All Directors</option>
-                    {options.directors.map((director) => (
-                      <option key={director} value={director}>
-                        {director}
-                      </option>
-                    ))}
-                  </Form.Select>
-                </Form.Group>
-              </Col>
-              <Col xs={12} md={3}>
-                <Form.Group>
-                  <Form.Label className='text-info'>Filter by Actor</Form.Label>
-                  <Form.Select
-                    name='actor'
-                    value={searchParams.actor}
-                    onChange={handleInputChange}
-                    className='border-primary'
-                    size='lg'
-                  >
-                    <option value=''>All Actors</option>
-                    {options.actors.map((actor) => (
-                      <option key={actor} value={actor}>
-                        {actor}
-                      </option>
-                    ))}
-                  </Form.Select>
-                </Form.Group>
-              </Col>
-              <Col xs={12} md={1}>
-                <Button
-                  variant='outline-primary'
-                  onClick={handleReset}
-                  size='lg'
-                  className='flex-shrink-1'
-                >
-                  Reset
-                </Button>
-              </Col>
-            </Row>
-          </Form>
-        </Col>
-        {error && (
-          <Col xs={12}>
-            <div className='alert alert-danger' role='alert'>
-              <h4>{error}</h4>
-            </div>
+    <Container>
+      <Form onSubmit={handleSearch} className='mb-4'>
+        <Row className='justify-content-center my-md-3 g-4'>
+          <Col xs={12} md={10} lg={6} className='mb-0'>
+            <Form.Group className='mb-3- py-4-'>
+              <Form.Label className='text-info visually-hidden'>
+                Global Search
+              </Form.Label>
+              <Form.Control
+                type='text'
+                name='q'
+                value={searchParams.q}
+                onChange={handleInputChange}
+                placeholder='Search movies...'
+                className='border-primary'
+                size='lg'
+              />
+            </Form.Group>
           </Col>
-        )}
-        <Col xs={12}>
-          <Row>
-            {movies.map((movie) => (
+          <Col xs={12} md={2} lg={2} className='mb-5'>
+            <Button variant='primary' type='submit' size='lg' className='w-100'>
+              Search
+            </Button>
+          </Col>
+        </Row>
+        <Row className='mb-5 pb-5 g-4 justify-content-center align-items-end'>
+          <Col xs={12} md={3}>
+            <Form.Group>
+              <Form.Label className='text-info'>Filter by Genre</Form.Label>
+              <Form.Select
+                name='genre'
+                value={searchParams.genre}
+                onChange={handleInputChange}
+                className='border-primary'
+                size='lg'
+              >
+                <option value=''>All Genres</option>
+                {options.genres.map((genre) => (
+                  <option key={genre} value={genre}>
+                    {genre}
+                  </option>
+                ))}
+              </Form.Select>
+            </Form.Group>
+          </Col>
+          <Col xs={12} md={3}>
+            <Form.Group>
+              <Form.Label className='text-info'>Filter by Director</Form.Label>
+              <Form.Select
+                name='director'
+                value={searchParams.director}
+                onChange={handleInputChange}
+                className='border-primary'
+                size='lg'
+              >
+                <option value=''>All Directors</option>
+                {options.directors.map((director) => (
+                  <option key={director} value={director}>
+                    {director}
+                  </option>
+                ))}
+              </Form.Select>
+            </Form.Group>
+          </Col>
+          <Col xs={12} md={3}>
+            <Form.Group>
+              <Form.Label className='text-info'>Filter by Actor</Form.Label>
+              <Form.Select
+                name='actor'
+                value={searchParams.actor}
+                onChange={handleInputChange}
+                className='border-primary'
+                size='lg'
+              >
+                <option value=''>All Actors</option>
+                {options.actors.map((actor) => (
+                  <option key={actor} value={actor}>
+                    {actor}
+                  </option>
+                ))}
+              </Form.Select>
+            </Form.Group>
+          </Col>
+          <Col xs={12} md={1}>
+            <Button
+              variant='outline-primary'
+              onClick={handleReset}
+              size='lg'
+              className='flex-shrink-1'
+            >
+              Reset
+            </Button>
+          </Col>
+        </Row>
+      </Form>
+
+      {error && (
+        <div className='alert alert-danger' role='alert'>
+          {error}
+        </div>
+      )}
+
+      {isLoading ? (
+        <div className='text-center my-5'>
+          <Spinner animation='border' role='status' variant='primary'>
+            <span className='visually-hidden'>Loading...</span>
+          </Spinner>
+          <p className='text-light mt-2'>Searching for movies...</p>
+        </div>
+      ) : (
+        <Row>
+          {movies.length === 0 ? (
+            <Col className='text-center'>
+              <p className='text-light'>
+                No movies found matching your search criteria.
+              </p>
+            </Col>
+          ) : (
+            movies.map((movie) => (
               <Col key={movie.id} xs={12} md={6} className='mb-4'>
                 <MovieCard
                   movie={movie}
@@ -324,11 +311,11 @@ export const SearchResultsView = ({
                   onToggleFavorite={onToggleFavorite}
                 />
               </Col>
-            ))}
-          </Row>
-        </Col>
-      </Row>
-    </Col>
+            ))
+          )}
+        </Row>
+      )}
+    </Container>
   );
 };
 

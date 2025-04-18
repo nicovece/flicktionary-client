@@ -6,7 +6,8 @@ import { SignupView } from '../signup-view/signup-view';
 import { NavigationBar } from '../navigation-bar/navigation-bar';
 import { ProfileView } from '../profile-view/profile-view';
 import { SearchResultsView } from '../searchresults-view/searchresults-view';
-import { Row, Col, Navbar, Container } from 'react-bootstrap';
+import { Footer } from '../footer/footer';
+import { Row, Col, Container } from 'react-bootstrap';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 
 // MainViewContent component that uses useLocation
@@ -331,6 +332,14 @@ const MainView = () => {
           </Routes>
         </Row>
       </Container>
+      <Footer
+        user={user}
+        pathname={location.pathname}
+        onLoggedOut={() => {
+          setUser(null);
+          localStorage.clear();
+        }}
+      />
     </>
   );
 };
