@@ -20103,36 +20103,62 @@ var _toggleButtonGroupDefault = parcelHelpers.interopDefault(_toggleButtonGroup)
 var _tooltip = require("./Tooltip");
 var _tooltipDefault = parcelHelpers.interopDefault(_tooltip);
 
-},{"./Accordion":false,"./AccordionContext":false,"./AccordionCollapse":false,"./AccordionButton":false,"./AccordionBody":false,"./AccordionHeader":false,"./AccordionItem":false,"./Alert":false,"./AlertHeading":false,"./AlertLink":false,"./Anchor":false,"./Badge":false,"./Breadcrumb":false,"./BreadcrumbItem":false,"./Button":"kNKIo","./ButtonGroup":"5XlPk","./ButtonToolbar":false,"./Card":"56ajS","./CardBody":false,"./CardFooter":false,"./CardGroup":false,"./CardHeader":false,"./CardImg":false,"./CardImgOverlay":false,"./CardLink":false,"./CardSubtitle":false,"./CardText":false,"./CardTitle":false,"./Carousel":false,"./CarouselCaption":false,"./CarouselItem":false,"./CloseButton":false,"./Col":"6x0qd","./Collapse":false,"./Container":"2GCvr","./Dropdown":false,"./DropdownButton":false,"./DropdownDivider":false,"./DropdownHeader":false,"./DropdownItem":false,"./DropdownItemText":false,"./DropdownMenu":false,"./DropdownToggle":false,"./Fade":false,"./Figure":false,"./FigureCaption":false,"./FigureImage":false,"./Form":"6LPqw","./FormControl":false,"./FormCheck":false,"./FormFloating":false,"./FloatingLabel":false,"./FormGroup":false,"./FormLabel":false,"./FormText":false,"./FormSelect":false,"./Image":false,"./InputGroup":false,"./ListGroup":false,"./ListGroupItem":false,"./Modal":"dj8kw","./ModalBody":false,"./ModalDialog":false,"./ModalFooter":false,"./ModalHeader":false,"./ModalTitle":false,"./Nav":"8jrcb","./Navbar":"2Lmwo","./NavbarBrand":false,"./NavbarCollapse":false,"./NavbarOffcanvas":false,"./NavbarText":false,"./NavbarToggle":false,"./NavDropdown":false,"./NavItem":false,"./NavLink":false,"./Offcanvas":false,"./OffcanvasBody":false,"./OffcanvasHeader":false,"./OffcanvasTitle":false,"./OffcanvasToggling":false,"./Overlay":false,"./OverlayTrigger":"9WzZV","./PageItem":false,"./Pagination":false,"./Placeholder":false,"./PlaceholderButton":false,"./Popover":false,"./PopoverBody":false,"./PopoverHeader":false,"./ProgressBar":false,"./Ratio":false,"./Row":"2DPD4","./Spinner":false,"./SplitButton":false,"./SSRProvider":false,"./Stack":false,"./Tab":"ajzqW","./TabContainer":false,"./TabContent":false,"./Table":false,"./TabPane":false,"./Tabs":"g7iXj","./ThemeProvider":false,"./Toast":false,"./ToastBody":false,"./ToastContainer":false,"./ToastHeader":false,"./ToggleButton":false,"./ToggleButtonGroup":false,"./Tooltip":"91N5M","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"kNKIo":[function(require,module,exports,__globalThis) {
+},{"./Accordion":"4ClTv","./AccordionContext":false,"./AccordionCollapse":false,"./AccordionButton":false,"./AccordionBody":false,"./AccordionHeader":false,"./AccordionItem":false,"./Alert":false,"./AlertHeading":false,"./AlertLink":false,"./Anchor":false,"./Badge":false,"./Breadcrumb":false,"./BreadcrumbItem":false,"./Button":"kNKIo","./ButtonGroup":"5XlPk","./ButtonToolbar":false,"./Card":"56ajS","./CardBody":false,"./CardFooter":false,"./CardGroup":false,"./CardHeader":false,"./CardImg":false,"./CardImgOverlay":false,"./CardLink":false,"./CardSubtitle":false,"./CardText":false,"./CardTitle":false,"./Carousel":false,"./CarouselCaption":false,"./CarouselItem":false,"./CloseButton":false,"./Col":"6x0qd","./Collapse":false,"./Container":"2GCvr","./Dropdown":false,"./DropdownButton":false,"./DropdownDivider":false,"./DropdownHeader":false,"./DropdownItem":false,"./DropdownItemText":false,"./DropdownMenu":false,"./DropdownToggle":false,"./Fade":false,"./Figure":false,"./FigureCaption":false,"./FigureImage":false,"./Form":"6LPqw","./FormControl":false,"./FormCheck":false,"./FormFloating":false,"./FloatingLabel":false,"./FormGroup":false,"./FormLabel":false,"./FormText":false,"./FormSelect":false,"./Image":false,"./InputGroup":false,"./ListGroup":false,"./ListGroupItem":false,"./Modal":"dj8kw","./ModalBody":false,"./ModalDialog":false,"./ModalFooter":false,"./ModalHeader":false,"./ModalTitle":false,"./Nav":"8jrcb","./Navbar":"2Lmwo","./NavbarBrand":false,"./NavbarCollapse":false,"./NavbarOffcanvas":false,"./NavbarText":false,"./NavbarToggle":false,"./NavDropdown":false,"./NavItem":false,"./NavLink":false,"./Offcanvas":false,"./OffcanvasBody":false,"./OffcanvasHeader":false,"./OffcanvasTitle":false,"./OffcanvasToggling":false,"./Overlay":false,"./OverlayTrigger":"9WzZV","./PageItem":false,"./Pagination":false,"./Placeholder":false,"./PlaceholderButton":false,"./Popover":false,"./PopoverBody":false,"./PopoverHeader":false,"./ProgressBar":false,"./Ratio":false,"./Row":"2DPD4","./Spinner":false,"./SplitButton":false,"./SSRProvider":false,"./Stack":false,"./Tab":"ajzqW","./TabContainer":false,"./TabContent":false,"./Table":false,"./TabPane":false,"./Tabs":"g7iXj","./ThemeProvider":false,"./Toast":false,"./ToastBody":false,"./ToastContainer":false,"./ToastHeader":false,"./ToggleButton":false,"./ToggleButtonGroup":false,"./Tooltip":"91N5M","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"4ClTv":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
 var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
 var _react = require("react");
-var _button = require("@restart/ui/Button");
+var _uncontrollable = require("uncontrollable");
 var _themeProvider = require("./ThemeProvider");
+var _accordionBody = require("./AccordionBody");
+var _accordionBodyDefault = parcelHelpers.interopDefault(_accordionBody);
+var _accordionButton = require("./AccordionButton");
+var _accordionButtonDefault = parcelHelpers.interopDefault(_accordionButton);
+var _accordionCollapse = require("./AccordionCollapse");
+var _accordionCollapseDefault = parcelHelpers.interopDefault(_accordionCollapse);
+var _accordionContext = require("./AccordionContext");
+var _accordionContextDefault = parcelHelpers.interopDefault(_accordionContext);
+var _accordionHeader = require("./AccordionHeader");
+var _accordionHeaderDefault = parcelHelpers.interopDefault(_accordionHeader);
+var _accordionItem = require("./AccordionItem");
+var _accordionItemDefault = parcelHelpers.interopDefault(_accordionItem);
 var _jsxRuntime = require("react/jsx-runtime");
 "use client";
-const Button = /*#__PURE__*/ _react.forwardRef(({ as, bsPrefix, variant = 'primary', size, active = false, disabled = false, className, ...props }, ref)=>{
-    const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'btn');
-    const [buttonProps, { tagName }] = (0, _button.useButtonProps)({
-        tagName: as,
-        disabled,
-        ...props
+const Accordion = /*#__PURE__*/ _react.forwardRef((props, ref)=>{
+    const { // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+    as: Component = 'div', activeKey, bsPrefix, className, onSelect, flush, alwaysOpen, ...controlledProps } = (0, _uncontrollable.useUncontrolled)(props, {
+        activeKey: 'onSelect'
     });
-    const Component = tagName;
-    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
-        ...buttonProps,
-        ...props,
-        ref: ref,
-        disabled: disabled,
-        className: (0, _classnamesDefault.default)(className, prefix, active && 'active', variant && `${prefix}-${variant}`, size && `${prefix}-${size}`, props.href && disabled && 'disabled')
+    const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'accordion');
+    const contextValue = (0, _react.useMemo)(()=>({
+            activeEventKey: activeKey,
+            onSelect,
+            alwaysOpen
+        }), [
+        activeKey,
+        onSelect,
+        alwaysOpen
+    ]);
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _accordionContextDefault.default).Provider, {
+        value: contextValue,
+        children: /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
+            ref: ref,
+            ...controlledProps,
+            className: (0, _classnamesDefault.default)(className, prefix, flush && `${prefix}-flush`)
+        })
     });
 });
-Button.displayName = 'Button';
-exports.default = Button;
+Accordion.displayName = 'Accordion';
+exports.default = Object.assign(Accordion, {
+    Button: (0, _accordionButtonDefault.default),
+    Collapse: (0, _accordionCollapseDefault.default),
+    Item: (0, _accordionItemDefault.default),
+    Header: (0, _accordionHeaderDefault.default),
+    Body: (0, _accordionBodyDefault.default)
+});
 
-},{"classnames":"Egwmr","react":"jMk1U","@restart/ui/Button":"cxoj5","./ThemeProvider":"gulxC","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"Egwmr":[function(require,module,exports,__globalThis) {
+},{"classnames":"Egwmr","react":"jMk1U","uncontrollable":"eKG0k","./ThemeProvider":"gulxC","./AccordionBody":"gVeht","./AccordionButton":"6UhhX","./AccordionCollapse":"9UNrA","./AccordionContext":"aQn7O","./AccordionHeader":"jMDEW","./AccordionItem":"353Ir","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"Egwmr":[function(require,module,exports,__globalThis) {
 /*!
 	Copyright (c) 2018 Jed Watson.
 	Licensed under the MIT License (MIT), see
@@ -20172,92 +20198,535 @@ exports.default = Button;
     else window.classNames = classNames;
 })();
 
-},{}],"cxoj5":[function(require,module,exports,__globalThis) {
+},{}],"eKG0k":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "isTrivialHref", ()=>isTrivialHref);
-parcelHelpers.export(exports, "useButtonProps", ()=>useButtonProps);
+parcelHelpers.export(exports, "useUncontrolled", ()=>(0, _hookDefault.default));
+parcelHelpers.export(exports, "useUncontrolledProp", ()=>(0, _hook.useUncontrolledProp));
+parcelHelpers.export(exports, "uncontrollable", ()=>(0, _uncontrollableDefault.default));
+var _hook = require("./hook");
+var _hookDefault = parcelHelpers.interopDefault(_hook);
+var _uncontrollable = require("./uncontrollable");
+var _uncontrollableDefault = parcelHelpers.interopDefault(_uncontrollable);
+
+},{"./hook":"bzIgv","./uncontrollable":"gKGW4","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"bzIgv":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "useUncontrolledProp", ()=>useUncontrolledProp);
+parcelHelpers.export(exports, "default", ()=>useUncontrolled);
+var _extends = require("@babel/runtime/helpers/esm/extends");
+var _extendsDefault = parcelHelpers.interopDefault(_extends);
+var _objectWithoutPropertiesLoose = require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose");
+var _objectWithoutPropertiesLooseDefault = parcelHelpers.interopDefault(_objectWithoutPropertiesLoose);
 var _react = require("react");
-var _jsxRuntime = require("react/jsx-runtime");
-const _excluded = [
-    "as",
-    "disabled"
-];
+var _utils = require("./utils");
+function _toPropertyKey(arg) {
+    var key = _toPrimitive(arg, "string");
+    return typeof key === "symbol" ? key : String(key);
+}
+function _toPrimitive(input, hint) {
+    if (typeof input !== "object" || input === null) return input;
+    var prim = input[Symbol.toPrimitive];
+    if (prim !== undefined) {
+        var res = prim.call(input, hint || "default");
+        if (typeof res !== "object") return res;
+        throw new TypeError("@@toPrimitive must return a primitive value.");
+    }
+    return (hint === "string" ? String : Number)(input);
+}
+function useUncontrolledProp(propValue, defaultValue, handler) {
+    var wasPropRef = (0, _react.useRef)(propValue !== undefined);
+    var _useState = (0, _react.useState)(defaultValue), stateValue = _useState[0], setState = _useState[1];
+    var isProp = propValue !== undefined;
+    var wasProp = wasPropRef.current;
+    wasPropRef.current = isProp;
+    /**
+   * If a prop switches from controlled to Uncontrolled
+   * reset its value to the defaultValue
+   */ if (!isProp && wasProp && stateValue !== defaultValue) setState(defaultValue);
+    return [
+        isProp ? propValue : stateValue,
+        (0, _react.useCallback)(function(value) {
+            for(var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++)args[_key - 1] = arguments[_key];
+            if (handler) handler.apply(void 0, [
+                value
+            ].concat(args));
+            setState(value);
+        }, [
+            handler
+        ])
+    ];
+}
+function useUncontrolled(props, config) {
+    return Object.keys(config).reduce(function(result, fieldName) {
+        var _extends2;
+        var _ref = result, defaultValue = _ref[_utils.defaultKey(fieldName)], propsValue = _ref[fieldName], rest = (0, _objectWithoutPropertiesLooseDefault.default)(_ref, [
+            _utils.defaultKey(fieldName),
+            fieldName
+        ].map(_toPropertyKey));
+        var handlerName = config[fieldName];
+        var _useUncontrolledProp = useUncontrolledProp(propsValue, defaultValue, props[handlerName]), value = _useUncontrolledProp[0], handler = _useUncontrolledProp[1];
+        return (0, _extendsDefault.default)({}, rest, (_extends2 = {}, _extends2[fieldName] = value, _extends2[handlerName] = handler, _extends2));
+    }, props);
+}
+
+},{"@babel/runtime/helpers/esm/extends":"20my9","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"fls88","react":"jMk1U","./utils":"lvEXZ","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"20my9":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>_extends);
+function _extends() {
+    return _extends = Object.assign ? Object.assign.bind() : function(n) {
+        for(var e = 1; e < arguments.length; e++){
+            var t = arguments[e];
+            for(var r in t)({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+        }
+        return n;
+    }, _extends.apply(null, arguments);
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"fls88":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>_objectWithoutPropertiesLoose);
 function _objectWithoutPropertiesLoose(r, e) {
     if (null == r) return {};
     var t = {};
     for(var n in r)if (({}).hasOwnProperty.call(r, n)) {
-        if (e.indexOf(n) >= 0) continue;
+        if (-1 !== e.indexOf(n)) continue;
         t[n] = r[n];
     }
     return t;
 }
-function isTrivialHref(href) {
-    return !href || href.trim() === '#';
-}
-function useButtonProps({ tagName, disabled, href, target, rel, role, onClick, tabIndex = 0, type }) {
-    if (!tagName) {
-        if (href != null || target != null || rel != null) tagName = 'a';
-        else tagName = 'button';
-    }
-    const meta = {
-        tagName
-    };
-    if (tagName === 'button') return [
-        {
-            type: type || 'button',
-            disabled
-        },
-        meta
-    ];
-    const handleClick = (event)=>{
-        if (disabled || tagName === 'a' && isTrivialHref(href)) event.preventDefault();
-        if (disabled) {
-            event.stopPropagation();
-            return;
-        }
-        onClick == null || onClick(event);
-    };
-    const handleKeyDown = (event)=>{
-        if (event.key === ' ') {
-            event.preventDefault();
-            handleClick(event);
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"lvEXZ":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "uncontrolledPropTypes", ()=>uncontrolledPropTypes);
+parcelHelpers.export(exports, "isProp", ()=>isProp);
+parcelHelpers.export(exports, "defaultKey", ()=>defaultKey);
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ */ parcelHelpers.export(exports, "canAcceptRef", ()=>canAcceptRef);
+var _invariant = require("invariant");
+var _invariantDefault = parcelHelpers.interopDefault(_invariant);
+var noop = function noop() {};
+function readOnlyPropType(handler, name) {
+    return function(props, propName) {
+        if (props[propName] !== undefined) {
+            if (!props[handler]) return new Error("You have provided a `" + propName + "` prop to `" + name + "` " + ("without an `" + handler + "` handler prop. This will render a read-only field. ") + ("If the field should be mutable use `" + defaultKey(propName) + "`. ") + ("Otherwise, set `" + handler + "`."));
         }
     };
-    if (tagName === 'a') {
-        // Ensure there's a href so Enter can trigger anchor button.
-        href || (href = '#');
-        if (disabled) href = undefined;
-    }
-    return [
-        {
-            role: role != null ? role : 'button',
-            // explicitly undefined so that it overrides the props disabled in a spread
-            // e.g. <Tag {...props} {...hookProps} />
-            disabled: undefined,
-            tabIndex: disabled ? undefined : tabIndex,
-            href,
-            target: tagName === 'a' ? target : undefined,
-            'aria-disabled': !disabled ? undefined : disabled,
-            rel: tagName === 'a' ? rel : undefined,
-            onClick: handleClick,
-            onKeyDown: handleKeyDown
-        },
-        meta
-    ];
 }
-const Button = /*#__PURE__*/ _react.forwardRef((_ref, ref)=>{
-    let { as: asProp, disabled } = _ref, props = _objectWithoutPropertiesLoose(_ref, _excluded);
-    const [buttonProps, { tagName: Component }] = useButtonProps(Object.assign({
-        tagName: asProp,
-        disabled
-    }, props));
-    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, Object.assign({}, props, buttonProps, {
-        ref: ref
-    }));
+function uncontrolledPropTypes(controlledValues, displayName) {
+    var propTypes = {};
+    Object.keys(controlledValues).forEach(function(prop) {
+        // add default propTypes for folks that use runtime checks
+        propTypes[defaultKey(prop)] = noop;
+        var handler = controlledValues[prop];
+        !(typeof handler === 'string' && handler.trim().length) && (0, _invariantDefault.default)(false, 'Uncontrollable - [%s]: the prop `%s` needs a valid handler key name in order to make it uncontrollable', displayName, prop);
+        propTypes[prop] = readOnlyPropType(handler, displayName);
+    });
+    return propTypes;
+}
+function isProp(props, prop) {
+    return props[prop] !== undefined;
+}
+function defaultKey(key) {
+    return 'default' + key.charAt(0).toUpperCase() + key.substr(1);
+}
+function canAcceptRef(component) {
+    return !!component && (typeof component !== 'function' || component.prototype && component.prototype.isReactComponent);
+}
+
+},{"invariant":"cjjDY","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"cjjDY":[function(require,module,exports,__globalThis) {
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */ 'use strict';
+/**
+ * Use invariant() to assert state which your program assumes to be true.
+ *
+ * Provide sprintf-style format (only %s is supported) and arguments
+ * to provide information about what broke and what you were
+ * expecting.
+ *
+ * The invariant message will be stripped in production, but the invariant
+ * will remain to ensure logic does not differ in production.
+ */ var invariant = function(condition, format, a, b, c, d, e, f) {
+    if (format === undefined) throw new Error('invariant requires an error message argument');
+    if (!condition) {
+        var error;
+        if (format === undefined) error = new Error("Minified exception occurred; use the non-minified dev environment for the full error message and additional helpful warnings.");
+        else {
+            var args = [
+                a,
+                b,
+                c,
+                d,
+                e,
+                f
+            ];
+            var argIndex = 0;
+            error = new Error(format.replace(/%s/g, function() {
+                return args[argIndex++];
+            }));
+            error.name = 'Invariant Violation';
+        }
+        error.framesToPop = 1; // we don't care about invariant's own frame
+        throw error;
+    }
+};
+module.exports = invariant;
+
+},{}],"gKGW4":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>uncontrollable);
+var _objectWithoutPropertiesLoose = require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose");
+var _objectWithoutPropertiesLooseDefault = parcelHelpers.interopDefault(_objectWithoutPropertiesLoose);
+var _extends = require("@babel/runtime/helpers/esm/extends");
+var _extendsDefault = parcelHelpers.interopDefault(_extends);
+var _inheritsLoose = require("@babel/runtime/helpers/esm/inheritsLoose");
+var _inheritsLooseDefault = parcelHelpers.interopDefault(_inheritsLoose);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactLifecyclesCompat = require("react-lifecycles-compat");
+var _invariant = require("invariant");
+var _invariantDefault = parcelHelpers.interopDefault(_invariant);
+var _utils = require("./utils");
+var _jsxFileName = "/Users/jquense/src/uncontrollable/src/uncontrollable.js";
+function uncontrollable(Component, controlledValues, methods) {
+    if (methods === void 0) methods = [];
+    var displayName = Component.displayName || Component.name || 'Component';
+    var canAcceptRef = _utils.canAcceptRef(Component);
+    var controlledProps = Object.keys(controlledValues);
+    var PROPS_TO_OMIT = controlledProps.map(_utils.defaultKey);
+    !(canAcceptRef || !methods.length) && (0, _invariantDefault.default)(false, "[uncontrollable] stateless function components cannot pass through methods because they have no associated instances. Check component: " + displayName + ', ' + 'attempting to pass through methods: ' + methods.join(', '));
+    var UncontrolledComponent = /*#__PURE__*/ function(_React$Component) {
+        (0, _inheritsLooseDefault.default)(UncontrolledComponent, _React$Component);
+        function UncontrolledComponent() {
+            var _this;
+            for(var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++)args[_key] = arguments[_key];
+            _this = _React$Component.call.apply(_React$Component, [
+                this
+            ].concat(args)) || this;
+            _this.handlers = Object.create(null);
+            controlledProps.forEach(function(propName) {
+                var handlerName = controlledValues[propName];
+                var handleChange = function handleChange(value) {
+                    if (_this.props[handlerName]) {
+                        var _this$props;
+                        _this._notifying = true;
+                        for(var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++)args[_key2 - 1] = arguments[_key2];
+                        (_this$props = _this.props)[handlerName].apply(_this$props, [
+                            value
+                        ].concat(args));
+                        _this._notifying = false;
+                    }
+                    if (!_this.unmounted) _this.setState(function(_ref) {
+                        var _extends2;
+                        var values = _ref.values;
+                        return {
+                            values: (0, _extendsDefault.default)(Object.create(null), values, (_extends2 = {}, _extends2[propName] = value, _extends2))
+                        };
+                    });
+                };
+                _this.handlers[handlerName] = handleChange;
+            });
+            if (methods.length) _this.attachRef = function(ref) {
+                _this.inner = ref;
+            };
+            var values = Object.create(null);
+            controlledProps.forEach(function(key) {
+                values[key] = _this.props[_utils.defaultKey(key)];
+            });
+            _this.state = {
+                values: values,
+                prevProps: {}
+            };
+            return _this;
+        }
+        var _proto = UncontrolledComponent.prototype;
+        _proto.shouldComponentUpdate = function shouldComponentUpdate() {
+            //let setState trigger the update
+            return !this._notifying;
+        };
+        UncontrolledComponent.getDerivedStateFromProps = function getDerivedStateFromProps(props, _ref2) {
+            var values = _ref2.values, prevProps = _ref2.prevProps;
+            var nextState = {
+                values: (0, _extendsDefault.default)(Object.create(null), values),
+                prevProps: {}
+            };
+            controlledProps.forEach(function(key) {
+                /**
+         * If a prop switches from controlled to Uncontrolled
+         * reset its value to the defaultValue
+         */ nextState.prevProps[key] = props[key];
+                if (!_utils.isProp(props, key) && _utils.isProp(prevProps, key)) nextState.values[key] = props[_utils.defaultKey(key)];
+            });
+            return nextState;
+        };
+        _proto.componentWillUnmount = function componentWillUnmount() {
+            this.unmounted = true;
+        };
+        _proto.render = function render() {
+            var _this2 = this;
+            var _this$props2 = this.props, innerRef = _this$props2.innerRef, props = (0, _objectWithoutPropertiesLooseDefault.default)(_this$props2, [
+                "innerRef"
+            ]);
+            PROPS_TO_OMIT.forEach(function(prop) {
+                delete props[prop];
+            });
+            var newProps = {};
+            controlledProps.forEach(function(propName) {
+                var propValue = _this2.props[propName];
+                newProps[propName] = propValue !== undefined ? propValue : _this2.state.values[propName];
+            });
+            return (0, _reactDefault.default).createElement(Component, (0, _extendsDefault.default)({}, props, newProps, this.handlers, {
+                ref: innerRef || this.attachRef
+            }));
+        };
+        return UncontrolledComponent;
+    }((0, _reactDefault.default).Component);
+    (0, _reactLifecyclesCompat.polyfill)(UncontrolledComponent);
+    UncontrolledComponent.displayName = "Uncontrolled(" + displayName + ")";
+    UncontrolledComponent.propTypes = (0, _extendsDefault.default)({
+        innerRef: function innerRef() {}
+    }, _utils.uncontrolledPropTypes(controlledValues, displayName));
+    methods.forEach(function(method) {
+        UncontrolledComponent.prototype[method] = function $proxiedMethod() {
+            var _this$inner;
+            return (_this$inner = this.inner)[method].apply(_this$inner, arguments);
+        };
+    });
+    var WrappedComponent = UncontrolledComponent;
+    if ((0, _reactDefault.default).forwardRef) {
+        WrappedComponent = (0, _reactDefault.default).forwardRef(function(props, ref) {
+            return (0, _reactDefault.default).createElement(UncontrolledComponent, (0, _extendsDefault.default)({}, props, {
+                innerRef: ref,
+                __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 128
+                },
+                __self: this
+            }));
+        });
+        WrappedComponent.propTypes = UncontrolledComponent.propTypes;
+    }
+    WrappedComponent.ControlledComponent = Component;
+    /**
+   * useful when wrapping a Component and you want to control
+   * everything
+   */ WrappedComponent.deferControlTo = function(newComponent, additions, nextMethods) {
+        if (additions === void 0) additions = {};
+        return uncontrollable(newComponent, (0, _extendsDefault.default)({}, controlledValues, additions), nextMethods);
+    };
+    return WrappedComponent;
+}
+
+},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"fls88","@babel/runtime/helpers/esm/extends":"20my9","@babel/runtime/helpers/esm/inheritsLoose":"jDIko","react":"jMk1U","react-lifecycles-compat":"9nhrx","invariant":"cjjDY","./utils":"lvEXZ","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"jDIko":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>_inheritsLoose);
+var _setPrototypeOfJs = require("./setPrototypeOf.js");
+var _setPrototypeOfJsDefault = parcelHelpers.interopDefault(_setPrototypeOfJs);
+function _inheritsLoose(t, o) {
+    t.prototype = Object.create(o.prototype), t.prototype.constructor = t, (0, _setPrototypeOfJsDefault.default)(t, o);
+}
+
+},{"./setPrototypeOf.js":"5Brd2","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"5Brd2":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>_setPrototypeOf);
+function _setPrototypeOf(t, e) {
+    return _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function(t, e) {
+        return t.__proto__ = e, t;
+    }, _setPrototypeOf(t, e);
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"9nhrx":[function(require,module,exports,__globalThis) {
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "polyfill", ()=>polyfill);
+function componentWillMount() {
+    // Call this.constructor.gDSFP to support sub-classes.
+    var state = this.constructor.getDerivedStateFromProps(this.props, this.state);
+    if (state !== null && state !== undefined) this.setState(state);
+}
+function componentWillReceiveProps(nextProps) {
+    // Call this.constructor.gDSFP to support sub-classes.
+    // Use the setState() updater to ensure state isn't stale in certain edge cases.
+    function updater(prevState) {
+        var state = this.constructor.getDerivedStateFromProps(nextProps, prevState);
+        return state !== null && state !== undefined ? state : null;
+    }
+    // Binding "this" is important for shallow renderer support.
+    this.setState(updater.bind(this));
+}
+function componentWillUpdate(nextProps, nextState) {
+    try {
+        var prevProps = this.props;
+        var prevState = this.state;
+        this.props = nextProps;
+        this.state = nextState;
+        this.__reactInternalSnapshotFlag = true;
+        this.__reactInternalSnapshot = this.getSnapshotBeforeUpdate(prevProps, prevState);
+    } finally{
+        this.props = prevProps;
+        this.state = prevState;
+    }
+}
+// React may warn about cWM/cWRP/cWU methods being deprecated.
+// Add a flag to suppress these warnings for this special case.
+componentWillMount.__suppressDeprecationWarning = true;
+componentWillReceiveProps.__suppressDeprecationWarning = true;
+componentWillUpdate.__suppressDeprecationWarning = true;
+function polyfill(Component) {
+    var prototype = Component.prototype;
+    if (!prototype || !prototype.isReactComponent) throw new Error('Can only polyfill class components');
+    if (typeof Component.getDerivedStateFromProps !== 'function' && typeof prototype.getSnapshotBeforeUpdate !== 'function') return Component;
+    // If new component APIs are defined, "unsafe" lifecycles won't be called.
+    // Error if any of these lifecycles are present,
+    // Because they would work differently between older and newer (16.3+) versions of React.
+    var foundWillMountName = null;
+    var foundWillReceivePropsName = null;
+    var foundWillUpdateName = null;
+    if (typeof prototype.componentWillMount === 'function') foundWillMountName = 'componentWillMount';
+    else if (typeof prototype.UNSAFE_componentWillMount === 'function') foundWillMountName = 'UNSAFE_componentWillMount';
+    if (typeof prototype.componentWillReceiveProps === 'function') foundWillReceivePropsName = 'componentWillReceiveProps';
+    else if (typeof prototype.UNSAFE_componentWillReceiveProps === 'function') foundWillReceivePropsName = 'UNSAFE_componentWillReceiveProps';
+    if (typeof prototype.componentWillUpdate === 'function') foundWillUpdateName = 'componentWillUpdate';
+    else if (typeof prototype.UNSAFE_componentWillUpdate === 'function') foundWillUpdateName = 'UNSAFE_componentWillUpdate';
+    if (foundWillMountName !== null || foundWillReceivePropsName !== null || foundWillUpdateName !== null) {
+        var componentName = Component.displayName || Component.name;
+        var newApiName = typeof Component.getDerivedStateFromProps === 'function' ? 'getDerivedStateFromProps()' : 'getSnapshotBeforeUpdate()';
+        throw Error('Unsafe legacy lifecycles will not be called for components using new component APIs.\n\n' + componentName + ' uses ' + newApiName + ' but also contains the following legacy lifecycles:' + (foundWillMountName !== null ? '\n  ' + foundWillMountName : '') + (foundWillReceivePropsName !== null ? '\n  ' + foundWillReceivePropsName : '') + (foundWillUpdateName !== null ? '\n  ' + foundWillUpdateName : '') + '\n\nThe above lifecycles should be removed. Learn more about this warning here:\n' + 'https://fb.me/react-async-component-lifecycle-hooks');
+    }
+    // React <= 16.2 does not support static getDerivedStateFromProps.
+    // As a workaround, use cWM and cWRP to invoke the new static lifecycle.
+    // Newer versions of React will ignore these lifecycles if gDSFP exists.
+    if (typeof Component.getDerivedStateFromProps === 'function') {
+        prototype.componentWillMount = componentWillMount;
+        prototype.componentWillReceiveProps = componentWillReceiveProps;
+    }
+    // React <= 16.2 does not support getSnapshotBeforeUpdate.
+    // As a workaround, use cWU to invoke the new lifecycle.
+    // Newer versions of React will ignore that lifecycle if gSBU exists.
+    if (typeof prototype.getSnapshotBeforeUpdate === 'function') {
+        if (typeof prototype.componentDidUpdate !== 'function') throw new Error('Cannot polyfill getSnapshotBeforeUpdate() for components that do not define componentDidUpdate() on the prototype');
+        prototype.componentWillUpdate = componentWillUpdate;
+        var componentDidUpdate = prototype.componentDidUpdate;
+        prototype.componentDidUpdate = function componentDidUpdatePolyfill(prevProps, prevState, maybeSnapshot) {
+            // 16.3+ will not execute our will-update method;
+            // It will pass a snapshot value to did-update though.
+            // Older versions will require our polyfilled will-update value.
+            // We need to handle both cases, but can't just check for the presence of "maybeSnapshot",
+            // Because for <= 15.x versions this might be a "prevContext" object.
+            // We also can't just check "__reactInternalSnapshot",
+            // Because get-snapshot might return a falsy value.
+            // So check for the explicit __reactInternalSnapshotFlag flag to determine behavior.
+            var snapshot = this.__reactInternalSnapshotFlag ? this.__reactInternalSnapshot : maybeSnapshot;
+            componentDidUpdate.call(this, prevProps, prevState, snapshot);
+        };
+    }
+    return Component;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"gulxC":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "DEFAULT_BREAKPOINTS", ()=>DEFAULT_BREAKPOINTS);
+parcelHelpers.export(exports, "DEFAULT_MIN_BREAKPOINT", ()=>DEFAULT_MIN_BREAKPOINT);
+parcelHelpers.export(exports, "useBootstrapPrefix", ()=>useBootstrapPrefix);
+parcelHelpers.export(exports, "useBootstrapBreakpoints", ()=>useBootstrapBreakpoints);
+parcelHelpers.export(exports, "useBootstrapMinBreakpoint", ()=>useBootstrapMinBreakpoint);
+parcelHelpers.export(exports, "useIsRTL", ()=>useIsRTL);
+parcelHelpers.export(exports, "createBootstrapComponent", ()=>createBootstrapComponent);
+parcelHelpers.export(exports, "ThemeConsumer", ()=>Consumer);
+var _react = require("react");
+var _jsxRuntime = require("react/jsx-runtime");
+"use client";
+const DEFAULT_BREAKPOINTS = [
+    'xxl',
+    'xl',
+    'lg',
+    'md',
+    'sm',
+    'xs'
+];
+const DEFAULT_MIN_BREAKPOINT = 'xs';
+const ThemeContext = /*#__PURE__*/ _react.createContext({
+    prefixes: {},
+    breakpoints: DEFAULT_BREAKPOINTS,
+    minBreakpoint: DEFAULT_MIN_BREAKPOINT
 });
-Button.displayName = 'Button';
-exports.default = Button;
+const { Consumer, Provider } = ThemeContext;
+function ThemeProvider({ prefixes = {}, breakpoints = DEFAULT_BREAKPOINTS, minBreakpoint = DEFAULT_MIN_BREAKPOINT, dir, children }) {
+    const contextValue = (0, _react.useMemo)(()=>({
+            prefixes: {
+                ...prefixes
+            },
+            breakpoints,
+            minBreakpoint,
+            dir
+        }), [
+        prefixes,
+        breakpoints,
+        minBreakpoint,
+        dir
+    ]);
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Provider, {
+        value: contextValue,
+        children: children
+    });
+}
+function useBootstrapPrefix(prefix, defaultPrefix) {
+    const { prefixes } = (0, _react.useContext)(ThemeContext);
+    return prefix || prefixes[defaultPrefix] || defaultPrefix;
+}
+function useBootstrapBreakpoints() {
+    const { breakpoints } = (0, _react.useContext)(ThemeContext);
+    return breakpoints;
+}
+function useBootstrapMinBreakpoint() {
+    const { minBreakpoint } = (0, _react.useContext)(ThemeContext);
+    return minBreakpoint;
+}
+function useIsRTL() {
+    const { dir } = (0, _react.useContext)(ThemeContext);
+    return dir === 'rtl';
+}
+function createBootstrapComponent(Component, opts) {
+    if (typeof opts === 'string') opts = {
+        prefix: opts
+    };
+    const isClassy = Component.prototype && Component.prototype.isReactComponent;
+    // If it's a functional component make sure we don't break it with a ref
+    const { prefix, forwardRefAs = isClassy ? 'ref' : 'innerRef' } = opts;
+    const Wrapped = /*#__PURE__*/ _react.forwardRef(({ ...props }, ref)=>{
+        props[forwardRefAs] = ref;
+        const bsPrefix = useBootstrapPrefix(props.bsPrefix, prefix);
+        return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
+            ...props,
+            bsPrefix: bsPrefix
+        });
+    });
+    Wrapped.displayName = `Bootstrap(${Component.displayName || Component.name})`;
+    return Wrapped;
+}
+exports.default = ThemeProvider;
 
 },{"react":"jMk1U","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"05iiF":[function(require,module,exports,__globalThis) {
 'use strict';
@@ -20474,471 +20943,73 @@ module.exports = require("c4c10cbba9862d5f");
     };
 })();
 
-},{"593632ccebda0d3a":"jMk1U"}],"gulxC":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "DEFAULT_BREAKPOINTS", ()=>DEFAULT_BREAKPOINTS);
-parcelHelpers.export(exports, "DEFAULT_MIN_BREAKPOINT", ()=>DEFAULT_MIN_BREAKPOINT);
-parcelHelpers.export(exports, "useBootstrapPrefix", ()=>useBootstrapPrefix);
-parcelHelpers.export(exports, "useBootstrapBreakpoints", ()=>useBootstrapBreakpoints);
-parcelHelpers.export(exports, "useBootstrapMinBreakpoint", ()=>useBootstrapMinBreakpoint);
-parcelHelpers.export(exports, "useIsRTL", ()=>useIsRTL);
-parcelHelpers.export(exports, "createBootstrapComponent", ()=>createBootstrapComponent);
-parcelHelpers.export(exports, "ThemeConsumer", ()=>Consumer);
-var _react = require("react");
-var _jsxRuntime = require("react/jsx-runtime");
-"use client";
-const DEFAULT_BREAKPOINTS = [
-    'xxl',
-    'xl',
-    'lg',
-    'md',
-    'sm',
-    'xs'
-];
-const DEFAULT_MIN_BREAKPOINT = 'xs';
-const ThemeContext = /*#__PURE__*/ _react.createContext({
-    prefixes: {},
-    breakpoints: DEFAULT_BREAKPOINTS,
-    minBreakpoint: DEFAULT_MIN_BREAKPOINT
-});
-const { Consumer, Provider } = ThemeContext;
-function ThemeProvider({ prefixes = {}, breakpoints = DEFAULT_BREAKPOINTS, minBreakpoint = DEFAULT_MIN_BREAKPOINT, dir, children }) {
-    const contextValue = (0, _react.useMemo)(()=>({
-            prefixes: {
-                ...prefixes
-            },
-            breakpoints,
-            minBreakpoint,
-            dir
-        }), [
-        prefixes,
-        breakpoints,
-        minBreakpoint,
-        dir
-    ]);
-    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Provider, {
-        value: contextValue,
-        children: children
-    });
-}
-function useBootstrapPrefix(prefix, defaultPrefix) {
-    const { prefixes } = (0, _react.useContext)(ThemeContext);
-    return prefix || prefixes[defaultPrefix] || defaultPrefix;
-}
-function useBootstrapBreakpoints() {
-    const { breakpoints } = (0, _react.useContext)(ThemeContext);
-    return breakpoints;
-}
-function useBootstrapMinBreakpoint() {
-    const { minBreakpoint } = (0, _react.useContext)(ThemeContext);
-    return minBreakpoint;
-}
-function useIsRTL() {
-    const { dir } = (0, _react.useContext)(ThemeContext);
-    return dir === 'rtl';
-}
-function createBootstrapComponent(Component, opts) {
-    if (typeof opts === 'string') opts = {
-        prefix: opts
-    };
-    const isClassy = Component.prototype && Component.prototype.isReactComponent;
-    // If it's a functional component make sure we don't break it with a ref
-    const { prefix, forwardRefAs = isClassy ? 'ref' : 'innerRef' } = opts;
-    const Wrapped = /*#__PURE__*/ _react.forwardRef(({ ...props }, ref)=>{
-        props[forwardRefAs] = ref;
-        const bsPrefix = useBootstrapPrefix(props.bsPrefix, prefix);
-        return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
-            ...props,
-            bsPrefix: bsPrefix
-        });
-    });
-    Wrapped.displayName = `Bootstrap(${Component.displayName || Component.name})`;
-    return Wrapped;
-}
-exports.default = ThemeProvider;
-
-},{"react":"jMk1U","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"5XlPk":[function(require,module,exports,__globalThis) {
+},{"593632ccebda0d3a":"jMk1U"}],"gVeht":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
 var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
 var _react = require("react");
 var _themeProvider = require("./ThemeProvider");
+var _accordionCollapse = require("./AccordionCollapse");
+var _accordionCollapseDefault = parcelHelpers.interopDefault(_accordionCollapse);
+var _accordionItemContext = require("./AccordionItemContext");
+var _accordionItemContextDefault = parcelHelpers.interopDefault(_accordionItemContext);
 var _jsxRuntime = require("react/jsx-runtime");
 "use client";
-const ButtonGroup = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, size, vertical = false, className, role = 'group', // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = 'div', ...rest }, ref)=>{
-    const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'btn-group');
-    let baseClass = prefix;
-    if (vertical) baseClass = `${prefix}-vertical`;
-    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
-        ...rest,
-        ref: ref,
-        role: role,
-        className: (0, _classnamesDefault.default)(className, baseClass, size && `${prefix}-${size}`)
-    });
-});
-ButtonGroup.displayName = 'ButtonGroup';
-exports.default = ButtonGroup;
-
-},{"classnames":"Egwmr","react":"jMk1U","./ThemeProvider":"gulxC","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"56ajS":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _classnames = require("classnames");
-var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
-var _react = require("react");
-var _themeProvider = require("./ThemeProvider");
-var _cardBody = require("./CardBody");
-var _cardBodyDefault = parcelHelpers.interopDefault(_cardBody);
-var _cardFooter = require("./CardFooter");
-var _cardFooterDefault = parcelHelpers.interopDefault(_cardFooter);
-var _cardHeader = require("./CardHeader");
-var _cardHeaderDefault = parcelHelpers.interopDefault(_cardHeader);
-var _cardImg = require("./CardImg");
-var _cardImgDefault = parcelHelpers.interopDefault(_cardImg);
-var _cardImgOverlay = require("./CardImgOverlay");
-var _cardImgOverlayDefault = parcelHelpers.interopDefault(_cardImgOverlay);
-var _cardLink = require("./CardLink");
-var _cardLinkDefault = parcelHelpers.interopDefault(_cardLink);
-var _cardSubtitle = require("./CardSubtitle");
-var _cardSubtitleDefault = parcelHelpers.interopDefault(_cardSubtitle);
-var _cardText = require("./CardText");
-var _cardTextDefault = parcelHelpers.interopDefault(_cardText);
-var _cardTitle = require("./CardTitle");
-var _cardTitleDefault = parcelHelpers.interopDefault(_cardTitle);
-var _jsxRuntime = require("react/jsx-runtime");
-"use client";
-const Card = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, bg, text, border, body = false, children, // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = 'div', ...props }, ref)=>{
-    const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'card');
-    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
-        ref: ref,
-        ...props,
-        className: (0, _classnamesDefault.default)(className, prefix, bg && `bg-${bg}`, text && `text-${text}`, border && `border-${border}`),
-        children: body ? /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _cardBodyDefault.default), {
-            children: children
-        }) : children
-    });
-});
-Card.displayName = 'Card';
-exports.default = Object.assign(Card, {
-    Img: (0, _cardImgDefault.default),
-    Title: (0, _cardTitleDefault.default),
-    Subtitle: (0, _cardSubtitleDefault.default),
-    Body: (0, _cardBodyDefault.default),
-    Link: (0, _cardLinkDefault.default),
-    Text: (0, _cardTextDefault.default),
-    Header: (0, _cardHeaderDefault.default),
-    Footer: (0, _cardFooterDefault.default),
-    ImgOverlay: (0, _cardImgOverlayDefault.default)
-});
-
-},{"classnames":"Egwmr","react":"jMk1U","./ThemeProvider":"gulxC","./CardBody":"7Ivmj","./CardFooter":"i937s","./CardHeader":"4LG8q","./CardImg":"9sZbN","./CardImgOverlay":"gETRN","./CardLink":"ffUGV","./CardSubtitle":"8M9vk","./CardText":"ipPfo","./CardTitle":"cQy33","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"7Ivmj":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _react = require("react");
-var _classnames = require("classnames");
-var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
-var _themeProvider = require("./ThemeProvider");
-var _jsxRuntime = require("react/jsx-runtime");
-"use client";
-const CardBody = /*#__PURE__*/ _react.forwardRef(({ className, bsPrefix, as: Component = 'div', ...props }, ref)=>{
-    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'card-body');
-    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
-        ref: ref,
-        className: (0, _classnamesDefault.default)(className, bsPrefix),
-        ...props
-    });
-});
-CardBody.displayName = 'CardBody';
-exports.default = CardBody;
-
-},{"react":"jMk1U","classnames":"Egwmr","./ThemeProvider":"gulxC","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"i937s":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _react = require("react");
-var _classnames = require("classnames");
-var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
-var _themeProvider = require("./ThemeProvider");
-var _jsxRuntime = require("react/jsx-runtime");
-"use client";
-const CardFooter = /*#__PURE__*/ _react.forwardRef(({ className, bsPrefix, as: Component = 'div', ...props }, ref)=>{
-    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'card-footer');
-    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
-        ref: ref,
-        className: (0, _classnamesDefault.default)(className, bsPrefix),
-        ...props
-    });
-});
-CardFooter.displayName = 'CardFooter';
-exports.default = CardFooter;
-
-},{"react":"jMk1U","classnames":"Egwmr","./ThemeProvider":"gulxC","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"4LG8q":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _classnames = require("classnames");
-var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
-var _react = require("react");
-var _themeProvider = require("./ThemeProvider");
-var _cardHeaderContext = require("./CardHeaderContext");
-var _cardHeaderContextDefault = parcelHelpers.interopDefault(_cardHeaderContext);
-var _jsxRuntime = require("react/jsx-runtime");
-"use client";
-const CardHeader = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = 'div', ...props }, ref)=>{
-    const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'card-header');
-    const contextValue = (0, _react.useMemo)(()=>({
-            cardHeaderBsPrefix: prefix
-        }), [
-        prefix
-    ]);
-    return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _cardHeaderContextDefault.default).Provider, {
-        value: contextValue,
+const AccordionBody = /*#__PURE__*/ _react.forwardRef(({ // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as: Component = 'div', bsPrefix, className, onEnter, onEntering, onEntered, onExit, onExiting, onExited, ...props }, ref)=>{
+    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'accordion-body');
+    const { eventKey } = (0, _react.useContext)((0, _accordionItemContextDefault.default));
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _accordionCollapseDefault.default), {
+        eventKey: eventKey,
+        onEnter: onEnter,
+        onEntering: onEntering,
+        onEntered: onEntered,
+        onExit: onExit,
+        onExiting: onExiting,
+        onExited: onExited,
         children: /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
             ref: ref,
             ...props,
-            className: (0, _classnamesDefault.default)(className, prefix)
+            className: (0, _classnamesDefault.default)(className, bsPrefix)
         })
     });
 });
-CardHeader.displayName = 'CardHeader';
-exports.default = CardHeader;
+AccordionBody.displayName = 'AccordionBody';
+exports.default = AccordionBody;
 
-},{"classnames":"Egwmr","react":"jMk1U","./ThemeProvider":"gulxC","./CardHeaderContext":"9gqCk","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"9gqCk":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _react = require("react");
-"use client";
-const context = /*#__PURE__*/ _react.createContext(null);
-context.displayName = 'CardHeaderContext';
-exports.default = context;
-
-},{"react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"9sZbN":[function(require,module,exports,__globalThis) {
+},{"classnames":"Egwmr","react":"jMk1U","./ThemeProvider":"gulxC","./AccordionCollapse":"9UNrA","./AccordionItemContext":"kPmm7","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"9UNrA":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
 var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
 var _react = require("react");
 var _themeProvider = require("./ThemeProvider");
+var _collapse = require("./Collapse");
+var _collapseDefault = parcelHelpers.interopDefault(_collapse);
+var _accordionContext = require("./AccordionContext");
+var _accordionContextDefault = parcelHelpers.interopDefault(_accordionContext);
 var _jsxRuntime = require("react/jsx-runtime");
 "use client";
-const CardImg = /*#__PURE__*/ _react.forwardRef(// Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-({ bsPrefix, className, variant, as: Component = 'img', ...props }, ref)=>{
-    const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'card-img');
-    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
+/**
+ * This component accepts all of [`Collapse`'s props](/docs/utilities/transitions#collapse-1).
+ */ const AccordionCollapse = /*#__PURE__*/ _react.forwardRef(({ as: Component = 'div', bsPrefix, className, children, eventKey, ...props }, ref)=>{
+    const { activeEventKey } = (0, _react.useContext)((0, _accordionContextDefault.default));
+    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'accordion-collapse');
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _collapseDefault.default), {
         ref: ref,
-        className: (0, _classnamesDefault.default)(variant ? `${prefix}-${variant}` : prefix, className),
-        ...props
-    });
-});
-CardImg.displayName = 'CardImg';
-exports.default = CardImg;
-
-},{"classnames":"Egwmr","react":"jMk1U","./ThemeProvider":"gulxC","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"gETRN":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _react = require("react");
-var _classnames = require("classnames");
-var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
-var _themeProvider = require("./ThemeProvider");
-var _jsxRuntime = require("react/jsx-runtime");
-"use client";
-const CardImgOverlay = /*#__PURE__*/ _react.forwardRef(({ className, bsPrefix, as: Component = 'div', ...props }, ref)=>{
-    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'card-img-overlay');
-    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
-        ref: ref,
+        in: (0, _accordionContext.isAccordionItemSelected)(activeEventKey, eventKey),
+        ...props,
         className: (0, _classnamesDefault.default)(className, bsPrefix),
-        ...props
+        children: /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
+            children: _react.Children.only(children)
+        })
     });
 });
-CardImgOverlay.displayName = 'CardImgOverlay';
-exports.default = CardImgOverlay;
+AccordionCollapse.displayName = 'AccordionCollapse';
+exports.default = AccordionCollapse;
 
-},{"react":"jMk1U","classnames":"Egwmr","./ThemeProvider":"gulxC","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"ffUGV":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _react = require("react");
-var _classnames = require("classnames");
-var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
-var _themeProvider = require("./ThemeProvider");
-var _jsxRuntime = require("react/jsx-runtime");
-"use client";
-const CardLink = /*#__PURE__*/ _react.forwardRef(({ className, bsPrefix, as: Component = 'a', ...props }, ref)=>{
-    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'card-link');
-    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
-        ref: ref,
-        className: (0, _classnamesDefault.default)(className, bsPrefix),
-        ...props
-    });
-});
-CardLink.displayName = 'CardLink';
-exports.default = CardLink;
-
-},{"react":"jMk1U","classnames":"Egwmr","./ThemeProvider":"gulxC","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"8M9vk":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _react = require("react");
-var _classnames = require("classnames");
-var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
-var _themeProvider = require("./ThemeProvider");
-var _divWithClassName = require("./divWithClassName");
-var _divWithClassNameDefault = parcelHelpers.interopDefault(_divWithClassName);
-var _jsxRuntime = require("react/jsx-runtime");
-"use client";
-const DivStyledAsH6 = (0, _divWithClassNameDefault.default)('h6');
-const CardSubtitle = /*#__PURE__*/ _react.forwardRef(({ className, bsPrefix, as: Component = DivStyledAsH6, ...props }, ref)=>{
-    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'card-subtitle');
-    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
-        ref: ref,
-        className: (0, _classnamesDefault.default)(className, bsPrefix),
-        ...props
-    });
-});
-CardSubtitle.displayName = 'CardSubtitle';
-exports.default = CardSubtitle;
-
-},{"react":"jMk1U","classnames":"Egwmr","./ThemeProvider":"gulxC","./divWithClassName":"7NpDo","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"7NpDo":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _react = require("react");
-var _classnames = require("classnames");
-var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
-var _jsxRuntime = require("react/jsx-runtime");
-exports.default = (className)=>/*#__PURE__*/ _react.forwardRef((p, ref)=>/*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
-            ...p,
-            ref: ref,
-            className: (0, _classnamesDefault.default)(p.className, className)
-        }));
-
-},{"react":"jMk1U","classnames":"Egwmr","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"ipPfo":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _react = require("react");
-var _classnames = require("classnames");
-var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
-var _themeProvider = require("./ThemeProvider");
-var _jsxRuntime = require("react/jsx-runtime");
-"use client";
-const CardText = /*#__PURE__*/ _react.forwardRef(({ className, bsPrefix, as: Component = 'p', ...props }, ref)=>{
-    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'card-text');
-    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
-        ref: ref,
-        className: (0, _classnamesDefault.default)(className, bsPrefix),
-        ...props
-    });
-});
-CardText.displayName = 'CardText';
-exports.default = CardText;
-
-},{"react":"jMk1U","classnames":"Egwmr","./ThemeProvider":"gulxC","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"cQy33":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _react = require("react");
-var _classnames = require("classnames");
-var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
-var _themeProvider = require("./ThemeProvider");
-var _divWithClassName = require("./divWithClassName");
-var _divWithClassNameDefault = parcelHelpers.interopDefault(_divWithClassName);
-var _jsxRuntime = require("react/jsx-runtime");
-"use client";
-const DivStyledAsH5 = (0, _divWithClassNameDefault.default)('h5');
-const CardTitle = /*#__PURE__*/ _react.forwardRef(({ className, bsPrefix, as: Component = DivStyledAsH5, ...props }, ref)=>{
-    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'card-title');
-    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
-        ref: ref,
-        className: (0, _classnamesDefault.default)(className, bsPrefix),
-        ...props
-    });
-});
-CardTitle.displayName = 'CardTitle';
-exports.default = CardTitle;
-
-},{"react":"jMk1U","classnames":"Egwmr","./ThemeProvider":"gulxC","./divWithClassName":"7NpDo","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"4dv1h":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _propTypes = require("prop-types");
-var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
-var _react = require("react");
-var _classnames = require("classnames");
-var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
-var _jsxRuntime = require("react/jsx-runtime");
-const propTypes = {
-    /** An accessible label indicating the relevant information about the Close Button. */ 'aria-label': (0, _propTypesDefault.default).string,
-    /** A callback fired after the Close Button is clicked. */ onClick: (0, _propTypesDefault.default).func,
-    /**
-   * Render different color variant for the button.
-   *
-   * Omitting this will render the default dark color.
-   */ variant: (0, _propTypesDefault.default).oneOf([
-        'white'
-    ])
-};
-const CloseButton = /*#__PURE__*/ _react.forwardRef(({ className, variant, 'aria-label': ariaLabel = 'Close', ...props }, ref)=>/*#__PURE__*/ (0, _jsxRuntime.jsx)("button", {
-        ref: ref,
-        type: "button",
-        className: (0, _classnamesDefault.default)('btn-close', variant && `btn-close-${variant}`, className),
-        "aria-label": ariaLabel,
-        ...props
-    }));
-CloseButton.displayName = 'CloseButton';
-CloseButton.propTypes = propTypes;
-exports.default = CloseButton;
-
-},{"prop-types":"GNqOQ","react":"jMk1U","classnames":"Egwmr","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"6x0qd":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "useCol", ()=>useCol);
-var _classnames = require("classnames");
-var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
-var _react = require("react");
-var _themeProvider = require("./ThemeProvider");
-var _jsxRuntime = require("react/jsx-runtime");
-"use client";
-function useCol({ as, bsPrefix, className, ...props }) {
-    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'col');
-    const breakpoints = (0, _themeProvider.useBootstrapBreakpoints)();
-    const minBreakpoint = (0, _themeProvider.useBootstrapMinBreakpoint)();
-    const spans = [];
-    const classes = [];
-    breakpoints.forEach((brkPoint)=>{
-        const propValue = props[brkPoint];
-        delete props[brkPoint];
-        let span;
-        let offset;
-        let order;
-        if (typeof propValue === 'object' && propValue != null) ({ span, offset, order } = propValue);
-        else span = propValue;
-        const infix = brkPoint !== minBreakpoint ? `-${brkPoint}` : '';
-        if (span) spans.push(span === true ? `${bsPrefix}${infix}` : `${bsPrefix}${infix}-${span}`);
-        if (order != null) classes.push(`order${infix}-${order}`);
-        if (offset != null) classes.push(`offset${infix}-${offset}`);
-    });
-    return [
-        {
-            ...props,
-            className: (0, _classnamesDefault.default)(className, ...spans, ...classes)
-        },
-        {
-            as,
-            bsPrefix,
-            spans
-        }
-    ];
-}
-const Col = /*#__PURE__*/ _react.forwardRef(// Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-(props, ref)=>{
-    const [{ className, ...colProps }, { as: Component = 'div', bsPrefix, spans }] = useCol(props);
-    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
-        ...colProps,
-        ref: ref,
-        className: (0, _classnamesDefault.default)(className, !spans.length && bsPrefix)
-    });
-});
-Col.displayName = 'Col';
-exports.default = Col;
-
-},{"classnames":"Egwmr","react":"jMk1U","./ThemeProvider":"gulxC","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"9jq50":[function(require,module,exports,__globalThis) {
+},{"classnames":"Egwmr","react":"jMk1U","./ThemeProvider":"gulxC","./Collapse":"9jq50","./AccordionContext":"aQn7O","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"9jq50":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -21648,41 +21719,7 @@ Transition.ENTERED = ENTERED;
 Transition.EXITING = EXITING;
 exports.default = Transition;
 
-},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"fls88","@babel/runtime/helpers/esm/inheritsLoose":"jDIko","prop-types":"GNqOQ","react":"jMk1U","react-dom":"i4X7T","./config":"5BfDx","./utils/PropTypes":"cWwSk","./TransitionGroupContext":"02D2e","./utils/reflow":"962ni","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"fls88":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>_objectWithoutPropertiesLoose);
-function _objectWithoutPropertiesLoose(r, e) {
-    if (null == r) return {};
-    var t = {};
-    for(var n in r)if (({}).hasOwnProperty.call(r, n)) {
-        if (-1 !== e.indexOf(n)) continue;
-        t[n] = r[n];
-    }
-    return t;
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"jDIko":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>_inheritsLoose);
-var _setPrototypeOfJs = require("./setPrototypeOf.js");
-var _setPrototypeOfJsDefault = parcelHelpers.interopDefault(_setPrototypeOfJs);
-function _inheritsLoose(t, o) {
-    t.prototype = Object.create(o.prototype), t.prototype.constructor = t, (0, _setPrototypeOfJsDefault.default)(t, o);
-}
-
-},{"./setPrototypeOf.js":"5Brd2","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"5Brd2":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>_setPrototypeOf);
-function _setPrototypeOf(t, e) {
-    return _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function(t, e) {
-        return t.__proto__ = e, t;
-    }, _setPrototypeOf(t, e);
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"5BfDx":[function(require,module,exports,__globalThis) {
+},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"fls88","@babel/runtime/helpers/esm/inheritsLoose":"jDIko","prop-types":"GNqOQ","react":"jMk1U","react-dom":"i4X7T","./config":"5BfDx","./utils/PropTypes":"cWwSk","./TransitionGroupContext":"02D2e","./utils/reflow":"962ni","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"5BfDx":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 exports.default = {
@@ -22085,7 +22122,641 @@ function safeFindDOMNode(componentOrElement) {
     return componentOrElement != null ? componentOrElement : null;
 }
 
-},{"react-dom":"i4X7T","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"2GCvr":[function(require,module,exports,__globalThis) {
+},{"react-dom":"i4X7T","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"aQn7O":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "isAccordionItemSelected", ()=>isAccordionItemSelected);
+var _react = require("react");
+"use client";
+function isAccordionItemSelected(activeEventKey, eventKey) {
+    return Array.isArray(activeEventKey) ? activeEventKey.includes(eventKey) : activeEventKey === eventKey;
+}
+const context = /*#__PURE__*/ _react.createContext({});
+context.displayName = 'AccordionContext';
+exports.default = context;
+
+},{"react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"kPmm7":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+"use client";
+const context = /*#__PURE__*/ _react.createContext({
+    eventKey: ''
+});
+context.displayName = 'AccordionItemContext';
+exports.default = context;
+
+},{"react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"6UhhX":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "useAccordionButton", ()=>useAccordionButton);
+var _react = require("react");
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _accordionContext = require("./AccordionContext");
+var _accordionContextDefault = parcelHelpers.interopDefault(_accordionContext);
+var _accordionItemContext = require("./AccordionItemContext");
+var _accordionItemContextDefault = parcelHelpers.interopDefault(_accordionItemContext);
+var _themeProvider = require("./ThemeProvider");
+var _jsxRuntime = require("react/jsx-runtime");
+"use client";
+function useAccordionButton(eventKey, onClick) {
+    const { activeEventKey, onSelect, alwaysOpen } = (0, _react.useContext)((0, _accordionContextDefault.default));
+    return (e)=>{
+        /*
+      Compare the event key in context with the given event key.
+      If they are the same, then collapse the component.
+    */ let eventKeyPassed = eventKey === activeEventKey ? null : eventKey;
+        if (alwaysOpen) {
+            if (Array.isArray(activeEventKey)) {
+                if (activeEventKey.includes(eventKey)) eventKeyPassed = activeEventKey.filter((k)=>k !== eventKey);
+                else eventKeyPassed = [
+                    ...activeEventKey,
+                    eventKey
+                ];
+            } else // activeEventKey is undefined.
+            eventKeyPassed = [
+                eventKey
+            ];
+        }
+        onSelect == null || onSelect(eventKeyPassed, e);
+        onClick == null || onClick(e);
+    };
+}
+const AccordionButton = /*#__PURE__*/ _react.forwardRef(({ // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as: Component = 'button', bsPrefix, className, onClick, ...props }, ref)=>{
+    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'accordion-button');
+    const { eventKey } = (0, _react.useContext)((0, _accordionItemContextDefault.default));
+    const accordionOnClick = useAccordionButton(eventKey, onClick);
+    const { activeEventKey } = (0, _react.useContext)((0, _accordionContextDefault.default));
+    if (Component === 'button') props.type = 'button';
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
+        ref: ref,
+        onClick: accordionOnClick,
+        ...props,
+        "aria-expanded": Array.isArray(activeEventKey) ? activeEventKey.includes(eventKey) : eventKey === activeEventKey,
+        className: (0, _classnamesDefault.default)(className, bsPrefix, !(0, _accordionContext.isAccordionItemSelected)(activeEventKey, eventKey) && 'collapsed')
+    });
+});
+AccordionButton.displayName = 'AccordionButton';
+exports.default = AccordionButton;
+
+},{"react":"jMk1U","classnames":"Egwmr","./AccordionContext":"aQn7O","./AccordionItemContext":"kPmm7","./ThemeProvider":"gulxC","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"jMDEW":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _react = require("react");
+var _themeProvider = require("./ThemeProvider");
+var _accordionButton = require("./AccordionButton");
+var _accordionButtonDefault = parcelHelpers.interopDefault(_accordionButton);
+var _jsxRuntime = require("react/jsx-runtime");
+"use client";
+const AccordionHeader = /*#__PURE__*/ _react.forwardRef(({ // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as: Component = 'h2', 'aria-controls': ariaControls, bsPrefix, className, children, onClick, ...props }, ref)=>{
+    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'accordion-header');
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
+        ref: ref,
+        ...props,
+        className: (0, _classnamesDefault.default)(className, bsPrefix),
+        children: /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _accordionButtonDefault.default), {
+            onClick: onClick,
+            "aria-controls": ariaControls,
+            children: children
+        })
+    });
+});
+AccordionHeader.displayName = 'AccordionHeader';
+exports.default = AccordionHeader;
+
+},{"classnames":"Egwmr","react":"jMk1U","./ThemeProvider":"gulxC","./AccordionButton":"6UhhX","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"353Ir":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _react = require("react");
+var _themeProvider = require("./ThemeProvider");
+var _accordionItemContext = require("./AccordionItemContext");
+var _accordionItemContextDefault = parcelHelpers.interopDefault(_accordionItemContext);
+var _jsxRuntime = require("react/jsx-runtime");
+"use client";
+const AccordionItem = /*#__PURE__*/ _react.forwardRef(({ // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as: Component = 'div', bsPrefix, className, eventKey, ...props }, ref)=>{
+    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'accordion-item');
+    const contextValue = (0, _react.useMemo)(()=>({
+            eventKey
+        }), [
+        eventKey
+    ]);
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _accordionItemContextDefault.default).Provider, {
+        value: contextValue,
+        children: /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
+            ref: ref,
+            ...props,
+            className: (0, _classnamesDefault.default)(className, bsPrefix)
+        })
+    });
+});
+AccordionItem.displayName = 'AccordionItem';
+exports.default = AccordionItem;
+
+},{"classnames":"Egwmr","react":"jMk1U","./ThemeProvider":"gulxC","./AccordionItemContext":"kPmm7","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"kNKIo":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _react = require("react");
+var _button = require("@restart/ui/Button");
+var _themeProvider = require("./ThemeProvider");
+var _jsxRuntime = require("react/jsx-runtime");
+"use client";
+const Button = /*#__PURE__*/ _react.forwardRef(({ as, bsPrefix, variant = 'primary', size, active = false, disabled = false, className, ...props }, ref)=>{
+    const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'btn');
+    const [buttonProps, { tagName }] = (0, _button.useButtonProps)({
+        tagName: as,
+        disabled,
+        ...props
+    });
+    const Component = tagName;
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
+        ...buttonProps,
+        ...props,
+        ref: ref,
+        disabled: disabled,
+        className: (0, _classnamesDefault.default)(className, prefix, active && 'active', variant && `${prefix}-${variant}`, size && `${prefix}-${size}`, props.href && disabled && 'disabled')
+    });
+});
+Button.displayName = 'Button';
+exports.default = Button;
+
+},{"classnames":"Egwmr","react":"jMk1U","@restart/ui/Button":"cxoj5","./ThemeProvider":"gulxC","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"cxoj5":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "isTrivialHref", ()=>isTrivialHref);
+parcelHelpers.export(exports, "useButtonProps", ()=>useButtonProps);
+var _react = require("react");
+var _jsxRuntime = require("react/jsx-runtime");
+const _excluded = [
+    "as",
+    "disabled"
+];
+function _objectWithoutPropertiesLoose(r, e) {
+    if (null == r) return {};
+    var t = {};
+    for(var n in r)if (({}).hasOwnProperty.call(r, n)) {
+        if (e.indexOf(n) >= 0) continue;
+        t[n] = r[n];
+    }
+    return t;
+}
+function isTrivialHref(href) {
+    return !href || href.trim() === '#';
+}
+function useButtonProps({ tagName, disabled, href, target, rel, role, onClick, tabIndex = 0, type }) {
+    if (!tagName) {
+        if (href != null || target != null || rel != null) tagName = 'a';
+        else tagName = 'button';
+    }
+    const meta = {
+        tagName
+    };
+    if (tagName === 'button') return [
+        {
+            type: type || 'button',
+            disabled
+        },
+        meta
+    ];
+    const handleClick = (event)=>{
+        if (disabled || tagName === 'a' && isTrivialHref(href)) event.preventDefault();
+        if (disabled) {
+            event.stopPropagation();
+            return;
+        }
+        onClick == null || onClick(event);
+    };
+    const handleKeyDown = (event)=>{
+        if (event.key === ' ') {
+            event.preventDefault();
+            handleClick(event);
+        }
+    };
+    if (tagName === 'a') {
+        // Ensure there's a href so Enter can trigger anchor button.
+        href || (href = '#');
+        if (disabled) href = undefined;
+    }
+    return [
+        {
+            role: role != null ? role : 'button',
+            // explicitly undefined so that it overrides the props disabled in a spread
+            // e.g. <Tag {...props} {...hookProps} />
+            disabled: undefined,
+            tabIndex: disabled ? undefined : tabIndex,
+            href,
+            target: tagName === 'a' ? target : undefined,
+            'aria-disabled': !disabled ? undefined : disabled,
+            rel: tagName === 'a' ? rel : undefined,
+            onClick: handleClick,
+            onKeyDown: handleKeyDown
+        },
+        meta
+    ];
+}
+const Button = /*#__PURE__*/ _react.forwardRef((_ref, ref)=>{
+    let { as: asProp, disabled } = _ref, props = _objectWithoutPropertiesLoose(_ref, _excluded);
+    const [buttonProps, { tagName: Component }] = useButtonProps(Object.assign({
+        tagName: asProp,
+        disabled
+    }, props));
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, Object.assign({}, props, buttonProps, {
+        ref: ref
+    }));
+});
+Button.displayName = 'Button';
+exports.default = Button;
+
+},{"react":"jMk1U","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"5XlPk":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _react = require("react");
+var _themeProvider = require("./ThemeProvider");
+var _jsxRuntime = require("react/jsx-runtime");
+"use client";
+const ButtonGroup = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, size, vertical = false, className, role = 'group', // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as: Component = 'div', ...rest }, ref)=>{
+    const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'btn-group');
+    let baseClass = prefix;
+    if (vertical) baseClass = `${prefix}-vertical`;
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
+        ...rest,
+        ref: ref,
+        role: role,
+        className: (0, _classnamesDefault.default)(className, baseClass, size && `${prefix}-${size}`)
+    });
+});
+ButtonGroup.displayName = 'ButtonGroup';
+exports.default = ButtonGroup;
+
+},{"classnames":"Egwmr","react":"jMk1U","./ThemeProvider":"gulxC","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"56ajS":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _react = require("react");
+var _themeProvider = require("./ThemeProvider");
+var _cardBody = require("./CardBody");
+var _cardBodyDefault = parcelHelpers.interopDefault(_cardBody);
+var _cardFooter = require("./CardFooter");
+var _cardFooterDefault = parcelHelpers.interopDefault(_cardFooter);
+var _cardHeader = require("./CardHeader");
+var _cardHeaderDefault = parcelHelpers.interopDefault(_cardHeader);
+var _cardImg = require("./CardImg");
+var _cardImgDefault = parcelHelpers.interopDefault(_cardImg);
+var _cardImgOverlay = require("./CardImgOverlay");
+var _cardImgOverlayDefault = parcelHelpers.interopDefault(_cardImgOverlay);
+var _cardLink = require("./CardLink");
+var _cardLinkDefault = parcelHelpers.interopDefault(_cardLink);
+var _cardSubtitle = require("./CardSubtitle");
+var _cardSubtitleDefault = parcelHelpers.interopDefault(_cardSubtitle);
+var _cardText = require("./CardText");
+var _cardTextDefault = parcelHelpers.interopDefault(_cardText);
+var _cardTitle = require("./CardTitle");
+var _cardTitleDefault = parcelHelpers.interopDefault(_cardTitle);
+var _jsxRuntime = require("react/jsx-runtime");
+"use client";
+const Card = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, bg, text, border, body = false, children, // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as: Component = 'div', ...props }, ref)=>{
+    const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'card');
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
+        ref: ref,
+        ...props,
+        className: (0, _classnamesDefault.default)(className, prefix, bg && `bg-${bg}`, text && `text-${text}`, border && `border-${border}`),
+        children: body ? /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _cardBodyDefault.default), {
+            children: children
+        }) : children
+    });
+});
+Card.displayName = 'Card';
+exports.default = Object.assign(Card, {
+    Img: (0, _cardImgDefault.default),
+    Title: (0, _cardTitleDefault.default),
+    Subtitle: (0, _cardSubtitleDefault.default),
+    Body: (0, _cardBodyDefault.default),
+    Link: (0, _cardLinkDefault.default),
+    Text: (0, _cardTextDefault.default),
+    Header: (0, _cardHeaderDefault.default),
+    Footer: (0, _cardFooterDefault.default),
+    ImgOverlay: (0, _cardImgOverlayDefault.default)
+});
+
+},{"classnames":"Egwmr","react":"jMk1U","./ThemeProvider":"gulxC","./CardBody":"7Ivmj","./CardFooter":"i937s","./CardHeader":"4LG8q","./CardImg":"9sZbN","./CardImgOverlay":"gETRN","./CardLink":"ffUGV","./CardSubtitle":"8M9vk","./CardText":"ipPfo","./CardTitle":"cQy33","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"7Ivmj":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _themeProvider = require("./ThemeProvider");
+var _jsxRuntime = require("react/jsx-runtime");
+"use client";
+const CardBody = /*#__PURE__*/ _react.forwardRef(({ className, bsPrefix, as: Component = 'div', ...props }, ref)=>{
+    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'card-body');
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
+        ref: ref,
+        className: (0, _classnamesDefault.default)(className, bsPrefix),
+        ...props
+    });
+});
+CardBody.displayName = 'CardBody';
+exports.default = CardBody;
+
+},{"react":"jMk1U","classnames":"Egwmr","./ThemeProvider":"gulxC","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"i937s":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _themeProvider = require("./ThemeProvider");
+var _jsxRuntime = require("react/jsx-runtime");
+"use client";
+const CardFooter = /*#__PURE__*/ _react.forwardRef(({ className, bsPrefix, as: Component = 'div', ...props }, ref)=>{
+    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'card-footer');
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
+        ref: ref,
+        className: (0, _classnamesDefault.default)(className, bsPrefix),
+        ...props
+    });
+});
+CardFooter.displayName = 'CardFooter';
+exports.default = CardFooter;
+
+},{"react":"jMk1U","classnames":"Egwmr","./ThemeProvider":"gulxC","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"4LG8q":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _react = require("react");
+var _themeProvider = require("./ThemeProvider");
+var _cardHeaderContext = require("./CardHeaderContext");
+var _cardHeaderContextDefault = parcelHelpers.interopDefault(_cardHeaderContext);
+var _jsxRuntime = require("react/jsx-runtime");
+"use client";
+const CardHeader = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as: Component = 'div', ...props }, ref)=>{
+    const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'card-header');
+    const contextValue = (0, _react.useMemo)(()=>({
+            cardHeaderBsPrefix: prefix
+        }), [
+        prefix
+    ]);
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _cardHeaderContextDefault.default).Provider, {
+        value: contextValue,
+        children: /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
+            ref: ref,
+            ...props,
+            className: (0, _classnamesDefault.default)(className, prefix)
+        })
+    });
+});
+CardHeader.displayName = 'CardHeader';
+exports.default = CardHeader;
+
+},{"classnames":"Egwmr","react":"jMk1U","./ThemeProvider":"gulxC","./CardHeaderContext":"9gqCk","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"9gqCk":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+"use client";
+const context = /*#__PURE__*/ _react.createContext(null);
+context.displayName = 'CardHeaderContext';
+exports.default = context;
+
+},{"react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"9sZbN":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _react = require("react");
+var _themeProvider = require("./ThemeProvider");
+var _jsxRuntime = require("react/jsx-runtime");
+"use client";
+const CardImg = /*#__PURE__*/ _react.forwardRef(// Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+({ bsPrefix, className, variant, as: Component = 'img', ...props }, ref)=>{
+    const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'card-img');
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
+        ref: ref,
+        className: (0, _classnamesDefault.default)(variant ? `${prefix}-${variant}` : prefix, className),
+        ...props
+    });
+});
+CardImg.displayName = 'CardImg';
+exports.default = CardImg;
+
+},{"classnames":"Egwmr","react":"jMk1U","./ThemeProvider":"gulxC","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"gETRN":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _themeProvider = require("./ThemeProvider");
+var _jsxRuntime = require("react/jsx-runtime");
+"use client";
+const CardImgOverlay = /*#__PURE__*/ _react.forwardRef(({ className, bsPrefix, as: Component = 'div', ...props }, ref)=>{
+    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'card-img-overlay');
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
+        ref: ref,
+        className: (0, _classnamesDefault.default)(className, bsPrefix),
+        ...props
+    });
+});
+CardImgOverlay.displayName = 'CardImgOverlay';
+exports.default = CardImgOverlay;
+
+},{"react":"jMk1U","classnames":"Egwmr","./ThemeProvider":"gulxC","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"ffUGV":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _themeProvider = require("./ThemeProvider");
+var _jsxRuntime = require("react/jsx-runtime");
+"use client";
+const CardLink = /*#__PURE__*/ _react.forwardRef(({ className, bsPrefix, as: Component = 'a', ...props }, ref)=>{
+    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'card-link');
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
+        ref: ref,
+        className: (0, _classnamesDefault.default)(className, bsPrefix),
+        ...props
+    });
+});
+CardLink.displayName = 'CardLink';
+exports.default = CardLink;
+
+},{"react":"jMk1U","classnames":"Egwmr","./ThemeProvider":"gulxC","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"8M9vk":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _themeProvider = require("./ThemeProvider");
+var _divWithClassName = require("./divWithClassName");
+var _divWithClassNameDefault = parcelHelpers.interopDefault(_divWithClassName);
+var _jsxRuntime = require("react/jsx-runtime");
+"use client";
+const DivStyledAsH6 = (0, _divWithClassNameDefault.default)('h6');
+const CardSubtitle = /*#__PURE__*/ _react.forwardRef(({ className, bsPrefix, as: Component = DivStyledAsH6, ...props }, ref)=>{
+    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'card-subtitle');
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
+        ref: ref,
+        className: (0, _classnamesDefault.default)(className, bsPrefix),
+        ...props
+    });
+});
+CardSubtitle.displayName = 'CardSubtitle';
+exports.default = CardSubtitle;
+
+},{"react":"jMk1U","classnames":"Egwmr","./ThemeProvider":"gulxC","./divWithClassName":"7NpDo","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"7NpDo":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _jsxRuntime = require("react/jsx-runtime");
+exports.default = (className)=>/*#__PURE__*/ _react.forwardRef((p, ref)=>/*#__PURE__*/ (0, _jsxRuntime.jsx)("div", {
+            ...p,
+            ref: ref,
+            className: (0, _classnamesDefault.default)(p.className, className)
+        }));
+
+},{"react":"jMk1U","classnames":"Egwmr","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"ipPfo":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _themeProvider = require("./ThemeProvider");
+var _jsxRuntime = require("react/jsx-runtime");
+"use client";
+const CardText = /*#__PURE__*/ _react.forwardRef(({ className, bsPrefix, as: Component = 'p', ...props }, ref)=>{
+    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'card-text');
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
+        ref: ref,
+        className: (0, _classnamesDefault.default)(className, bsPrefix),
+        ...props
+    });
+});
+CardText.displayName = 'CardText';
+exports.default = CardText;
+
+},{"react":"jMk1U","classnames":"Egwmr","./ThemeProvider":"gulxC","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"cQy33":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _themeProvider = require("./ThemeProvider");
+var _divWithClassName = require("./divWithClassName");
+var _divWithClassNameDefault = parcelHelpers.interopDefault(_divWithClassName);
+var _jsxRuntime = require("react/jsx-runtime");
+"use client";
+const DivStyledAsH5 = (0, _divWithClassNameDefault.default)('h5');
+const CardTitle = /*#__PURE__*/ _react.forwardRef(({ className, bsPrefix, as: Component = DivStyledAsH5, ...props }, ref)=>{
+    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'card-title');
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
+        ref: ref,
+        className: (0, _classnamesDefault.default)(className, bsPrefix),
+        ...props
+    });
+});
+CardTitle.displayName = 'CardTitle';
+exports.default = CardTitle;
+
+},{"react":"jMk1U","classnames":"Egwmr","./ThemeProvider":"gulxC","./divWithClassName":"7NpDo","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"4dv1h":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+var _react = require("react");
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _jsxRuntime = require("react/jsx-runtime");
+const propTypes = {
+    /** An accessible label indicating the relevant information about the Close Button. */ 'aria-label': (0, _propTypesDefault.default).string,
+    /** A callback fired after the Close Button is clicked. */ onClick: (0, _propTypesDefault.default).func,
+    /**
+   * Render different color variant for the button.
+   *
+   * Omitting this will render the default dark color.
+   */ variant: (0, _propTypesDefault.default).oneOf([
+        'white'
+    ])
+};
+const CloseButton = /*#__PURE__*/ _react.forwardRef(({ className, variant, 'aria-label': ariaLabel = 'Close', ...props }, ref)=>/*#__PURE__*/ (0, _jsxRuntime.jsx)("button", {
+        ref: ref,
+        type: "button",
+        className: (0, _classnamesDefault.default)('btn-close', variant && `btn-close-${variant}`, className),
+        "aria-label": ariaLabel,
+        ...props
+    }));
+CloseButton.displayName = 'CloseButton';
+CloseButton.propTypes = propTypes;
+exports.default = CloseButton;
+
+},{"prop-types":"GNqOQ","react":"jMk1U","classnames":"Egwmr","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"6x0qd":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "useCol", ()=>useCol);
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _react = require("react");
+var _themeProvider = require("./ThemeProvider");
+var _jsxRuntime = require("react/jsx-runtime");
+"use client";
+function useCol({ as, bsPrefix, className, ...props }) {
+    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, 'col');
+    const breakpoints = (0, _themeProvider.useBootstrapBreakpoints)();
+    const minBreakpoint = (0, _themeProvider.useBootstrapMinBreakpoint)();
+    const spans = [];
+    const classes = [];
+    breakpoints.forEach((brkPoint)=>{
+        const propValue = props[brkPoint];
+        delete props[brkPoint];
+        let span;
+        let offset;
+        let order;
+        if (typeof propValue === 'object' && propValue != null) ({ span, offset, order } = propValue);
+        else span = propValue;
+        const infix = brkPoint !== minBreakpoint ? `-${brkPoint}` : '';
+        if (span) spans.push(span === true ? `${bsPrefix}${infix}` : `${bsPrefix}${infix}-${span}`);
+        if (order != null) classes.push(`order${infix}-${order}`);
+        if (offset != null) classes.push(`offset${infix}-${offset}`);
+    });
+    return [
+        {
+            ...props,
+            className: (0, _classnamesDefault.default)(className, ...spans, ...classes)
+        },
+        {
+            as,
+            bsPrefix,
+            spans
+        }
+    ];
+}
+const Col = /*#__PURE__*/ _react.forwardRef(// Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+(props, ref)=>{
+    const [{ className, ...colProps }, { as: Component = 'div', bsPrefix, spans }] = useCol(props);
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
+        ...colProps,
+        ref: ref,
+        className: (0, _classnamesDefault.default)(className, !spans.length && bsPrefix)
+    });
+});
+Col.displayName = 'Col';
+exports.default = Col;
+
+},{"classnames":"Egwmr","react":"jMk1U","./ThemeProvider":"gulxC","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"2GCvr":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -24182,419 +24853,7 @@ exports.default = Object.assign(Nav, {
     Link: (0, _navLinkDefault.default)
 });
 
-},{"classnames":"Egwmr","react":"jMk1U","uncontrollable":"eKG0k","@restart/ui/Nav":"dPzuz","./ThemeProvider":"gulxC","./NavbarContext":"3NwrH","./CardHeaderContext":"9gqCk","./NavItem":"cDuvI","./NavLink":"7Bpoc","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"eKG0k":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "useUncontrolled", ()=>(0, _hookDefault.default));
-parcelHelpers.export(exports, "useUncontrolledProp", ()=>(0, _hook.useUncontrolledProp));
-parcelHelpers.export(exports, "uncontrollable", ()=>(0, _uncontrollableDefault.default));
-var _hook = require("./hook");
-var _hookDefault = parcelHelpers.interopDefault(_hook);
-var _uncontrollable = require("./uncontrollable");
-var _uncontrollableDefault = parcelHelpers.interopDefault(_uncontrollable);
-
-},{"./hook":"bzIgv","./uncontrollable":"gKGW4","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"bzIgv":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "useUncontrolledProp", ()=>useUncontrolledProp);
-parcelHelpers.export(exports, "default", ()=>useUncontrolled);
-var _extends = require("@babel/runtime/helpers/esm/extends");
-var _extendsDefault = parcelHelpers.interopDefault(_extends);
-var _objectWithoutPropertiesLoose = require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose");
-var _objectWithoutPropertiesLooseDefault = parcelHelpers.interopDefault(_objectWithoutPropertiesLoose);
-var _react = require("react");
-var _utils = require("./utils");
-function _toPropertyKey(arg) {
-    var key = _toPrimitive(arg, "string");
-    return typeof key === "symbol" ? key : String(key);
-}
-function _toPrimitive(input, hint) {
-    if (typeof input !== "object" || input === null) return input;
-    var prim = input[Symbol.toPrimitive];
-    if (prim !== undefined) {
-        var res = prim.call(input, hint || "default");
-        if (typeof res !== "object") return res;
-        throw new TypeError("@@toPrimitive must return a primitive value.");
-    }
-    return (hint === "string" ? String : Number)(input);
-}
-function useUncontrolledProp(propValue, defaultValue, handler) {
-    var wasPropRef = (0, _react.useRef)(propValue !== undefined);
-    var _useState = (0, _react.useState)(defaultValue), stateValue = _useState[0], setState = _useState[1];
-    var isProp = propValue !== undefined;
-    var wasProp = wasPropRef.current;
-    wasPropRef.current = isProp;
-    /**
-   * If a prop switches from controlled to Uncontrolled
-   * reset its value to the defaultValue
-   */ if (!isProp && wasProp && stateValue !== defaultValue) setState(defaultValue);
-    return [
-        isProp ? propValue : stateValue,
-        (0, _react.useCallback)(function(value) {
-            for(var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++)args[_key - 1] = arguments[_key];
-            if (handler) handler.apply(void 0, [
-                value
-            ].concat(args));
-            setState(value);
-        }, [
-            handler
-        ])
-    ];
-}
-function useUncontrolled(props, config) {
-    return Object.keys(config).reduce(function(result, fieldName) {
-        var _extends2;
-        var _ref = result, defaultValue = _ref[_utils.defaultKey(fieldName)], propsValue = _ref[fieldName], rest = (0, _objectWithoutPropertiesLooseDefault.default)(_ref, [
-            _utils.defaultKey(fieldName),
-            fieldName
-        ].map(_toPropertyKey));
-        var handlerName = config[fieldName];
-        var _useUncontrolledProp = useUncontrolledProp(propsValue, defaultValue, props[handlerName]), value = _useUncontrolledProp[0], handler = _useUncontrolledProp[1];
-        return (0, _extendsDefault.default)({}, rest, (_extends2 = {}, _extends2[fieldName] = value, _extends2[handlerName] = handler, _extends2));
-    }, props);
-}
-
-},{"@babel/runtime/helpers/esm/extends":"20my9","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"fls88","react":"jMk1U","./utils":"lvEXZ","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"20my9":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>_extends);
-function _extends() {
-    return _extends = Object.assign ? Object.assign.bind() : function(n) {
-        for(var e = 1; e < arguments.length; e++){
-            var t = arguments[e];
-            for(var r in t)({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
-        }
-        return n;
-    }, _extends.apply(null, arguments);
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"lvEXZ":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "uncontrolledPropTypes", ()=>uncontrolledPropTypes);
-parcelHelpers.export(exports, "isProp", ()=>isProp);
-parcelHelpers.export(exports, "defaultKey", ()=>defaultKey);
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- */ parcelHelpers.export(exports, "canAcceptRef", ()=>canAcceptRef);
-var _invariant = require("invariant");
-var _invariantDefault = parcelHelpers.interopDefault(_invariant);
-var noop = function noop() {};
-function readOnlyPropType(handler, name) {
-    return function(props, propName) {
-        if (props[propName] !== undefined) {
-            if (!props[handler]) return new Error("You have provided a `" + propName + "` prop to `" + name + "` " + ("without an `" + handler + "` handler prop. This will render a read-only field. ") + ("If the field should be mutable use `" + defaultKey(propName) + "`. ") + ("Otherwise, set `" + handler + "`."));
-        }
-    };
-}
-function uncontrolledPropTypes(controlledValues, displayName) {
-    var propTypes = {};
-    Object.keys(controlledValues).forEach(function(prop) {
-        // add default propTypes for folks that use runtime checks
-        propTypes[defaultKey(prop)] = noop;
-        var handler = controlledValues[prop];
-        !(typeof handler === 'string' && handler.trim().length) && (0, _invariantDefault.default)(false, 'Uncontrollable - [%s]: the prop `%s` needs a valid handler key name in order to make it uncontrollable', displayName, prop);
-        propTypes[prop] = readOnlyPropType(handler, displayName);
-    });
-    return propTypes;
-}
-function isProp(props, prop) {
-    return props[prop] !== undefined;
-}
-function defaultKey(key) {
-    return 'default' + key.charAt(0).toUpperCase() + key.substr(1);
-}
-function canAcceptRef(component) {
-    return !!component && (typeof component !== 'function' || component.prototype && component.prototype.isReactComponent);
-}
-
-},{"invariant":"cjjDY","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"cjjDY":[function(require,module,exports,__globalThis) {
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */ 'use strict';
-/**
- * Use invariant() to assert state which your program assumes to be true.
- *
- * Provide sprintf-style format (only %s is supported) and arguments
- * to provide information about what broke and what you were
- * expecting.
- *
- * The invariant message will be stripped in production, but the invariant
- * will remain to ensure logic does not differ in production.
- */ var invariant = function(condition, format, a, b, c, d, e, f) {
-    if (format === undefined) throw new Error('invariant requires an error message argument');
-    if (!condition) {
-        var error;
-        if (format === undefined) error = new Error("Minified exception occurred; use the non-minified dev environment for the full error message and additional helpful warnings.");
-        else {
-            var args = [
-                a,
-                b,
-                c,
-                d,
-                e,
-                f
-            ];
-            var argIndex = 0;
-            error = new Error(format.replace(/%s/g, function() {
-                return args[argIndex++];
-            }));
-            error.name = 'Invariant Violation';
-        }
-        error.framesToPop = 1; // we don't care about invariant's own frame
-        throw error;
-    }
-};
-module.exports = invariant;
-
-},{}],"gKGW4":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>uncontrollable);
-var _objectWithoutPropertiesLoose = require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose");
-var _objectWithoutPropertiesLooseDefault = parcelHelpers.interopDefault(_objectWithoutPropertiesLoose);
-var _extends = require("@babel/runtime/helpers/esm/extends");
-var _extendsDefault = parcelHelpers.interopDefault(_extends);
-var _inheritsLoose = require("@babel/runtime/helpers/esm/inheritsLoose");
-var _inheritsLooseDefault = parcelHelpers.interopDefault(_inheritsLoose);
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _reactLifecyclesCompat = require("react-lifecycles-compat");
-var _invariant = require("invariant");
-var _invariantDefault = parcelHelpers.interopDefault(_invariant);
-var _utils = require("./utils");
-var _jsxFileName = "/Users/jquense/src/uncontrollable/src/uncontrollable.js";
-function uncontrollable(Component, controlledValues, methods) {
-    if (methods === void 0) methods = [];
-    var displayName = Component.displayName || Component.name || 'Component';
-    var canAcceptRef = _utils.canAcceptRef(Component);
-    var controlledProps = Object.keys(controlledValues);
-    var PROPS_TO_OMIT = controlledProps.map(_utils.defaultKey);
-    !(canAcceptRef || !methods.length) && (0, _invariantDefault.default)(false, "[uncontrollable] stateless function components cannot pass through methods because they have no associated instances. Check component: " + displayName + ', ' + 'attempting to pass through methods: ' + methods.join(', '));
-    var UncontrolledComponent = /*#__PURE__*/ function(_React$Component) {
-        (0, _inheritsLooseDefault.default)(UncontrolledComponent, _React$Component);
-        function UncontrolledComponent() {
-            var _this;
-            for(var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++)args[_key] = arguments[_key];
-            _this = _React$Component.call.apply(_React$Component, [
-                this
-            ].concat(args)) || this;
-            _this.handlers = Object.create(null);
-            controlledProps.forEach(function(propName) {
-                var handlerName = controlledValues[propName];
-                var handleChange = function handleChange(value) {
-                    if (_this.props[handlerName]) {
-                        var _this$props;
-                        _this._notifying = true;
-                        for(var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++)args[_key2 - 1] = arguments[_key2];
-                        (_this$props = _this.props)[handlerName].apply(_this$props, [
-                            value
-                        ].concat(args));
-                        _this._notifying = false;
-                    }
-                    if (!_this.unmounted) _this.setState(function(_ref) {
-                        var _extends2;
-                        var values = _ref.values;
-                        return {
-                            values: (0, _extendsDefault.default)(Object.create(null), values, (_extends2 = {}, _extends2[propName] = value, _extends2))
-                        };
-                    });
-                };
-                _this.handlers[handlerName] = handleChange;
-            });
-            if (methods.length) _this.attachRef = function(ref) {
-                _this.inner = ref;
-            };
-            var values = Object.create(null);
-            controlledProps.forEach(function(key) {
-                values[key] = _this.props[_utils.defaultKey(key)];
-            });
-            _this.state = {
-                values: values,
-                prevProps: {}
-            };
-            return _this;
-        }
-        var _proto = UncontrolledComponent.prototype;
-        _proto.shouldComponentUpdate = function shouldComponentUpdate() {
-            //let setState trigger the update
-            return !this._notifying;
-        };
-        UncontrolledComponent.getDerivedStateFromProps = function getDerivedStateFromProps(props, _ref2) {
-            var values = _ref2.values, prevProps = _ref2.prevProps;
-            var nextState = {
-                values: (0, _extendsDefault.default)(Object.create(null), values),
-                prevProps: {}
-            };
-            controlledProps.forEach(function(key) {
-                /**
-         * If a prop switches from controlled to Uncontrolled
-         * reset its value to the defaultValue
-         */ nextState.prevProps[key] = props[key];
-                if (!_utils.isProp(props, key) && _utils.isProp(prevProps, key)) nextState.values[key] = props[_utils.defaultKey(key)];
-            });
-            return nextState;
-        };
-        _proto.componentWillUnmount = function componentWillUnmount() {
-            this.unmounted = true;
-        };
-        _proto.render = function render() {
-            var _this2 = this;
-            var _this$props2 = this.props, innerRef = _this$props2.innerRef, props = (0, _objectWithoutPropertiesLooseDefault.default)(_this$props2, [
-                "innerRef"
-            ]);
-            PROPS_TO_OMIT.forEach(function(prop) {
-                delete props[prop];
-            });
-            var newProps = {};
-            controlledProps.forEach(function(propName) {
-                var propValue = _this2.props[propName];
-                newProps[propName] = propValue !== undefined ? propValue : _this2.state.values[propName];
-            });
-            return (0, _reactDefault.default).createElement(Component, (0, _extendsDefault.default)({}, props, newProps, this.handlers, {
-                ref: innerRef || this.attachRef
-            }));
-        };
-        return UncontrolledComponent;
-    }((0, _reactDefault.default).Component);
-    (0, _reactLifecyclesCompat.polyfill)(UncontrolledComponent);
-    UncontrolledComponent.displayName = "Uncontrolled(" + displayName + ")";
-    UncontrolledComponent.propTypes = (0, _extendsDefault.default)({
-        innerRef: function innerRef() {}
-    }, _utils.uncontrolledPropTypes(controlledValues, displayName));
-    methods.forEach(function(method) {
-        UncontrolledComponent.prototype[method] = function $proxiedMethod() {
-            var _this$inner;
-            return (_this$inner = this.inner)[method].apply(_this$inner, arguments);
-        };
-    });
-    var WrappedComponent = UncontrolledComponent;
-    if ((0, _reactDefault.default).forwardRef) {
-        WrappedComponent = (0, _reactDefault.default).forwardRef(function(props, ref) {
-            return (0, _reactDefault.default).createElement(UncontrolledComponent, (0, _extendsDefault.default)({}, props, {
-                innerRef: ref,
-                __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 128
-                },
-                __self: this
-            }));
-        });
-        WrappedComponent.propTypes = UncontrolledComponent.propTypes;
-    }
-    WrappedComponent.ControlledComponent = Component;
-    /**
-   * useful when wrapping a Component and you want to control
-   * everything
-   */ WrappedComponent.deferControlTo = function(newComponent, additions, nextMethods) {
-        if (additions === void 0) additions = {};
-        return uncontrollable(newComponent, (0, _extendsDefault.default)({}, controlledValues, additions), nextMethods);
-    };
-    return WrappedComponent;
-}
-
-},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"fls88","@babel/runtime/helpers/esm/extends":"20my9","@babel/runtime/helpers/esm/inheritsLoose":"jDIko","react":"jMk1U","react-lifecycles-compat":"9nhrx","invariant":"cjjDY","./utils":"lvEXZ","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"9nhrx":[function(require,module,exports,__globalThis) {
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "polyfill", ()=>polyfill);
-function componentWillMount() {
-    // Call this.constructor.gDSFP to support sub-classes.
-    var state = this.constructor.getDerivedStateFromProps(this.props, this.state);
-    if (state !== null && state !== undefined) this.setState(state);
-}
-function componentWillReceiveProps(nextProps) {
-    // Call this.constructor.gDSFP to support sub-classes.
-    // Use the setState() updater to ensure state isn't stale in certain edge cases.
-    function updater(prevState) {
-        var state = this.constructor.getDerivedStateFromProps(nextProps, prevState);
-        return state !== null && state !== undefined ? state : null;
-    }
-    // Binding "this" is important for shallow renderer support.
-    this.setState(updater.bind(this));
-}
-function componentWillUpdate(nextProps, nextState) {
-    try {
-        var prevProps = this.props;
-        var prevState = this.state;
-        this.props = nextProps;
-        this.state = nextState;
-        this.__reactInternalSnapshotFlag = true;
-        this.__reactInternalSnapshot = this.getSnapshotBeforeUpdate(prevProps, prevState);
-    } finally{
-        this.props = prevProps;
-        this.state = prevState;
-    }
-}
-// React may warn about cWM/cWRP/cWU methods being deprecated.
-// Add a flag to suppress these warnings for this special case.
-componentWillMount.__suppressDeprecationWarning = true;
-componentWillReceiveProps.__suppressDeprecationWarning = true;
-componentWillUpdate.__suppressDeprecationWarning = true;
-function polyfill(Component) {
-    var prototype = Component.prototype;
-    if (!prototype || !prototype.isReactComponent) throw new Error('Can only polyfill class components');
-    if (typeof Component.getDerivedStateFromProps !== 'function' && typeof prototype.getSnapshotBeforeUpdate !== 'function') return Component;
-    // If new component APIs are defined, "unsafe" lifecycles won't be called.
-    // Error if any of these lifecycles are present,
-    // Because they would work differently between older and newer (16.3+) versions of React.
-    var foundWillMountName = null;
-    var foundWillReceivePropsName = null;
-    var foundWillUpdateName = null;
-    if (typeof prototype.componentWillMount === 'function') foundWillMountName = 'componentWillMount';
-    else if (typeof prototype.UNSAFE_componentWillMount === 'function') foundWillMountName = 'UNSAFE_componentWillMount';
-    if (typeof prototype.componentWillReceiveProps === 'function') foundWillReceivePropsName = 'componentWillReceiveProps';
-    else if (typeof prototype.UNSAFE_componentWillReceiveProps === 'function') foundWillReceivePropsName = 'UNSAFE_componentWillReceiveProps';
-    if (typeof prototype.componentWillUpdate === 'function') foundWillUpdateName = 'componentWillUpdate';
-    else if (typeof prototype.UNSAFE_componentWillUpdate === 'function') foundWillUpdateName = 'UNSAFE_componentWillUpdate';
-    if (foundWillMountName !== null || foundWillReceivePropsName !== null || foundWillUpdateName !== null) {
-        var componentName = Component.displayName || Component.name;
-        var newApiName = typeof Component.getDerivedStateFromProps === 'function' ? 'getDerivedStateFromProps()' : 'getSnapshotBeforeUpdate()';
-        throw Error('Unsafe legacy lifecycles will not be called for components using new component APIs.\n\n' + componentName + ' uses ' + newApiName + ' but also contains the following legacy lifecycles:' + (foundWillMountName !== null ? '\n  ' + foundWillMountName : '') + (foundWillReceivePropsName !== null ? '\n  ' + foundWillReceivePropsName : '') + (foundWillUpdateName !== null ? '\n  ' + foundWillUpdateName : '') + '\n\nThe above lifecycles should be removed. Learn more about this warning here:\n' + 'https://fb.me/react-async-component-lifecycle-hooks');
-    }
-    // React <= 16.2 does not support static getDerivedStateFromProps.
-    // As a workaround, use cWM and cWRP to invoke the new static lifecycle.
-    // Newer versions of React will ignore these lifecycles if gDSFP exists.
-    if (typeof Component.getDerivedStateFromProps === 'function') {
-        prototype.componentWillMount = componentWillMount;
-        prototype.componentWillReceiveProps = componentWillReceiveProps;
-    }
-    // React <= 16.2 does not support getSnapshotBeforeUpdate.
-    // As a workaround, use cWU to invoke the new lifecycle.
-    // Newer versions of React will ignore that lifecycle if gSBU exists.
-    if (typeof prototype.getSnapshotBeforeUpdate === 'function') {
-        if (typeof prototype.componentDidUpdate !== 'function') throw new Error('Cannot polyfill getSnapshotBeforeUpdate() for components that do not define componentDidUpdate() on the prototype');
-        prototype.componentWillUpdate = componentWillUpdate;
-        var componentDidUpdate = prototype.componentDidUpdate;
-        prototype.componentDidUpdate = function componentDidUpdatePolyfill(prevProps, prevState, maybeSnapshot) {
-            // 16.3+ will not execute our will-update method;
-            // It will pass a snapshot value to did-update though.
-            // Older versions will require our polyfilled will-update value.
-            // We need to handle both cases, but can't just check for the presence of "maybeSnapshot",
-            // Because for <= 15.x versions this might be a "prevContext" object.
-            // We also can't just check "__reactInternalSnapshot",
-            // Because get-snapshot might return a falsy value.
-            // So check for the explicit __reactInternalSnapshotFlag flag to determine behavior.
-            var snapshot = this.__reactInternalSnapshotFlag ? this.__reactInternalSnapshot : maybeSnapshot;
-            componentDidUpdate.call(this, prevProps, prevState, snapshot);
-        };
-    }
-    return Component;
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"dPzuz":[function(require,module,exports,__globalThis) {
+},{"classnames":"Egwmr","react":"jMk1U","uncontrollable":"eKG0k","@restart/ui/Nav":"dPzuz","./ThemeProvider":"gulxC","./NavbarContext":"3NwrH","./CardHeaderContext":"9gqCk","./NavItem":"cDuvI","./NavLink":"7Bpoc","react/jsx-runtime":"05iiF","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"dPzuz":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _querySelectorAll = require("dom-helpers/querySelectorAll");
@@ -37876,21 +38135,21 @@ const SearchResultsView = ({ user, token, onToggleFavorite, isMovieFavorite })=>
                         children: "Search Movies"
                     }, void 0, false, {
                         fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                        lineNumber: 143,
+                        lineNumber: 144,
                         columnNumber: 11
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                    lineNumber: 142,
+                    lineNumber: 143,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                lineNumber: 141,
+                lineNumber: 142,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
-                className: "mb-5 pb-5 justify-content-center",
+                className: "mb-5 pb-5 justify-content-center ",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                         xs: 12,
@@ -37902,6 +38161,7 @@ const SearchResultsView = ({ user, token, onToggleFavorite, isMovieFavorite })=>
                             className: "mb-4",
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
+                                    className: "d-none d-md-flex",
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Tabs), {
                                             id: "controlled-tab-example",
@@ -37921,7 +38181,7 @@ const SearchResultsView = ({ user, token, onToggleFavorite, isMovieFavorite })=>
                                                                 children: "Global Search"
                                                             }, void 0, false, {
                                                                 fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                                                lineNumber: 160,
+                                                                lineNumber: 161,
                                                                 columnNumber: 23
                                                             }, undefined),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -37934,18 +38194,18 @@ const SearchResultsView = ({ user, token, onToggleFavorite, isMovieFavorite })=>
                                                                 size: "lg"
                                                             }, void 0, false, {
                                                                 fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                                                lineNumber: 163,
+                                                                lineNumber: 164,
                                                                 columnNumber: 23
                                                             }, undefined)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                                        lineNumber: 159,
+                                                        lineNumber: 160,
                                                         columnNumber: 21
                                                     }, undefined)
                                                 }, void 0, false, {
                                                     fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                                    lineNumber: 158,
+                                                    lineNumber: 159,
                                                     columnNumber: 19
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Tab), {
@@ -37955,7 +38215,7 @@ const SearchResultsView = ({ user, token, onToggleFavorite, isMovieFavorite })=>
                                                     children: "Tab content for Contact"
                                                 }, void 0, false, {
                                                     fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                                    lineNumber: 174,
+                                                    lineNumber: 175,
                                                     columnNumber: 19
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Tab), {
@@ -37969,7 +38229,7 @@ const SearchResultsView = ({ user, token, onToggleFavorite, isMovieFavorite })=>
                                                                 children: "Title"
                                                             }, void 0, false, {
                                                                 fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                                                lineNumber: 179,
+                                                                lineNumber: 180,
                                                                 columnNumber: 23
                                                             }, undefined),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -37982,18 +38242,18 @@ const SearchResultsView = ({ user, token, onToggleFavorite, isMovieFavorite })=>
                                                                 size: "lg"
                                                             }, void 0, false, {
                                                                 fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                                                lineNumber: 182,
+                                                                lineNumber: 183,
                                                                 columnNumber: 23
                                                             }, undefined)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                                        lineNumber: 178,
+                                                        lineNumber: 179,
                                                         columnNumber: 21
                                                     }, undefined)
                                                 }, void 0, false, {
                                                     fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                                    lineNumber: 177,
+                                                    lineNumber: 178,
                                                     columnNumber: 19
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Tab), {
@@ -38007,7 +38267,7 @@ const SearchResultsView = ({ user, token, onToggleFavorite, isMovieFavorite })=>
                                                                 children: "Genre"
                                                             }, void 0, false, {
                                                                 fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                                                lineNumber: 195,
+                                                                lineNumber: 196,
                                                                 columnNumber: 23
                                                             }, undefined),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -38020,18 +38280,18 @@ const SearchResultsView = ({ user, token, onToggleFavorite, isMovieFavorite })=>
                                                                 size: "lg"
                                                             }, void 0, false, {
                                                                 fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                                                lineNumber: 198,
+                                                                lineNumber: 199,
                                                                 columnNumber: 23
                                                             }, undefined)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                                        lineNumber: 194,
+                                                        lineNumber: 195,
                                                         columnNumber: 21
                                                     }, undefined)
                                                 }, void 0, false, {
                                                     fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                                    lineNumber: 193,
+                                                    lineNumber: 194,
                                                     columnNumber: 19
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Tab), {
@@ -38045,7 +38305,7 @@ const SearchResultsView = ({ user, token, onToggleFavorite, isMovieFavorite })=>
                                                                 children: "Director"
                                                             }, void 0, false, {
                                                                 fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                                                lineNumber: 211,
+                                                                lineNumber: 212,
                                                                 columnNumber: 23
                                                             }, undefined),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -38058,18 +38318,18 @@ const SearchResultsView = ({ user, token, onToggleFavorite, isMovieFavorite })=>
                                                                 size: "lg"
                                                             }, void 0, false, {
                                                                 fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                                                lineNumber: 214,
+                                                                lineNumber: 215,
                                                                 columnNumber: 23
                                                             }, undefined)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                                        lineNumber: 210,
+                                                        lineNumber: 211,
                                                         columnNumber: 21
                                                     }, undefined)
                                                 }, void 0, false, {
                                                     fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                                    lineNumber: 209,
+                                                    lineNumber: 210,
                                                     columnNumber: 19
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Tab), {
@@ -38083,7 +38343,7 @@ const SearchResultsView = ({ user, token, onToggleFavorite, isMovieFavorite })=>
                                                                 children: "Actor"
                                                             }, void 0, false, {
                                                                 fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                                                lineNumber: 227,
+                                                                lineNumber: 228,
                                                                 columnNumber: 23
                                                             }, undefined),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -38096,34 +38356,318 @@ const SearchResultsView = ({ user, token, onToggleFavorite, isMovieFavorite })=>
                                                                 size: "lg"
                                                             }, void 0, false, {
                                                                 fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                                                lineNumber: 230,
+                                                                lineNumber: 231,
                                                                 columnNumber: 23
                                                             }, undefined)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                                        lineNumber: 226,
+                                                        lineNumber: 227,
                                                         columnNumber: 21
                                                     }, undefined)
                                                 }, void 0, false, {
                                                     fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                                    lineNumber: 225,
+                                                    lineNumber: 226,
                                                     columnNumber: 19
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                            lineNumber: 151,
+                                            lineNumber: 152,
                                             columnNumber: 17
                                         }, undefined)
                                     }, void 0, false, {
                                         fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                        lineNumber: 150,
+                                        lineNumber: 151,
                                         columnNumber: 15
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                    lineNumber: 149,
+                                    lineNumber: 150,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
+                                    className: "d-md-none",
+                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Accordion), {
+                                            defaultActiveKey: "global_search",
+                                            // activeKey='global_search'
+                                            flush: true,
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Accordion).Item, {
+                                                    eventKey: "global_search",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Accordion).Header, {
+                                                            children: "Global Search"
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                                            lineNumber: 253,
+                                                            columnNumber: 21
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Accordion).Body, {
+                                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
+                                                                className: "mb-3 py-4",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
+                                                                        className: "text-info visually-hidden",
+                                                                        children: "Global Search"
+                                                                    }, void 0, false, {
+                                                                        fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                                                        lineNumber: 256,
+                                                                        columnNumber: 25
+                                                                    }, undefined),
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
+                                                                        type: "text",
+                                                                        name: "q",
+                                                                        value: searchParams.q,
+                                                                        onChange: handleInputChange,
+                                                                        placeholder: "Search across all fields...",
+                                                                        className: "border-primary",
+                                                                        size: "lg"
+                                                                    }, void 0, false, {
+                                                                        fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                                                        lineNumber: 259,
+                                                                        columnNumber: 25
+                                                                    }, undefined)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                                                lineNumber: 255,
+                                                                columnNumber: 23
+                                                            }, undefined)
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                                            lineNumber: 254,
+                                                            columnNumber: 21
+                                                        }, undefined)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                                    lineNumber: 252,
+                                                    columnNumber: 19
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Accordion).Item, {
+                                                    eventKey: "search_by_title",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Accordion).Header, {
+                                                            children: "Search by Title"
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                                            lineNumber: 272,
+                                                            columnNumber: 21
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Accordion).Body, {
+                                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
+                                                                className: "mb-3 py-4",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
+                                                                        className: "text-info visually-hidden",
+                                                                        children: "Title"
+                                                                    }, void 0, false, {
+                                                                        fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                                                        lineNumber: 275,
+                                                                        columnNumber: 25
+                                                                    }, undefined),
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
+                                                                        type: "text",
+                                                                        name: "title",
+                                                                        value: searchParams.title,
+                                                                        onChange: handleInputChange,
+                                                                        placeholder: "Search by title...",
+                                                                        className: "border-primary",
+                                                                        size: "lg"
+                                                                    }, void 0, false, {
+                                                                        fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                                                        lineNumber: 278,
+                                                                        columnNumber: 25
+                                                                    }, undefined)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                                                lineNumber: 274,
+                                                                columnNumber: 23
+                                                            }, undefined)
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                                            lineNumber: 273,
+                                                            columnNumber: 21
+                                                        }, undefined)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                                    lineNumber: 271,
+                                                    columnNumber: 19
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Accordion).Item, {
+                                                    eventKey: "search_by_genre",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Accordion).Header, {
+                                                            children: "Search by Genre"
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                                            lineNumber: 291,
+                                                            columnNumber: 21
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Accordion).Body, {
+                                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
+                                                                className: "mb-3 py-4",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
+                                                                        className: "text-info visually-hidden",
+                                                                        children: "Genre"
+                                                                    }, void 0, false, {
+                                                                        fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                                                        lineNumber: 294,
+                                                                        columnNumber: 25
+                                                                    }, undefined),
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
+                                                                        type: "text",
+                                                                        name: "genre",
+                                                                        value: searchParams.genre,
+                                                                        onChange: handleInputChange,
+                                                                        placeholder: "Search by genre...",
+                                                                        className: "border-primary",
+                                                                        size: "lg"
+                                                                    }, void 0, false, {
+                                                                        fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                                                        lineNumber: 297,
+                                                                        columnNumber: 25
+                                                                    }, undefined)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                                                lineNumber: 293,
+                                                                columnNumber: 23
+                                                            }, undefined)
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                                            lineNumber: 292,
+                                                            columnNumber: 21
+                                                        }, undefined)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                                    lineNumber: 290,
+                                                    columnNumber: 19
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Accordion).Item, {
+                                                    eventKey: "search_by_director",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Accordion).Header, {
+                                                            children: "Search by Director"
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                                            lineNumber: 310,
+                                                            columnNumber: 21
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Accordion).Body, {
+                                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
+                                                                className: "mb-3 py-4",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
+                                                                        className: "text-info visually-hidden",
+                                                                        children: "Director"
+                                                                    }, void 0, false, {
+                                                                        fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                                                        lineNumber: 313,
+                                                                        columnNumber: 25
+                                                                    }, undefined),
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
+                                                                        type: "text",
+                                                                        name: "director",
+                                                                        value: searchParams.director,
+                                                                        onChange: handleInputChange,
+                                                                        placeholder: "Search by director...",
+                                                                        className: "border-primary",
+                                                                        size: "lg"
+                                                                    }, void 0, false, {
+                                                                        fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                                                        lineNumber: 316,
+                                                                        columnNumber: 25
+                                                                    }, undefined)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                                                lineNumber: 312,
+                                                                columnNumber: 23
+                                                            }, undefined)
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                                            lineNumber: 311,
+                                                            columnNumber: 21
+                                                        }, undefined)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                                    lineNumber: 309,
+                                                    columnNumber: 19
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Accordion).Item, {
+                                                    eventKey: "search_by_actor",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Accordion).Header, {
+                                                            children: "Search by Actor"
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                                            lineNumber: 329,
+                                                            columnNumber: 21
+                                                        }, undefined),
+                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Accordion).Body, {
+                                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
+                                                                className: "mb-3 py-4",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
+                                                                        className: "text-info visually-hidden",
+                                                                        children: "Actor"
+                                                                    }, void 0, false, {
+                                                                        fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                                                        lineNumber: 332,
+                                                                        columnNumber: 25
+                                                                    }, undefined),
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
+                                                                        type: "text",
+                                                                        name: "actor",
+                                                                        value: searchParams.actor,
+                                                                        onChange: handleInputChange,
+                                                                        placeholder: "Search by actor...",
+                                                                        className: "border-primary",
+                                                                        size: "lg"
+                                                                    }, void 0, false, {
+                                                                        fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                                                        lineNumber: 335,
+                                                                        columnNumber: 25
+                                                                    }, undefined)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                                                lineNumber: 331,
+                                                                columnNumber: 23
+                                                            }, undefined)
+                                                        }, void 0, false, {
+                                                            fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                                            lineNumber: 330,
+                                                            columnNumber: 21
+                                                        }, undefined)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                                    lineNumber: 328,
+                                                    columnNumber: 19
+                                                }, undefined)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                            lineNumber: 247,
+                                            columnNumber: 17
+                                        }, undefined)
+                                    }, void 0, false, {
+                                        fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                        lineNumber: 246,
+                                        columnNumber: 15
+                                    }, undefined)
+                                }, void 0, false, {
+                                    fileName: "src/components/searchresults-view/searchresults-view.jsx",
+                                    lineNumber: 245,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
@@ -38141,7 +38685,7 @@ const SearchResultsView = ({ user, token, onToggleFavorite, isMovieFavorite })=>
                                                     children: "Search"
                                                 }, void 0, false, {
                                                     fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                                    lineNumber: 247,
+                                                    lineNumber: 353,
                                                     columnNumber: 19
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
@@ -38152,34 +38696,34 @@ const SearchResultsView = ({ user, token, onToggleFavorite, isMovieFavorite })=>
                                                     children: "Reset"
                                                 }, void 0, false, {
                                                     fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                                    lineNumber: 255,
+                                                    lineNumber: 361,
                                                     columnNumber: 19
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                            lineNumber: 246,
+                                            lineNumber: 352,
                                             columnNumber: 17
                                         }, undefined)
                                     }, void 0, false, {
                                         fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                        lineNumber: 245,
+                                        lineNumber: 351,
                                         columnNumber: 15
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                    lineNumber: 244,
+                                    lineNumber: 350,
                                     columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                            lineNumber: 148,
+                            lineNumber: 149,
                             columnNumber: 11
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                        lineNumber: 147,
+                        lineNumber: 148,
                         columnNumber: 9
                     }, undefined),
                     error && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
@@ -38191,17 +38735,17 @@ const SearchResultsView = ({ user, token, onToggleFavorite, isMovieFavorite })=>
                                 children: error
                             }, void 0, false, {
                                 fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                lineNumber: 271,
+                                lineNumber: 377,
                                 columnNumber: 15
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                            lineNumber: 270,
+                            lineNumber: 376,
                             columnNumber: 13
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                        lineNumber: 269,
+                        lineNumber: 375,
                         columnNumber: 11
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
@@ -38217,34 +38761,34 @@ const SearchResultsView = ({ user, token, onToggleFavorite, isMovieFavorite })=>
                                         onToggleFavorite: onToggleFavorite
                                     }, void 0, false, {
                                         fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                        lineNumber: 279,
+                                        lineNumber: 385,
                                         columnNumber: 17
                                     }, undefined)
                                 }, movie.id, false, {
                                     fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                                    lineNumber: 278,
+                                    lineNumber: 384,
                                     columnNumber: 15
                                 }, undefined))
                         }, void 0, false, {
                             fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                            lineNumber: 276,
+                            lineNumber: 382,
                             columnNumber: 11
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                        lineNumber: 275,
+                        lineNumber: 381,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/searchresults-view/searchresults-view.jsx",
-                lineNumber: 146,
+                lineNumber: 147,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/searchresults-view/searchresults-view.jsx",
-        lineNumber: 140,
+        lineNumber: 141,
         columnNumber: 5
     }, undefined);
 };

@@ -9,6 +9,7 @@ import {
   ButtonGroup,
   Tab,
   Tabs,
+  Accordion,
 } from 'react-bootstrap';
 import { MovieCard } from '../moovie-card/movie-card';
 import PropTypes from 'prop-types';
@@ -143,10 +144,10 @@ export const SearchResultsView = ({
           <h3 className='mb-0'>Search Movies</h3>
         </Col>
       </Row>
-      <Row className='mb-5 pb-5 justify-content-center'>
+      <Row className='mb-5 pb-5 justify-content-center '>
         <Col xs={12} md={10} lg={6} className='mb-5'>
           <Form onSubmit={handleSearch} className='mb-4'>
-            <Row>
+            <Row className='d-none d-md-flex'>
               <Col>
                 <Tabs
                   id='controlled-tab-example'
@@ -239,6 +240,111 @@ export const SearchResultsView = ({
                     </Form.Group>
                   </Tab>
                 </Tabs>
+              </Col>
+            </Row>
+            <Row className='d-md-none'>
+              <Col>
+                <Accordion
+                  defaultActiveKey='global_search'
+                  // activeKey='global_search'
+                  flush
+                >
+                  <Accordion.Item eventKey='global_search'>
+                    <Accordion.Header>Global Search</Accordion.Header>
+                    <Accordion.Body>
+                      <Form.Group className='mb-3 py-4'>
+                        <Form.Label className='text-info visually-hidden'>
+                          Global Search
+                        </Form.Label>
+                        <Form.Control
+                          type='text'
+                          name='q'
+                          value={searchParams.q}
+                          onChange={handleInputChange}
+                          placeholder='Search across all fields...'
+                          className='border-primary'
+                          size='lg'
+                        />
+                      </Form.Group>
+                    </Accordion.Body>
+                  </Accordion.Item>
+                  <Accordion.Item eventKey='search_by_title'>
+                    <Accordion.Header>Search by Title</Accordion.Header>
+                    <Accordion.Body>
+                      <Form.Group className='mb-3 py-4'>
+                        <Form.Label className='text-info visually-hidden'>
+                          Title
+                        </Form.Label>
+                        <Form.Control
+                          type='text'
+                          name='title'
+                          value={searchParams.title}
+                          onChange={handleInputChange}
+                          placeholder='Search by title...'
+                          className='border-primary'
+                          size='lg'
+                        />
+                      </Form.Group>
+                    </Accordion.Body>
+                  </Accordion.Item>
+                  <Accordion.Item eventKey='search_by_genre'>
+                    <Accordion.Header>Search by Genre</Accordion.Header>
+                    <Accordion.Body>
+                      <Form.Group className='mb-3 py-4'>
+                        <Form.Label className='text-info visually-hidden'>
+                          Genre
+                        </Form.Label>
+                        <Form.Control
+                          type='text'
+                          name='genre'
+                          value={searchParams.genre}
+                          onChange={handleInputChange}
+                          placeholder='Search by genre...'
+                          className='border-primary'
+                          size='lg'
+                        />
+                      </Form.Group>
+                    </Accordion.Body>
+                  </Accordion.Item>
+                  <Accordion.Item eventKey='search_by_director'>
+                    <Accordion.Header>Search by Director</Accordion.Header>
+                    <Accordion.Body>
+                      <Form.Group className='mb-3 py-4'>
+                        <Form.Label className='text-info visually-hidden'>
+                          Director
+                        </Form.Label>
+                        <Form.Control
+                          type='text'
+                          name='director'
+                          value={searchParams.director}
+                          onChange={handleInputChange}
+                          placeholder='Search by director...'
+                          className='border-primary'
+                          size='lg'
+                        />
+                      </Form.Group>
+                    </Accordion.Body>
+                  </Accordion.Item>
+                  <Accordion.Item eventKey='search_by_actor'>
+                    <Accordion.Header>Search by Actor</Accordion.Header>
+                    <Accordion.Body>
+                      <Form.Group className='mb-3 py-4'>
+                        <Form.Label className='text-info visually-hidden'>
+                          Actor
+                        </Form.Label>
+                        <Form.Control
+                          type='text'
+                          name='actor'
+                          value={searchParams.actor}
+                          onChange={handleInputChange}
+                          placeholder='Search by actor...'
+                          className='border-primary'
+                          size='lg'
+                        />
+                      </Form.Group>
+                    </Accordion.Body>
+                  </Accordion.Item>
+                </Accordion>
               </Col>
             </Row>
             <Row className='mb-5 pb-5 justify-content-center'>
